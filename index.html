@@ -170,24 +170,20 @@
   <!-- ===== INICIO ===== -->
   <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden"
            style="background: url('./hattonhero.jpg') center top / cover no-repeat;">
-    <!-- Dark gradient overlay — dark left/bottom, transparent right/top so the face stays visible -->
-    <div class="absolute inset-0"
-         style="background: linear-gradient(110deg, rgba(6,1,1,0.78) 0%, rgba(6,1,1,0.52) 52%, rgba(6,1,1,0.12) 100%);"></div>
-    <!-- Red accent glow at bottom-left -->
-    <div class="absolute inset-0"
-         style="background: radial-gradient(ellipse at 0% 90%, rgba(200,40,44,0.32) 0%, transparent 55%);"></div>
+    <!-- Light cream overlay for readability -->
+    <div class="absolute inset-0" style="background: rgba(255, 251, 248, 0.76);"></div>
 
     <div class="max-w-6xl mx-auto px-6 w-full relative z-10"
          style="padding-top: calc(72px + 5rem); padding-bottom: 5rem;">
       <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] mb-5 px-3 py-1.5 rounded-full"
-            style="color: rgba(255,255,255,0.78); background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);">Neumóloga · Pediatra</span>
-      <h1 class="text-[2.6rem] md:text-5xl lg:text-[3.4rem] font-bold text-white mb-6"
+            style="color: #C8282C; background: rgba(200,40,44,0.07); border: 1px solid rgba(200,40,44,0.18);">Neumóloga · Pediatra</span>
+      <h1 class="text-[2.6rem] md:text-5xl lg:text-[3.4rem] font-bold text-gray-900 mb-6"
           style="letter-spacing: -0.03em; line-height: 1.13; max-width: 640px;">
         Cuidando la salud<br>
-        <span style="color: #F87B7E;">respiratoria</span><br>
+        <span style="color: #C8282C;">respiratoria</span><br>
         de tus hijos
       </h1>
-      <p class="text-lg mb-8" style="color: rgba(255,255,255,0.65); line-height: 1.75; max-width: 480px;">
+      <p class="text-lg mb-8 text-gray-500" style="line-height: 1.9; max-width: 480px;">
         Más de 20 años brindando atención pediátrica especializada en enfermedades respiratorias, con calidez y dedicación.
       </p>
       <div class="flex flex-wrap gap-4 mb-12">
@@ -198,10 +194,10 @@
           Agendar Cita
         </a>
         <a href="#sobre-mi"
-           style="display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,0.85); font-weight:600; font-size:0.9rem; text-decoration:none; padding:13px 28px; border-radius:100px; border:2px solid rgba(255,255,255,0.35); background:rgba(255,255,255,0.05); transition:border-color 0.2s, background 0.2s, transform 0.15s;"
-           onmouseover="this.style.borderColor='rgba(255,255,255,0.65)'; this.style.background='rgba(255,255,255,0.12)';"
-           onmouseout="this.style.borderColor='rgba(255,255,255,0.35)'; this.style.background='rgba(255,255,255,0.05)';"
-           onfocus="this.style.outline='2px solid white'; this.style.outlineOffset='3px';"
+           style="display:inline-flex; align-items:center; gap:8px; color:#C8282C; font-weight:600; font-size:0.9rem; text-decoration:none; padding:13px 28px; border-radius:100px; border:2px solid rgba(200,40,44,0.30); background:transparent; transition:border-color 0.2s, background 0.2s, transform 0.15s;"
+           onmouseover="this.style.borderColor='#C8282C'; this.style.background='rgba(200,40,44,0.06)';"
+           onmouseout="this.style.borderColor='rgba(200,40,44,0.30)'; this.style.background='transparent';"
+           onfocus="this.style.outline='2px solid #C8282C'; this.style.outlineOffset='3px';"
            onblur="this.style.outline='';">
           Conocer más &rarr;
         </a>
