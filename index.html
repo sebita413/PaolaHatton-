@@ -471,7 +471,7 @@
 
       <div class="grid md:grid-cols-2 gap-5 md:gap-x-10">
         <!-- Red WhatsApp card -->
-        <div class="p-8 rounded-2xl relative overflow-hidden flex flex-col"
+        <div class="p-6 md:p-8 rounded-2xl relative overflow-hidden flex flex-col"
              style="background: linear-gradient(135deg, #C8282C 0%, #8B1A1A 100%); box-shadow: 0 4px 20px rgba(200,40,44,0.35), 0 16px 50px rgba(200,40,44,0.18);">
           <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full" style="background: rgba(255,255,255,0.06);"></div>
           <div class="absolute -bottom-12 -right-4 w-48 h-48 rounded-full" style="background: rgba(255,255,255,0.04);"></div>
@@ -493,7 +493,7 @@
         </div>
 
         <!-- Red Horario card -->
-        <div class="p-8 rounded-2xl relative overflow-hidden flex flex-col"
+        <div class="p-6 md:p-8 rounded-2xl relative overflow-hidden flex flex-col"
              style="background: linear-gradient(135deg, #C8282C 0%, #8B1A1A 100%); box-shadow: 0 4px 20px rgba(200,40,44,0.35), 0 16px 50px rgba(200,40,44,0.18);">
           <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full" style="background: rgba(255,255,255,0.06);"></div>
           <div class="absolute -bottom-12 -right-4 w-48 h-48 rounded-full" style="background: rgba(255,255,255,0.04);"></div>
@@ -507,89 +507,119 @@
         </div>
 
         <!-- White phone card -->
-        <div class="bg-white p-6 rounded-2xl flex flex-col gap-4"
+        <div class="bg-white p-5 md:p-6 rounded-2xl"
              style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
-          <!-- Citas -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                 style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
+          <div class="grid grid-cols-2 gap-4">
+            <!-- Citas -->
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Citas</p>
+                <a href="tel:+18494490550" class="font-semibold text-gray-900 text-sm hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+                  849-449-0550
+                </a>
+              </div>
             </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Citas</p>
-              <a href="tel:+18494490550" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
-                849-449-0550
-              </a>
+            <!-- Consultorio -->
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Consultorio</p>
+                <a href="tel:+18096897248" class="font-semibold text-gray-900 text-sm hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+                  809-689-7248
+                </a>
+              </div>
             </div>
-          </div>
-          <div class="h-px bg-gray-100"></div>
-          <!-- Consultorio -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                 style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Consultorio</p>
-              <a href="tel:+18096897248" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
-                809-689-7248
-              </a>
-            </div>
-          </div>
-          <div class="h-px bg-gray-100"></div>
-          <!-- Celular -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                 style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Celular</p>
-              <a href="tel:+18098807355" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
-                809-880-7355
-              </a>
+            <!-- Celular — full width row -->
+            <div class="col-span-2 flex items-center gap-3 pt-4 border-t border-gray-100">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Celular</p>
+                <a href="tel:+18098807355" class="font-semibold text-gray-900 text-sm hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+                  809-880-7355
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- White schedule card -->
-        <div class="bg-white p-6 rounded-2xl flex flex-col gap-4"
+        <!-- White schedule card — accordion -->
+        <div class="bg-white rounded-2xl overflow-hidden"
              style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
-          <!-- Turno mañana -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                 style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-9h1M3 12H2m15.364-6.364l.707.707M5.636 18.364l-.707.707M18.364 18.364l.707-.707M5.636 5.636l-.707-.707M12 6a6 6 0 100 12A6 6 0 0012 6z"/>
+          <!-- Mañana (open by default) -->
+          <div>
+            <button onclick="toggleSchedule(this)"
+                    class="w-full flex items-center justify-between px-5 md:px-6 py-4 gap-3
+                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+                    onmouseover="this.style.background='#FFFBFB'" onmouseout="this.style.background=''">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                     style="background: rgba(200,40,44,0.08);">
+                  <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-9h1M3 12H2m15.364-6.364l.707.707M5.636 18.364l-.707.707M18.364 18.364l.707-.707M5.636 5.636l-.707-.707M12 6a6 6 0 100 12A6 6 0 0012 6z"/>
+                  </svg>
+                </div>
+                <span class="font-semibold text-gray-800 text-sm">Horario Mañana</span>
+              </div>
+              <svg class="sched-icon w-4 h-4 text-[#C8282C] flex-shrink-0"
+                   style="transform: rotate(45deg); transition: transform 0.25s ease;"
+                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/>
               </svg>
-            </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Lunes a Viernes</p>
-              <p class="font-semibold text-gray-900">8:30 am – 12:00 pm</p>
-              <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold"
-                    style="background: rgba(200,40,44,0.08); color: #C8282C;">Citas Previas</span>
+            </button>
+            <div class="sched-answer overflow-hidden" style="max-height: 120px; transition: max-height 0.3s ease;">
+              <div class="pb-4" style="padding-left: 3.5rem; padding-right: 1.5rem;">
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-1">Lunes a Viernes</p>
+                <p class="font-semibold text-gray-900">8:30 am – 12:00 pm</p>
+                <span class="inline-block mt-1.5 px-2 py-0.5 rounded-full text-xs font-semibold"
+                      style="background: rgba(200,40,44,0.08); color: #C8282C;">Citas Previas</span>
+              </div>
             </div>
           </div>
-          <div class="h-px bg-gray-100"></div>
-          <!-- Turno tarde -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                 style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          <div class="h-px bg-gray-100 mx-5 md:mx-6"></div>
+          <!-- Tarde (collapsed by default) -->
+          <div>
+            <button onclick="toggleSchedule(this)"
+                    class="w-full flex items-center justify-between px-5 md:px-6 py-4 gap-3
+                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+                    onmouseover="this.style.background='#FFFBFB'" onmouseout="this.style.background=''">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                     style="background: rgba(200,40,44,0.08);">
+                  <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                  </svg>
+                </div>
+                <span class="font-semibold text-gray-800 text-sm">Horario Tarde</span>
+              </div>
+              <svg class="sched-icon w-4 h-4 text-[#C8282C] flex-shrink-0"
+                   style="transform: rotate(0deg); transition: transform 0.25s ease;"
+                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 5v14M5 12h14"/>
               </svg>
-            </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Lunes · Martes · Viernes</p>
-              <p class="font-semibold text-gray-900">3:30 pm – 6:00 pm</p>
-              <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold"
-                    style="background: rgba(200,40,44,0.08); color: #C8282C;">Previo Aviso</span>
+            </button>
+            <div class="sched-answer overflow-hidden" style="max-height: 0px; transition: max-height 0.3s ease;">
+              <div class="pb-4" style="padding-left: 3.5rem; padding-right: 1.5rem;">
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-1">Lunes · Martes · Viernes</p>
+                <p class="font-semibold text-gray-900">3:30 pm – 6:00 pm</p>
+                <span class="inline-block mt-1.5 px-2 py-0.5 rounded-full text-xs font-semibold"
+                      style="background: rgba(200,40,44,0.08); color: #C8282C;">Previo Aviso</span>
+              </div>
             </div>
           </div>
         </div>
@@ -768,6 +798,18 @@
         closeMenu();
       }
     });
+
+    function toggleSchedule(btn) {
+      const answer = btn.nextElementSibling;
+      const icon = btn.querySelector('.sched-icon');
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+      document.querySelectorAll('.sched-answer').forEach(a => { a.style.maxHeight = '0px'; });
+      document.querySelectorAll('.sched-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+      }
+    }
 
     function toggleFaq(btn) {
       const answer = btn.nextElementSibling;
