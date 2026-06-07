@@ -170,19 +170,20 @@
   <!-- ===== INICIO ===== -->
   <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden"
            style="background: url('./hattonhero.jpg') center top / cover no-repeat;">
-    <!-- Dark gradient overlay — dark left/bottom, transparent right/top so the face stays visible -->
+    <!-- Dark gradient overlay -->
     <div class="absolute inset-0"
          style="background: linear-gradient(110deg, rgba(6,1,1,0.78) 0%, rgba(6,1,1,0.52) 52%, rgba(6,1,1,0.12) 100%);"></div>
+    <!-- Extra mobile overlay for readability -->
+    <div class="absolute inset-0 md:hidden" style="background: rgba(6,1,1,0.45);"></div>
     <!-- Red accent glow at bottom-left -->
     <div class="absolute inset-0"
          style="background: radial-gradient(ellipse at 0% 90%, rgba(200,40,44,0.32) 0%, transparent 55%);"></div>
 
-    <div class="max-w-6xl mx-auto px-6 w-full relative z-10"
-         style="padding-top: calc(72px + 5rem); padding-bottom: 5rem;">
-      <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] mb-5 px-3 py-1.5 rounded-full"
+    <div class="max-w-6xl mx-auto px-4 md:px-6 w-full relative z-10 pt-[calc(72px+2.5rem)] md:pt-[calc(72px+5rem)] pb-12 md:pb-20">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] mb-4 md:mb-5 px-3 py-1.5 rounded-full"
             style="color: rgba(255,255,255,0.78); background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);">Neumóloga · Pediatra</span>
-      <h1 class="text-[2.6rem] md:text-5xl lg:text-[3.4rem] font-bold text-white mb-6"
-          style="letter-spacing: -0.03em; line-height: 1.13; max-width: 640px;">
+      <h1 class="text-[1.75rem] md:text-5xl lg:text-[3.4rem] font-bold text-white mb-5 md:mb-6"
+          style="letter-spacing: -0.03em; line-height: 1.18; max-width: 640px;">
         Cuidando la salud<br>
         <span style="color: #F87B7E;">respiratoria</span><br>
         de tus hijos
@@ -212,14 +213,14 @@
 
 
   <!-- ===== SOBRE MÍ ===== -->
-  <section id="sobre-mi" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="mb-14">
+  <section id="sobre-mi" class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="mb-10 md:mb-14">
         <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Conoce a tu especialista</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Sobre Mí</h2>
       </div>
 
-      <div class="grid md:grid-cols-5 gap-12 items-start">
+      <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
         <!-- Photo -->
         <div class="md:col-span-2">
           <div class="relative overflow-hidden rounded-2xl"
@@ -313,9 +314,9 @@
 
 
   <!-- ===== UBICACIÓN ===== -->
-  <section id="ubicacion" class="py-24 grain-overlay relative" style="background: #FFFBFB;">
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="mb-14">
+  <section id="ubicacion" class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+      <div class="mb-10 md:mb-14">
         <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">¿Dónde estamos?</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Ubicación</h2>
       </div>
@@ -380,9 +381,9 @@
 
 
   <!-- ===== REDES SOCIALES ===== -->
-  <section id="redes" class="py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="mb-14 text-center">
+  <section id="redes" class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="mb-10 md:mb-14 text-center">
         <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Sígueme</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Redes Sociales</h2>
         <p class="text-gray-400 mt-3 max-w-sm mx-auto text-sm" style="line-height: 1.7;">
@@ -461,9 +462,9 @@
 
 
   <!-- ===== CONTACTO ===== -->
-  <section id="contacto" class="py-24 grain-overlay relative" style="background: #FFFBFB;">
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="mb-14">
+  <section id="contacto" class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+      <div class="mb-10 md:mb-14">
         <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Estamos para ti</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Contacto</h2>
       </div>
@@ -601,9 +602,9 @@
 
 
   <!-- ===== FAQ ===== -->
-  <section id="faq" class="py-24 bg-white">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="mb-14 text-center">
+  <section id="faq" class="py-16 md:py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="mb-10 md:mb-14 text-center">
         <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Resolvemos tus dudas</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Preguntas Frecuentes</h2>
         <p class="text-gray-400 mt-3 max-w-sm mx-auto text-sm" style="line-height: 1.7;">Todo lo que necesitas saber antes de tu primera consulta.</p>
