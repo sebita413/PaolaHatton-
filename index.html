@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com; connect-src 'none';">
+  <title>Dra. Paola Hatton — Neumóloga Pediatra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+
+    [id] { scroll-margin-top: 80px; }
+
+    /* Layered brand shadow */
+    .shadow-brand {
+      box-shadow: 0 2px 8px rgba(200,40,44,0.15), 0 8px 30px rgba(200,40,44,0.12), 0 20px 60px rgba(200,40,44,0.08);
+    }
+    .shadow-card {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.06);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #C8282C; color: white;
+      font-weight: 600; font-size: 0.9rem;
+      padding: 14px 28px; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(200,40,44,0.35);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #9B1A1A; }
+    .btn-primary:active { transform: scale(0.97); }
+    .btn-primary:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #C8282C;
+      font-weight: 600; font-size: 0.9rem;
+      padding: 13px 28px; border-radius: 100px;
+      border: 2px solid #C8282C;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { background: #C8282C; color: white; }
+    .btn-outline:active { transform: scale(0.97); }
+    .btn-outline:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; }
+
+    /* Nav links */
+    .nav-link {
+      font-size: 0.875rem; font-weight: 500; color: #374151;
+      text-decoration: none; position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: #C8282C;
+      transform: scaleX(0); transition: transform 0.2s; transform-origin: center;
+    }
+    .nav-link:hover { color: #C8282C; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; border-radius: 2px; }
+
+    /* Social card hover */
+    .social-card {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 2rem; background: white; border-radius: 1rem;
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+    }
+    .social-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10), 0 16px 50px rgba(0,0,0,0.08);
+    }
+    .social-card:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; }
+
+    /* Service item */
+    .service-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem; background: white; border-radius: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Grain texture overlay */
+    .grain-overlay::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+    }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="fixed top-0 left-0 right-0 z-50" style="background: #FFFFFF;"
+       style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04); border-bottom: 1px solid rgba(200,40,44,0.08);">
+    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#inicio" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+        <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden md:flex items-center gap-7">
+        <li><a href="#inicio" class="nav-link">Inicio</a></li>
+        <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+        <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
+        <li><a href="#redes" class="nav-link">Redes</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <div class="flex items-center gap-3">
+        <!-- Hamburger -->
+        <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
+      <ul class="flex flex-col gap-5 mb-5">
+        <li><a href="#inicio"    class="nav-link" onclick="closeMenu()">Inicio</a></li>
+        <li><a href="#sobre-mi"  class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
+        <li><a href="#ubicacion" class="nav-link" onclick="closeMenu()">Ubicación</a></li>
+        <li><a href="#redes"     class="nav-link" onclick="closeMenu()">Redes</a></li>
+        <li><a href="#contacto"  class="nav-link" onclick="closeMenu()">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="btn-primary">
+        <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        Pedir Cita
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ===== INICIO ===== -->
+  <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden"
+           style="background: url('./hattonhero.jpg') center top / cover no-repeat;">
+    <!-- Dark gradient overlay — dark left/bottom, transparent right/top so the face stays visible -->
+    <div class="absolute inset-0"
+         style="background: linear-gradient(110deg, rgba(6,1,1,0.78) 0%, rgba(6,1,1,0.52) 52%, rgba(6,1,1,0.12) 100%);"></div>
+    <!-- Red accent glow at bottom-left -->
+    <div class="absolute inset-0"
+         style="background: radial-gradient(ellipse at 0% 90%, rgba(200,40,44,0.32) 0%, transparent 55%);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 w-full relative z-10"
+         style="padding-top: calc(72px + 5rem); padding-bottom: 5rem;">
+      <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] mb-5 px-3 py-1.5 rounded-full"
+            style="color: rgba(255,255,255,0.78); background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);">Neumóloga · Pediatra</span>
+      <h1 class="text-[2.6rem] md:text-5xl lg:text-[3.4rem] font-bold text-white mb-6"
+          style="letter-spacing: -0.03em; line-height: 1.13; max-width: 640px;">
+        Cuidando la salud<br>
+        <span style="color: #F87B7E;">respiratoria</span><br>
+        de tus hijos
+      </h1>
+      <p class="text-lg mb-8" style="color: rgba(255,255,255,0.65); line-height: 1.75; max-width: 480px;">
+        Más de 20 años brindando atención pediátrica especializada en enfermedades respiratorias, con calidez y dedicación.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="btn-primary">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/>
+          </svg>
+          Agendar Cita
+        </a>
+        <a href="#sobre-mi"
+           style="display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,0.85); font-weight:600; font-size:0.9rem; text-decoration:none; padding:13px 28px; border-radius:100px; border:2px solid rgba(255,255,255,0.35); background:rgba(255,255,255,0.05); transition:border-color 0.2s, background 0.2s, transform 0.15s;"
+           onmouseover="this.style.borderColor='rgba(255,255,255,0.65)'; this.style.background='rgba(255,255,255,0.12)';"
+           onmouseout="this.style.borderColor='rgba(255,255,255,0.35)'; this.style.background='rgba(255,255,255,0.05)';"
+           onfocus="this.style.outline='2px solid white'; this.style.outlineOffset='3px';"
+           onblur="this.style.outline='';">
+          Conocer más &rarr;
+        </a>
+      </div>
+
+      <!-- Horario -->
+      <div class="inline-block rounded-2xl overflow-hidden"
+           style="backdrop-filter: blur(8px); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); box-shadow: 0 4px 20px rgba(0,0,0,0.25);">
+        <img src="./horario.jpg" alt="Horario de atención Dra. Paola Hatton"
+             style="display:block; max-width: 320px; width: 100%;">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SOBRE MÍ ===== -->
+  <section id="sobre-mi" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-14">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Conoce a tu especialista</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Sobre Mí</h2>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+        <!-- Photo -->
+        <div class="md:col-span-2">
+          <div class="relative overflow-hidden rounded-2xl"
+               style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.08);">
+            <img src="./sobremi.png" alt="Dra. Paola Hatton"
+                 class="w-full object-cover object-top"
+                 style="max-height: 520px;">
+            <!-- Color treatment -->
+            <div class="absolute inset-0"
+                 style="background: linear-gradient(135deg, rgba(200,40,44,0.06) 0%, transparent 60%); mix-blend-mode: multiply;"></div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="md:col-span-3 flex flex-col gap-7">
+          <div>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1" style="letter-spacing: -0.02em;">Dra. Paola Hatton</h3>
+            <p class="text-[#C8282C] font-semibold text-sm tracking-wide">Neumóloga · Pediatra</p>
+          </div>
+
+          <p class="text-gray-500 text-base" style="line-height: 1.8;">
+            La Dra. Paola Hatton es Pediatra y Neumóloga egresada de la <strong class="text-gray-700 font-semibold">Universidad Autónoma de Santo Domingo (UASD)</strong>. Con más de 20 años de experiencia en Neumología Pediátrica, se dedica al cuidado integral de la salud respiratoria de niños y adolescentes, brindando atención personalizada, cálida y de alta calidad médica.
+          </p>
+
+          <!-- Specialties -->
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.13em] text-gray-400 mb-4">Especialidades</p>
+            <div class="flex flex-col gap-3">
+              <div class="service-item">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                     style="background: rgba(200,40,44,0.08);">
+                  <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                  </svg>
+                </div>
+                <span class="font-medium text-gray-800">Enfermedades Respiratorias</span>
+              </div>
+              <div class="service-item">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                     style="background: rgba(200,40,44,0.08);">
+                  <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                  </svg>
+                </div>
+                <span class="font-medium text-gray-800">Espirometría</span>
+              </div>
+              <div class="service-item">
+                <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                     style="background: rgba(200,40,44,0.08);">
+                  <svg class="w-4 h-4 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <span class="font-medium text-gray-800">Evaluación Respiratoria Pre-Quirúrgica</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="rounded-xl p-5" style="background: rgba(200,40,44,0.06);">
+              <p class="text-3xl font-bold text-[#C8282C] mb-1" style="font-family: 'Playfair Display', serif;">+20</p>
+              <p class="text-sm text-gray-500 font-medium">Años de experiencia</p>
+            </div>
+            <div class="rounded-xl p-5" style="background: rgba(200,40,44,0.06);">
+              <p class="text-xl font-bold text-[#C8282C] mb-1" style="font-family: 'Playfair Display', serif;">UASD</p>
+              <p class="text-sm text-gray-500 font-medium">Formación académica</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== UBICACIÓN ===== -->
+  <section id="ubicacion" class="py-24 grain-overlay relative" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="mb-14">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">¿Dónde estamos?</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Ubicación</h2>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-8 items-start">
+        <!-- Map -->
+        <div class="md:col-span-3 overflow-hidden rounded-2xl"
+             style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.07);">
+          <iframe
+            src="https://maps.google.com/maps?q=Pedro+Henr%C3%ADquez+Ure%C3%B1a+83+Santo+Domingo+Republica+Dominicana&output=embed&hl=es&z=16"
+            width="100%" height="420" style="border:0; display:block;"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación consultorio Dra. Paola Hatton">
+          </iframe>
+        </div>
+
+        <!-- Info -->
+        <div class="md:col-span-2 flex flex-col gap-5">
+          <!-- Torre KP photo -->
+          <div class="overflow-hidden rounded-2xl"
+               style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.07);">
+            <img src="./torrekp.jpg" alt="Torre KP — Consultorio Dra. Paola Hatton"
+                 class="w-full object-cover"
+                 style="height: 180px;">
+          </div>
+          <!-- Address card -->
+          <div class="bg-white p-6 rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-gray-900 mb-2">Consultorio</p>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                  Torre KP<br>
+                  Pedro Henríquez Ureña #83<br>
+                  Suite 401<br>
+                  Santo Domingo, R.D.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Open in Maps button -->
+          <a href="https://maps.app.goo.gl/KJzDn4AXvs2A6VtUA" target="_blank" rel="noopener"
+             class="flex items-center justify-center gap-2 p-4 rounded-2xl border-2 border-dashed
+                    text-sm font-semibold text-[#C8282C] hover:bg-red-50
+                    transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+             style="border-color: rgba(200,40,44,0.35);">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== REDES SOCIALES ===== -->
+  <section id="redes" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-14 text-center">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Sígueme</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Redes Sociales</h2>
+        <p class="text-gray-400 mt-3 max-w-sm mx-auto text-sm" style="line-height: 1.7;">
+          Consejos de salud respiratoria, novedades del consultorio y mucho más.
+        </p>
+      </div>
+
+      <!-- 2x2 photo gallery -->
+      <div class="grid grid-cols-2 gap-3 max-w-lg mx-auto">
+        <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+           class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           style="aspect-ratio:1/1; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
+           onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
+           onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
+          <img src="./Intagram 1.jpg" alt="Publicación de Instagram 1" class="w-full h-full object-cover"
+               style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+          <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+        </a>
+        <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+           class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           style="aspect-ratio:1/1; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
+           onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
+           onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
+          <img src="./Instagram 2.jpg" alt="Publicación de Instagram 2" class="w-full h-full object-cover"
+               style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+          <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+        </a>
+        <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+           class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           style="aspect-ratio:1/1; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
+           onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
+           onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
+          <img src="./Instagram 3.jpg" alt="Publicación de Instagram 3" class="w-full h-full object-cover"
+               style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+          <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+        </a>
+        <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+           class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           style="aspect-ratio:1/1; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
+           onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
+           onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
+          <img src="./Instagram 4.jpg" alt="Publicación de Instagram 4" class="w-full h-full object-cover"
+               style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
+          <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+        </a>
+      </div>
+
+      <!-- Social buttons below gallery -->
+      <div class="flex justify-center flex-wrap gap-3 mt-7 max-w-lg mx-auto">
+        <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#dc2743]"
+           style="background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); box-shadow: 0 2px 10px rgba(220,39,67,0.28); transition: opacity 0.2s, transform 0.15s;"
+           onmouseover="this.style.opacity='0.88';" onmouseout="this.style.opacity='1';"
+           onmousedown="this.style.transform='scale(0.97)';" onmouseup="this.style.transform='scale(1)';">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          @dra.hattonpaola
+        </a>
+        <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1877F2]"
+           style="background: #1877F2; box-shadow: 0 2px 10px rgba(24,119,242,0.28); transition: opacity 0.2s, transform 0.15s;"
+           onmouseover="this.style.opacity='0.88';" onmouseout="this.style.opacity='1';"
+           onmousedown="this.style.transform='scale(0.97)';" onmouseup="this.style.transform='scale(1)';">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+          Dra. Paola Hatton
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="py-24 grain-overlay relative" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="mb-14">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Estamos para ti</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Contacto</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <!-- Left: CTA + Phones -->
+        <div class="flex flex-col gap-5">
+          <!-- WhatsApp hero card -->
+          <div class="p-8 rounded-2xl relative overflow-hidden"
+               style="background: linear-gradient(135deg, #C8282C 0%, #8B1A1A 100%); box-shadow: 0 4px 20px rgba(200,40,44,0.35), 0 16px 50px rgba(200,40,44,0.18);">
+            <!-- Decorative circle -->
+            <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full"
+                 style="background: rgba(255,255,255,0.06);"></div>
+            <div class="absolute -bottom-12 -right-4 w-48 h-48 rounded-full"
+                 style="background: rgba(255,255,255,0.04);"></div>
+            <div class="relative z-10">
+              <p class="text-white/70 text-sm font-medium mb-1">Agendar cita</p>
+              <p class="text-white text-2xl font-bold mb-5" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">
+                ¿Lista para tu consulta?
+              </p>
+              <a href="https://wa.me/18494490550" target="_blank" rel="noopener"
+                 class="inline-flex items-center gap-2.5 bg-white text-[#C8282C] font-semibold px-6 py-3 rounded-full text-sm
+                        transition-all duration-200 hover:bg-red-50 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+                 style="box-shadow: 0 2px 10px rgba(0,0,0,0.18);">
+                <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+                Escribir por WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone numbers -->
+          <div class="bg-white p-6 rounded-2xl flex flex-col gap-4"
+               style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
+            <!-- Citas -->
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Citas</p>
+                <a href="tel:+18494490550" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+                  849-449-0550
+                </a>
+              </div>
+            </div>
+            <div class="h-px bg-gray-100"></div>
+            <!-- Consultorio -->
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Consultorio</p>
+                <a href="tel:+18096897248" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+                  809-689-7248
+                </a>
+              </div>
+            </div>
+            <div class="h-px bg-gray-100"></div>
+            <!-- Celular -->
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                   style="background: rgba(200,40,44,0.08);">
+                <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Celular</p>
+                <a href="tel:+18098807355" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+                  809-880-7355
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Horario -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.13em] text-gray-400 mb-4">Horario de Atención</p>
+          <img src="./horario.jpg" alt="Horario de consultas pediátricas Dra. Paola Hatton"
+               class="w-full rounded-2xl"
+               style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.07);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-10 border-t bg-white" style="border-color: rgba(200,40,44,0.10);">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="#inicio" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+        <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
+      </a>
+      <p class="text-gray-400 text-sm text-center">
+        &copy; 2026 Dra. Paola Hatton &middot; Neumóloga Pediatra &middot; Santo Domingo, R.D.
+      </p>
+      <div class="flex gap-3">
+        <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+           class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-white
+                  transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           style="transition: background 0.2s, color 0.2s;"
+           onmouseover="this.style.background='#C8282C'; this.style.color='white';"
+           onmouseout="this.style.background=''; this.style.color='';">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener"
+           class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400
+                  transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           onmouseover="this.style.background='#C8282C'; this.style.color='white';"
+           onmouseout="this.style.background=''; this.style.color='';">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    function closeMenu() {
+      mobileNav.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!menuBtn.contains(e.target) && !mobileNav.contains(e.target)) {
+        closeMenu();
+      }
+    });
+  </script>
+</body>
+</html>
