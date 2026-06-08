@@ -469,7 +469,8 @@
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Contacto</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-5 md:gap-x-10">
+      <!-- Row 1: Red cards — 1-col mobile, 2-col desktop -->
+      <div class="grid md:grid-cols-2 gap-5 md:gap-x-10 mb-5">
         <!-- Red WhatsApp card -->
         <div class="p-6 md:p-8 rounded-2xl relative overflow-hidden flex flex-col"
              style="background: linear-gradient(135deg, #C8282C 0%, #8B1A1A 100%); box-shadow: 0 4px 20px rgba(200,40,44,0.35), 0 16px 50px rgba(200,40,44,0.18);">
@@ -513,53 +514,56 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- Row 2: White cards — always 2-col (compact on mobile) -->
+      <div class="grid grid-cols-2 gap-3 md:gap-x-10">
         <!-- White phone card -->
-        <div class="bg-white p-6 rounded-2xl flex flex-col gap-4"
+        <div class="bg-white p-3 md:p-6 rounded-2xl flex flex-col gap-3 md:gap-4"
              style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
           <!-- Citas -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+          <div class="flex items-center gap-2 md:gap-4">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                  style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
             </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Citas</p>
-              <a href="tel:+18494490550" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+            <div class="min-w-0">
+              <p class="text-[10px] md:text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Citas</p>
+              <a href="tel:+18494490550" class="font-semibold text-gray-900 hover:text-[#C8282C] text-xs md:text-base transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded leading-tight block">
                 849-449-0550
               </a>
             </div>
           </div>
           <div class="h-px bg-gray-100"></div>
           <!-- Consultorio -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+          <div class="flex items-center gap-2 md:gap-4">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                  style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
             </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Consultorio</p>
-              <a href="tel:+18096897248" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+            <div class="min-w-0">
+              <p class="text-[10px] md:text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Consultorio</p>
+              <a href="tel:+18096897248" class="font-semibold text-gray-900 hover:text-[#C8282C] text-xs md:text-base transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded leading-tight block">
                 809-689-7248
               </a>
             </div>
           </div>
           <div class="h-px bg-gray-100"></div>
           <!-- Celular -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+          <div class="flex items-center gap-2 md:gap-4">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                  style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
               </svg>
             </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Celular</p>
-              <a href="tel:+18098807355" class="font-semibold text-gray-900 hover:text-[#C8282C] transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+            <div class="min-w-0">
+              <p class="text-[10px] md:text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Celular</p>
+              <a href="tel:+18098807355" class="font-semibold text-gray-900 hover:text-[#C8282C] text-xs md:text-base transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded leading-tight block">
                 809-880-7355
               </a>
             </div>
@@ -567,43 +571,40 @@
         </div>
 
         <!-- White schedule card -->
-        <div class="bg-white p-6 rounded-2xl flex flex-col justify-between"
+        <div class="bg-white p-3 md:p-6 rounded-2xl flex flex-col justify-between gap-3 md:gap-0"
              style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
           <!-- Turno mañana -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+          <div class="flex items-start gap-2 md:gap-4">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
                  style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8-9h1M3 12H2m15.364-6.364l.707.707M5.636 18.364l-.707.707M18.364 18.364l.707-.707M5.636 5.636l-.707-.707M12 6a6 6 0 100 12A6 6 0 0012 6z"/>
               </svg>
             </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Lunes a Viernes</p>
-              <p class="font-semibold text-gray-900">8:30 am – 12:00 pm</p>
-              <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold"
+            <div class="min-w-0">
+              <p class="text-[10px] md:text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5 leading-tight">Lunes a<br class="md:hidden"> Viernes</p>
+              <p class="font-semibold text-gray-900 text-xs md:text-base leading-tight">8:30 am –<br class="md:hidden"> 12:00 pm</p>
+              <span class="inline-block mt-1 px-1.5 md:px-2 py-0.5 rounded-full text-[10px] md:text-xs font-semibold"
                     style="background: rgba(200,40,44,0.08); color: #C8282C;">Citas Previas</span>
             </div>
           </div>
           <div class="h-px bg-gray-100"></div>
           <!-- Turno tarde -->
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+          <div class="flex items-start gap-2 md:gap-4">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
                  style="background: rgba(200,40,44,0.08);">
-              <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
               </svg>
             </div>
-            <div>
-              <p class="text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5">Lunes · Martes · Viernes</p>
-              <p class="font-semibold text-gray-900">3:30 pm – 6:00 pm</p>
-              <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-xs font-semibold"
+            <div class="min-w-0">
+              <p class="text-[10px] md:text-xs text-gray-400 font-medium uppercase tracking-wide mb-0.5 leading-tight">Lun · Mar<br class="md:hidden"> · Vie</p>
+              <p class="font-semibold text-gray-900 text-xs md:text-base leading-tight">3:30 pm –<br class="md:hidden"> 6:00 pm</p>
+              <span class="inline-block mt-1 px-1.5 md:px-2 py-0.5 rounded-full text-[10px] md:text-xs font-semibold"
                     style="background: rgba(200,40,44,0.08); color: #C8282C;">Previo Aviso</span>
             </div>
           </div>
         </div>
-
-
-
       </div>
     </div>
   </section>
