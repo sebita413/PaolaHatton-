@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="./hatttonlogo.png">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com; connect-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'none';">
   <title>Servicios — Dra. Paola Hatton</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,10 +14,10 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
     [id] { scroll-margin-top: 80px; }
+
     .nav-link {
       font-size: 0.875rem; font-weight: 500; color: #374151;
-      text-decoration: none; position: relative;
-      transition: color 0.2s;
+      text-decoration: none; position: relative; transition: color 0.2s;
     }
     .nav-link::after {
       content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
@@ -29,12 +29,37 @@
     .nav-link:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; border-radius: 2px; }
     .nav-link-active { color: #C8282C; font-weight: 600; }
     .nav-link-active::after { transform: scaleX(1); }
+
     .grain-overlay::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       background-repeat: repeat;
     }
+
+    /* ARS logo grayscale → color on hover */
+    .ars-card {
+      filter: grayscale(1) opacity(0.55);
+      transition: filter 0.3s ease, opacity 0.3s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s;
+    }
+    .ars-card:hover {
+      filter: grayscale(0) opacity(1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06) !important;
+    }
+
+    /* Condition card hover */
+    .condition-card {
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;
+    }
+    .condition-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(200,40,44,0.10), 0 18px 50px rgba(0,0,0,0.07) !important;
+    }
+    .condition-card:hover .condition-icon {
+      background: rgba(200,40,44,0.16) !important;
+    }
+
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
@@ -47,18 +72,18 @@
         <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
       </a>
       <ul class="hidden md:flex items-center gap-5">
-        <li><a href="./index.html#inicio"   class="nav-link">Inicio</a></li>
-        <li><a href="./index.html#sobre-mi" class="nav-link">Sobre Mí</a></li>
-        <li><a href="./servicios.html"      class="nav-link nav-link-active">Servicios</a></li>
+        <li><a href="./index.html#inicio"    class="nav-link">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi"  class="nav-link">Sobre Mí</a></li>
+        <li><a href="./servicios.html"       class="nav-link nav-link-active">Servicios</a></li>
         <li><a href="./equipo.html"          class="nav-link">Nuestro Equipo</a></li>
         <li><a href="./index.html#ubicacion" class="nav-link">Ubicación</a></li>
-        <li><a href="./index.html#redes"    class="nav-link">Redes</a></li>
-        <li><a href="./index.html#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="./index.html#redes"     class="nav-link">Redes</a></li>
+        <li><a href="./index.html#contacto"  class="nav-link">Contacto</a></li>
       </ul>
       <div class="flex items-center gap-3">
         <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
-                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
@@ -69,7 +94,7 @@
         <li><a href="./index.html#inicio"    class="nav-link" onclick="closeMenu()">Inicio</a></li>
         <li><a href="./index.html#sobre-mi"  class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
         <li><a href="./servicios.html"       class="nav-link nav-link-active" onclick="closeMenu()">Servicios</a></li>
-        <li><a href="./equipo.html"           class="nav-link" onclick="closeMenu()">Nuestro Equipo</a></li>
+        <li><a href="./equipo.html"          class="nav-link" onclick="closeMenu()">Nuestro Equipo</a></li>
         <li><a href="./index.html#ubicacion" class="nav-link" onclick="closeMenu()">Ubicación</a></li>
         <li><a href="./index.html#redes"     class="nav-link" onclick="closeMenu()">Redes</a></li>
         <li><a href="./index.html#contacto"  class="nav-link" onclick="closeMenu()">Contacto</a></li>
@@ -82,116 +107,145 @@
   </nav>
 
 
-  <!-- ===== HERO SERVICIOS ===== -->
-  <section class="pt-[calc(72px+3rem)] pb-12 md:pt-[calc(72px+4rem)] md:pb-16 bg-white">
+  <!-- ===== HERO ===== -->
+  <section class="pt-[calc(72px+3rem)] pb-14 md:pt-[calc(72px+4.5rem)] md:pb-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <a href="./index.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-5 hover:opacity-75 transition-opacity">
+      <a href="./index.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-6 hover:opacity-75 transition-opacity">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         Inicio
       </a>
-      <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4" style="letter-spacing: -0.03em;">Servicios</h1>
-      <p class="text-gray-500 max-w-xl" style="line-height: 1.75;">Diagnóstico y tratamiento especializado de enfermedades respiratorias pediátricas con más de 20 años de experiencia.</p>
+      <div class="max-w-3xl">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Lo que ofrecemos</span>
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3 mb-5" style="letter-spacing: -0.03em; line-height: 1.12;">
+          Soluciones integrales para la<br>
+          <span style="color: #C8282C;">salud respiratoria</span>
+        </h1>
+        <p class="text-gray-500 text-base md:text-lg" style="line-height: 1.8;">Diagnóstico preciso y tratamiento especializado para cada etapa del bienestar pulmonar de tu hijo, respaldado por más de 20 años de experiencia clínica.</p>
+      </div>
     </div>
   </section>
 
 
-  <!-- ===== TRATAMIENTOS ===== -->
-  <section id="servicios" class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
+  <!-- ===== CONDICIONES QUE TRATAMOS ===== -->
+  <section class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
       <div class="mb-10 md:mb-14">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Lo que ofrecemos</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Tratamientos</h2>
-        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Diagnóstico y tratamiento especializado de enfermedades respiratorias pediátricas.</p>
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Diagnóstico y tratamiento</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Condiciones que tratamos</h2>
+        <p class="text-gray-400 mt-3 max-w-lg text-sm" style="line-height: 1.7;">Atendemos un amplio espectro de patologías respiratorias en niños y adolescentes, desde las más frecuentes hasta las más complejas.</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;"
-             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(200,40,44,0.10), 0 14px 40px rgba(0,0,0,0.07)'"
-             onmouseout="this.style.transform=''; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)'">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v6M8.5 9C7 10 6 12 6 14.5 6 17 7 19 9 19h2V9m2.5 0C15 10 18 12 18 14.5 18 17 17 19 15 19h-2V9"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 mb-1.5">Neumología Pediátrica</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Diagnóstico y tratamiento integral de enfermedades respiratorias en niños y adolescentes.</p>
-          </div>
-        </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
 
-        <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;"
-             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(200,40,44,0.10), 0 14px 40px rgba(0,0,0,0.07)'"
-             onmouseout="this.style.transform=''; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)'">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 mb-1.5">Espirometría</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Medición no invasiva de la capacidad pulmonar para evaluar la función respiratoria de su hijo.</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;"
-             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(200,40,44,0.10), 0 14px 40px rgba(0,0,0,0.07)'"
-             onmouseout="this.style.transform=''; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)'">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+        <!-- Asma -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
             <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
             </svg>
           </div>
           <div>
-            <p class="font-semibold text-gray-900 mb-1.5">Asma y Alergias</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Manejo y control del asma bronquial y alergias respiratorias para mejorar la calidad de vida.</p>
+            <p class="font-bold text-gray-900 text-sm mb-1">Asma bronquial</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Control y manejo a largo plazo para una vida plena y activa.</p>
           </div>
         </div>
 
-        <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;"
-             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(200,40,44,0.10), 0 14px 40px rgba(0,0,0,0.07)'"
-             onmouseout="this.style.transform=''; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)'">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 mb-1.5">Infecciones Respiratorias</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Atención de neumonías, bronquitis, sinusitis y otras infecciones del tracto respiratorio pediátrico.</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;"
-             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(200,40,44,0.10), 0 14px 40px rgba(0,0,0,0.07)'"
-             onmouseout="this.style.transform=''; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)'">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold text-gray-900 mb-1.5">Evaluación Pre-Quirúrgica</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Valoración respiratoria completa antes de cualquier procedimiento quirúrgico en pacientes pediátricos.</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-4 p-6 bg-white rounded-2xl"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06); transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;"
-             onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(200,40,44,0.10), 0 14px 40px rgba(0,0,0,0.07)'"
-             onmouseout="this.style.transform=''; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06)'">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+        <!-- Alergias -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
             <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
             </svg>
           </div>
           <div>
-            <p class="font-semibold text-gray-900 mb-1.5">Bronquitis y Bronquiolitis</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Diagnóstico y tratamiento de procesos inflamatorios de los bronquios en pacientes pediátricos.</p>
+            <p class="font-bold text-gray-900 text-sm mb-1">Alergias respiratorias</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Rinitis alérgica, sensibilización a pólenes y ácaros.</p>
+          </div>
+        </div>
+
+        <!-- Neumonía -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Neumonía</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Diagnóstico y tratamiento de infecciones pulmonares bacterianas y virales.</p>
+          </div>
+        </div>
+
+        <!-- Bronquitis -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v6M8.5 9C7 10 6 12 6 14.5 6 17 7 19 9 19h2V9m2.5 0C15 10 18 12 18 14.5 18 17 17 19 15 19h-2V9"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Bronquitis y bronquiolitis</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Inflamación de las vías aéreas en lactantes y niños mayores.</p>
+          </div>
+        </div>
+
+        <!-- Sinusitis -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Sinusitis crónica</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Manejo de la inflamación recurrente de los senos paranasales.</p>
+          </div>
+        </div>
+
+        <!-- Rinitis -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Rinitis</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Tratamiento de la inflamación nasal alérgica y no alérgica.</p>
+          </div>
+        </div>
+
+        <!-- Tos crónica -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Tos crónica</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Estudio y tratamiento de la tos persistente de más de 8 semanas.</p>
+          </div>
+        </div>
+
+        <!-- Fibrosis -->
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Otras patologías pulmonares</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6;">Evaluación de cualquier condición respiratoria que afecte el bienestar del niño.</p>
           </div>
         </div>
 
@@ -200,79 +254,198 @@
   </section>
 
 
-  <!-- ===== ARS ACEPTADAS ===== -->
-  <section id="seguros" class="py-16 md:py-24 bg-white">
+  <!-- ===== PROCEDIMIENTOS ESPECIALIZADOS ===== -->
+  <section class="py-16 md:py-24 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="mb-10 md:mb-14">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Cobertura</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">ARS Aceptadas</h2>
-        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Trabajamos con las principales aseguradoras del país. Si tu ARS no aparece, consúltanos.</p>
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Tecnología y precisión</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Procedimientos especializados</h2>
+        <p class="text-gray-400 mt-3 max-w-lg text-sm" style="line-height: 1.7;">Estudios y evaluaciones de alta precisión realizados en el mismo consultorio, sin necesidad de derivaciones externas.</p>
       </div>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
 
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Espirometría — featured -->
+        <div class="relative overflow-hidden rounded-3xl p-8 flex flex-col gap-5"
+             style="background: linear-gradient(135deg, #1a0303 0%, #2C0E0E 60%, #8B1A1A 100%); box-shadow: 0 4px 20px rgba(139,26,26,0.30), 0 16px 60px rgba(0,0,0,0.20);">
+          <!-- Background texture -->
+          <div class="absolute inset-0 opacity-10"
+               style="background-image: radial-gradient(circle at 80% 20%, rgba(200,40,44,0.6) 0%, transparent 55%), radial-gradient(circle at 10% 80%, rgba(200,40,44,0.3) 0%, transparent 45%);"></div>
+          <div class="relative z-10 flex flex-col gap-5">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(255,255,255,0.12);">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-white/60 text-xs font-semibold uppercase tracking-[0.15em] mb-1">Estudio funcional</p>
+              <h3 class="text-2xl font-bold text-white mb-2" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">Espirometría</h3>
+              <p class="text-white/75 text-sm" style="line-height: 1.75;">Medición no invasiva y precisa de la capacidad pulmonar de tu hijo. Detectamos limitaciones en el flujo de aire que no son visibles clínicamente, permitiendo un diagnóstico temprano del asma, la EPOC pediátrica y otras obstrucciones bronquiales.</p>
+            </div>
+            <ul class="flex flex-col gap-2">
+              <li class="flex items-center gap-2 text-white/80 text-xs">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: #C8282C;"></span>
+                Sin dolor ni radiación
+              </li>
+              <li class="flex items-center gap-2 text-white/80 text-xs">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: #C8282C;"></span>
+                Resultados inmediatos en la consulta
+              </li>
+              <li class="flex items-center gap-2 text-white/80 text-xs">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: #C8282C;"></span>
+                Apto para niños desde los 5 años
+              </li>
+            </ul>
           </div>
-          <span class="font-semibold text-gray-800 text-sm">SENASA</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">ARS Humano</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">ARS Universal</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">ARS Mapfre</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">ARS Reservas</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">Bupa Dominicana</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">ARS León</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">CMD</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">MetaSalud</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 flex items-center gap-3" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
-          <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-            <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <span class="font-semibold text-gray-800 text-sm">ARS Futuro</span>
         </div>
 
+        <!-- Evaluación Pre-Quirúrgica -->
+        <div class="flex flex-col gap-0 rounded-3xl overflow-hidden"
+             style="box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 8px 32px rgba(0,0,0,0.08);">
+          <div class="p-8 bg-white flex flex-col gap-5 flex-1">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+              <svg class="w-7 h-7 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-1">Valoración respiratoria</p>
+              <h3 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">Evaluación Pre-Quirúrgica</h3>
+              <p class="text-gray-500 text-sm" style="line-height: 1.75;">Valoración respiratoria completa antes de cualquier procedimiento quirúrgico. Garantizamos que el sistema pulmonar de tu hijo esté en las condiciones óptimas para una anestesia segura y una recuperación exitosa.</p>
+            </div>
+            <ul class="flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-gray-600 text-xs">
+                <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                Revisión de historia clínica respiratoria completa
+              </li>
+              <li class="flex items-start gap-2.5 text-gray-600 text-xs">
+                <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                Espirometría y auscultación pre-operatoria
+              </li>
+              <li class="flex items-start gap-2.5 text-gray-600 text-xs">
+                <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                Informe médico para equipo quirúrgico
+              </li>
+            </ul>
+          </div>
+          <!-- Bottom accent strip -->
+          <div class="h-1.5" style="background: linear-gradient(90deg, #C8282C, #8B1A1A);"></div>
+        </div>
+
       </div>
-      <p class="mt-8 text-sm text-gray-400">¿Tu seguro no está en la lista? <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="text-[#C8282C] font-semibold hover:underline">Consúltanos por WhatsApp →</a></p>
+    </div>
+  </section>
+
+
+  <!-- ===== COBERTURA DE SALUD ===== -->
+  <section class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+      <div class="mb-10 md:mb-14">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Cobertura de salud</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">ARS aceptadas</h2>
+        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Trabajamos con las principales aseguradoras del país. Pasa el cursor sobre cada logo para identificarla.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+
+        <!-- SENASA -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #1e40af; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">SEN</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">SENASA</span>
+        </div>
+
+        <!-- ARS Humano -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #059669; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">HUM</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">ARS Humano</span>
+        </div>
+
+        <!-- ARS Universal -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #0369a1; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">UNI</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">ARS Universal</span>
+        </div>
+
+        <!-- ARS Mapfre -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #c2410c; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">MAP</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">ARS Mapfre</span>
+        </div>
+
+        <!-- ARS Reservas -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #1e3a5f; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">RES</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">ARS Reservas</span>
+        </div>
+
+        <!-- Bupa -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #0052cc; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">BUP</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">Bupa Dominicana</span>
+        </div>
+
+        <!-- ARS León -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #7c3aed; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">LEÓ</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">ARS León</span>
+        </div>
+
+        <!-- CMD -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #0d9488; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">CMD</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">CMD</span>
+        </div>
+
+        <!-- MetaSalud -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #ea580c; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">MET</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">MetaSalud</span>
+        </div>
+
+        <!-- ARS Futuro -->
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5 cursor-default"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.06);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-white text-sm"
+               style="background: #15803d; letter-spacing: -0.02em; font-family: 'Inter', sans-serif;">FUT</div>
+          <span class="text-gray-700 font-semibold text-xs text-center">ARS Futuro</span>
+        </div>
+
+      </div>
+
+      <!-- Note -->
+      <div class="mt-8 flex items-start gap-3 p-4 rounded-xl" style="background: rgba(200,40,44,0.05); border: 1px solid rgba(200,40,44,0.12);">
+        <svg class="w-4 h-4 text-[#C8282C] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-sm text-gray-600" style="line-height: 1.6;">
+          ¿Tu seguro no aparece en la lista?
+          <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="text-[#C8282C] font-semibold hover:underline ml-1">Contáctanos para más información →</a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -282,14 +455,14 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-7"
            style="border-bottom: 1px solid rgba(200,40,44,0.07);">
-        <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+        <a href="./index.html" class="flex-shrink-0">
           <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
         </a>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <a href="./index.html#inicio"    class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Inicio</a>
           <a href="./index.html#sobre-mi"  class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Sobre Mí</a>
           <a href="./servicios.html"       class="text-[#C8282C] text-sm font-semibold">Servicios</a>
-          <a href="./index.html#redes"     class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Redes</a>
+          <a href="./equipo.html"          class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Nuestro Equipo</a>
           <a href="./index.html#ubicacion" class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Ubicación</a>
           <a href="./index.html#contacto"  class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Contacto</a>
         </nav>
