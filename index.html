@@ -524,7 +524,7 @@
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Ubicación</h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-8 items-stretch">
 
         <!-- Mapa -->
         <div class="overflow-hidden rounded-2xl"
@@ -537,8 +537,10 @@
           </iframe>
         </div>
 
+        <!-- Columna derecha: tarjeta + botón -->
+        <div class="flex flex-col gap-3">
         <!-- Tarjeta info — mismo estilo que teléfonos -->
-        <div class="bg-white p-6 rounded-2xl flex flex-col gap-4"
+        <div class="bg-white p-6 rounded-2xl flex flex-col gap-4 flex-1"
              style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
           <div class="flex flex-col gap-3">
 
@@ -594,6 +596,22 @@
 
           </div>
         </div>
+
+        <!-- Botón Google Maps -->
+        <a href="https://maps.google.com/maps?q=Pedro+Henr%C3%ADquez+Ure%C3%B1a+83+Santo+Domingo+Republica+Dominicana"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-xl text-sm font-semibold text-[#C8282C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+           style="border: 1.5px solid rgba(200,40,44,0.28); background: rgba(200,40,44,0.04); transition: background 0.2s, border-color 0.2s, transform 0.15s;"
+           onmouseover="this.style.background='rgba(200,40,44,0.09)'; this.style.borderColor='rgba(200,40,44,0.50)';"
+           onmouseout="this.style.background='rgba(200,40,44,0.04)'; this.style.borderColor='rgba(200,40,44,0.28)';"
+           onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform=''">
+          Abrir en Google Maps
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          </svg>
+        </a>
+
+        </div><!-- fin columna derecha -->
       </div>
 
     </div>
