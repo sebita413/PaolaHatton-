@@ -351,34 +351,39 @@
       <!-- Desktop cards (hidden on mobile) -->
       <div class="hidden md:grid md:grid-cols-2 gap-6">
 
-        <!-- Espirometría — featured -->
-        <div class="relative overflow-hidden rounded-3xl p-8 flex flex-col gap-5"
-             style="background: linear-gradient(135deg, #C8282C 0%, #9B1F22 55%, #6D1517 100%); box-shadow: 0 4px 20px rgba(200,40,44,0.35), 0 16px 60px rgba(200,40,44,0.18);">
-          <!-- Background texture -->
-          <div class="absolute inset-0 opacity-10"
-               style="background-image: radial-gradient(circle at 80% 20%, rgba(200,40,44,0.6) 0%, transparent 55%), radial-gradient(circle at 10% 80%, rgba(200,40,44,0.3) 0%, transparent 45%);"></div>
-          <div class="relative z-10 flex flex-col gap-5">
-            <div class="w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(255,255,255,0.12);">
+        <!-- Espirometría — featured (inverse of Pre-Quirúrgica) -->
+        <div class="flex flex-col gap-0 rounded-3xl overflow-hidden"
+             style="box-shadow: 0 2px 6px rgba(0,0,0,0.12), 0 8px 32px rgba(0,0,0,0.18);">
+          <!-- Top accent strip (inverse of bottom strip in Pre-Quirúrgica) -->
+          <div class="h-1.5" style="background: linear-gradient(90deg, #C8282C, #8B1A1A);"></div>
+          <div class="p-8 flex flex-col gap-5 flex-1" style="background: #111827;">
+            <div class="w-14 h-14 rounded-2xl flex items-center justify-center" style="background: rgba(255,255,255,0.10);">
               <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 12h-4l-3 9L9 3l-3 9H2"/>
               </svg>
             </div>
             <div>
-              <p class="text-white/60 text-xs font-semibold uppercase tracking-[0.15em] mb-1">Estudio funcional</p>
+              <p class="text-white/50 text-xs font-semibold uppercase tracking-[0.15em] mb-1">Estudio funcional</p>
               <h3 class="text-2xl font-bold text-white mb-2" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">Espirometría</h3>
-              <p class="text-white/75 text-sm" style="line-height: 1.75;">Medición no invasiva y precisa de la capacidad pulmonar de tu hijo. Detectamos limitaciones en el flujo de aire que no son visibles clínicamente, permitiendo un diagnóstico temprano del asma, la EPOC pediátrica y otras obstrucciones bronquiales.</p>
+              <p class="text-white/65 text-sm" style="line-height: 1.75;">Medición no invasiva y precisa de la capacidad pulmonar de tu hijo. Detectamos limitaciones en el flujo de aire que no son visibles clínicamente, permitiendo un diagnóstico temprano del asma, la EPOC pediátrica y otras obstrucciones bronquiales.</p>
             </div>
-            <ul class="flex flex-col gap-2">
-              <li class="flex items-center gap-2 text-white/80 text-xs">
-                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: #C8282C;"></span>
+            <ul class="flex flex-col gap-2.5">
+              <li class="flex items-start gap-2.5 text-white/70 text-xs">
+                <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(255,255,255,0.12);">
+                  <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
                 Sin dolor ni radiación
               </li>
-              <li class="flex items-center gap-2 text-white/80 text-xs">
-                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: #C8282C;"></span>
+              <li class="flex items-start gap-2.5 text-white/70 text-xs">
+                <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(255,255,255,0.12);">
+                  <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
                 Resultados inmediatos en la consulta
               </li>
-              <li class="flex items-center gap-2 text-white/80 text-xs">
-                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background: #C8282C;"></span>
+              <li class="flex items-start gap-2.5 text-white/70 text-xs">
+                <div class="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: rgba(255,255,255,0.12);">
+                  <svg class="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                </div>
                 Apto para niños desde los 5 años
               </li>
             </ul>
