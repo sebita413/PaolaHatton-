@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Alertas — Dra. Paola Hatton</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2 { font-family: 'Playfair Display', serif; }
+    .field-label { font-size: 0.75rem; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; display: block; }
+    input[type="text"], textarea {
+      width: 100%; padding: 10px 14px; border: 1.5px solid #e5e7eb; border-radius: 10px;
+      font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #111827;
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input[type="text"]:focus, textarea:focus {
+      border-color: #C8282C; box-shadow: 0 0 0 3px rgba(200,40,44,0.10);
+    }
+    .preview-bar {
+      background: #C8282C; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 40px; position: relative; border-radius: 10px;
+      font-size: 0.75rem; font-weight: 500; color: white; gap: 8px;
+    }
+    .code-box {
+      background: #111827; border-radius: 10px; padding: 16px 18px;
+      font-family: 'Courier New', monospace; font-size: 0.8rem;
+      color: #86efac; line-height: 1.6; word-break: break-all;
+      white-space: pre-wrap;
+    }
+    .btn-copy {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: #C8282C; color: white; font-weight: 600; font-size: 0.85rem;
+      padding: 10px 20px; border-radius: 100px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-copy:hover { background: #a01e22; }
+    .btn-copy:active { transform: scale(0.97); }
+    .toggle-wrap { display: flex; align-items: center; gap: 12px; }
+    .toggle { position: relative; width: 44px; height: 24px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; inset: 0; background: #d1d5db; border-radius: 100px;
+      cursor: pointer; transition: background 0.25s;
+    }
+    .slider::before {
+      content: ''; position: absolute; width: 18px; height: 18px;
+      left: 3px; top: 3px; background: white; border-radius: 50%;
+      transition: transform 0.25s; box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    input:checked + .slider { background: #C8282C; }
+    input:checked + .slider::before { transform: translateX(20px); }
+    .step-badge {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(200,40,44,0.10); color: #C8282C;
+      font-size: 0.7rem; font-weight: 700; display: inline-flex;
+      align-items: center; justify-content: center; flex-shrink: 0;
+    }
+  </style>
+</head>
+<body class="min-h-screen" style="background: #FAFAFA;">
+
+  <!-- Header -->
+  <div class="border-b bg-white" style="border-color: rgba(200,40,44,0.10);">
+    <div class="max-w-3xl mx-auto px-6 h-16 flex items-center gap-4">
+      <img src="./hatttonlogo.png" alt="Logo" class="h-10 w-auto">
+      <div class="h-6 w-px bg-gray-200"></div>
+      <div>
+        <p class="text-xs text-gray-400 font-medium uppercase tracking-widest">Panel de</p>
+        <h1 class="text-base font-bold text-gray-900 leading-none" style="font-family:'Playfair Display',serif;">Alertas del Sitio</h1>
+      </div>
+      <a href="./index.html" target="_blank"
+         class="ml-auto text-xs text-gray-400 font-medium hover:text-[#C8282C] transition-colors flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Ver sitio
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 py-10 flex flex-col gap-8">
+
+    <!-- ── Editor ── -->
+    <div class="bg-white rounded-2xl p-7 flex flex-col gap-6" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.06);">
+      <div>
+        <span class="text-[#C8282C] text-xs font-bold uppercase tracking-[0.15em]">Paso 1</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-1">Escribe tu mensaje</h2>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <!-- Activar -->
+        <div>
+          <span class="field-label">Estado de la barra</span>
+          <div class="toggle-wrap">
+            <label class="toggle">
+              <input type="checkbox" id="toggle-activa" checked>
+              <span class="slider"></span>
+            </label>
+            <span id="toggle-label" class="text-sm font-semibold text-[#C8282C]">Barra activa</span>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div>
+          <span class="field-label">Mensaje principal</span>
+          <input type="text" id="input-mensaje" value="Agenda abierta para julio"
+                 placeholder="Ej: Cerrados del 15 al 20 de junio por vacaciones"
+                 oninput="actualizar()">
+          <p class="text-gray-400 text-xs mt-1.5">Aparece antes del enlace. Puedes dejarlo vacío si solo quieres el enlace.</p>
+        </div>
+
+        <!-- Texto del link -->
+        <div>
+          <span class="field-label">Texto del botón/enlace</span>
+          <input type="text" id="input-link-texto" value="¡Reserva tu cita hoy!"
+                 placeholder="Ej: Agenda para después"
+                 oninput="actualizar()">
+        </div>
+
+        <!-- Destino del link -->
+        <div>
+          <span class="field-label">A dónde lleva el enlace</span>
+          <input type="text" id="input-link-href" value="#contacto"
+                 placeholder="Ej: #contacto  o  https://wa.me/18494490550"
+                 oninput="actualizar()">
+          <p class="text-gray-400 text-xs mt-1.5">Usa <code class="bg-gray-100 px-1 rounded">#contacto</code> para ir a la sección de contacto o pega un enlace de WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Vista Previa ── -->
+    <div class="bg-white rounded-2xl p-7 flex flex-col gap-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.06);">
+      <div>
+        <span class="text-[#C8282C] text-xs font-bold uppercase tracking-[0.15em]">Paso 2</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-1">Vista previa</h2>
+        <p class="text-gray-400 text-sm mt-1">Así se verá la barra arriba de tu sitio.</p>
+      </div>
+
+      <!-- Fake browser chrome -->
+      <div class="rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-gray-100 px-4 py-2.5 flex items-center gap-2 border-b border-gray-200">
+          <div class="flex gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+          </div>
+          <div class="flex-1 bg-white rounded-md px-3 py-1 text-xs text-gray-400 ml-2">dra.paolahatton.com</div>
+        </div>
+        <div id="preview-bar" class="preview-bar">
+          <svg class="w-3.5 h-3.5 opacity-75 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span id="preview-text">Agenda abierta para julio — <span class="font-bold underline">¡Reserva tu cita hoy!</span></span>
+          <svg class="absolute right-3 w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </div>
+        <!-- Fake nav -->
+        <div class="bg-white px-5 py-3 flex items-center justify-between border-b border-gray-100">
+          <div class="bg-gray-200 rounded h-6 w-24"></div>
+          <div class="hidden sm:flex gap-4">
+            <div class="bg-gray-100 rounded h-3 w-10"></div>
+            <div class="bg-gray-100 rounded h-3 w-14"></div>
+            <div class="bg-gray-100 rounded h-3 w-10"></div>
+          </div>
+        </div>
+        <div class="bg-gray-50 h-20 flex items-center justify-center">
+          <p class="text-xs text-gray-300 font-medium">— contenido del sitio —</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Código ── -->
+    <div class="bg-white rounded-2xl p-7 flex flex-col gap-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.06);">
+      <div>
+        <span class="text-[#C8282C] text-xs font-bold uppercase tracking-[0.15em]">Paso 3</span>
+        <h2 class="text-xl font-bold text-gray-900 mt-1">Copia el código</h2>
+        <p class="text-gray-400 text-sm mt-1">Copia esta línea y pégala en el lugar indicado dentro de <code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-700">index.html</code>.</p>
+      </div>
+
+      <div class="code-box" id="code-output"></div>
+
+      <div class="flex items-center gap-3 flex-wrap">
+        <button class="btn-copy" onclick="copiarCodigo()">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span id="copy-label">Copiar código</span>
+        </button>
+        <p class="text-gray-400 text-xs">Después pégalo en VS Code buscando <code class="bg-gray-100 px-1 rounded">Agenda abierta</code></p>
+      </div>
+    </div>
+
+    <!-- ── Instrucciones ── -->
+    <div class="rounded-2xl p-6 flex flex-col gap-4" style="background: rgba(200,40,44,0.04); border: 1px solid rgba(200,40,44,0.12);">
+      <h2 class="text-base font-bold text-gray-900">¿Cómo aplicar el cambio?</h2>
+      <ol class="flex flex-col gap-3">
+        <li class="flex items-start gap-3 text-sm text-gray-600">
+          <span class="step-badge mt-0.5">1</span>
+          Escribe tu mensaje arriba y copia el código generado.
+        </li>
+        <li class="flex items-start gap-3 text-sm text-gray-600">
+          <span class="step-badge mt-0.5">2</span>
+          Abre <strong>index.html</strong> en VS Code. Presiona <kbd class="bg-white border border-gray-200 px-1.5 py-0.5 rounded text-xs">Ctrl+F</kbd> y busca: <code class="bg-white border border-gray-200 px-1.5 py-0.5 rounded text-xs">Agenda abierta</code>
+        </li>
+        <li class="flex items-start gap-3 text-sm text-gray-600">
+          <span class="step-badge mt-0.5">3</span>
+          Selecciona el texto viejo y pega el código nuevo. Guarda con <kbd class="bg-white border border-gray-200 px-1.5 py-0.5 rounded text-xs">Ctrl+S</kbd>.
+        </li>
+        <li class="flex items-start gap-3 text-sm text-gray-600">
+          <span class="step-badge mt-0.5">4</span>
+          Haz commit y push desde Claude Code para publicarlo en el sitio.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <script>
+    function actualizar() {
+      const activa   = document.getElementById('toggle-activa').checked;
+      const mensaje  = document.getElementById('input-mensaje').value.trim();
+      const linkTxt  = document.getElementById('input-link-texto').value.trim();
+      const linkHref = document.getElementById('input-link-href').value.trim();
+      const label    = document.getElementById('toggle-label');
+      const preview  = document.getElementById('preview-text');
+      const bar      = document.getElementById('preview-bar');
+      const codeOut  = document.getElementById('code-output');
+
+      // Toggle label
+      label.textContent = activa ? 'Barra activa' : 'Barra oculta';
+      label.style.color = activa ? '#C8282C' : '#9ca3af';
+      bar.style.opacity = activa ? '1' : '0.3';
+
+      // Preview text
+      let previewHTML = '';
+      if (mensaje) previewHTML += mensaje + (linkTxt ? ' — ' : '');
+      if (linkTxt)  previewHTML += `<span class="font-bold underline">${linkTxt}</span>`;
+      preview.innerHTML = previewHTML || '<span class="opacity-50">Sin mensaje</span>';
+
+      // Code output
+      let code = '';
+      if (!activa) {
+        code = `<!-- BARRA OCULTA: para activarla, quita el atributo "hidden" de la línea del alert-bar en index.html -->`;
+      } else {
+        let inner = '';
+        if (mensaje) inner += mensaje;
+        if (mensaje && linkTxt) inner += `\n        <a href="${linkHref || '#contacto'}" class="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity ml-1">${linkTxt}</a>`;
+        else if (linkTxt) inner += `<a href="${linkHref || '#contacto'}" class="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity">${linkTxt}</a>`;
+        code = inner || '(escribe un mensaje arriba)';
+      }
+      codeOut.textContent = code;
+    }
+
+    document.getElementById('toggle-activa').addEventListener('change', actualizar);
+
+    function copiarCodigo() {
+      const text = document.getElementById('code-output').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const lbl = document.getElementById('copy-label');
+        lbl.textContent = '¡Copiado!';
+        setTimeout(() => { lbl.textContent = 'Copiar código'; }, 2000);
+      });
+    }
+
+    // Init
+    actualizar();
+  </script>
+</body>
+</html>
