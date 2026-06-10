@@ -611,8 +611,8 @@
                   onmouseover="this.style.background='#FFFBFB'" onmouseout="this.style.background=''">
             <span class="font-semibold text-gray-900">¿Qué debo llevar a la primera consulta?</span>
             <svg class="faq-icon w-5 h-5 text-[#C8282C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                 style="transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                 style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14"/>
             </svg>
           </button>
           <div class="faq-answer overflow-hidden" style="max-height:0; transition: max-height 0.32s ease;">
@@ -627,8 +627,8 @@
                   onmouseover="this.style.background='#FFFBFB'" onmouseout="this.style.background=''">
             <span class="font-semibold text-gray-900">¿Realizan pruebas de espirometría en el mismo centro?</span>
             <svg class="faq-icon w-5 h-5 text-[#C8282C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                 style="transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                 style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14"/>
             </svg>
           </button>
           <div class="faq-answer overflow-hidden" style="max-height:0; transition: max-height 0.32s ease;">
@@ -643,8 +643,8 @@
                   onmouseover="this.style.background='#FFFBFB'" onmouseout="this.style.background=''">
             <span class="font-semibold text-gray-900">¿Atienden emergencias respiratorias?</span>
             <svg class="faq-icon w-5 h-5 text-[#C8282C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                 style="transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                 style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14"/>
             </svg>
           </button>
           <div class="faq-answer overflow-hidden" style="max-height:0; transition: max-height 0.32s ease;">
@@ -659,8 +659,8 @@
                   onmouseover="this.style.background='#FFFBFB'" onmouseout="this.style.background=''">
             <span class="font-semibold text-gray-900">¿Cuál es el rango de edad de los pacientes atendidos?</span>
             <svg class="faq-icon w-5 h-5 text-[#C8282C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                 style="transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                 style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14"/>
             </svg>
           </button>
           <div class="faq-answer overflow-hidden" style="max-height:0; transition: max-height 0.32s ease;">
@@ -897,7 +897,7 @@
       document.querySelectorAll('.faq-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
       if (!isOpen) {
         answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.style.transform = 'rotate(180deg)';
+        icon.style.transform = 'rotate(45deg)';
       }
     }
 
@@ -909,7 +909,7 @@
       document.querySelectorAll('.proc-acc-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
       if (!isOpen) {
         body.style.maxHeight = body.scrollHeight + 'px';
-        icon.style.transform = 'rotate(180deg)';
+        icon.style.transform = 'rotate(45deg)';
       }
     }
   </script>
