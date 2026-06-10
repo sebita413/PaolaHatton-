@@ -326,6 +326,30 @@
               <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Alergias conocidas</label>
               <input type="text" class="form-input" placeholder="Ej. Penicilina, polvo, ninguna conocida" autocomplete="off">
             </div>
+            <!-- Carnet de vacunación -->
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">¿El carnet de vacunación está al día?</label>
+              <div class="flex gap-3">
+                <label class="flex items-center gap-2 cursor-pointer px-4 py-2.5 rounded-xl flex-1 justify-center"
+                       style="border: 1.5px solid rgba(200,40,44,0.15); transition: border-color 0.15s, background 0.15s;"
+                       onmouseover="this.style.background='rgba(200,40,44,0.04)'" onmouseout="if(!this.querySelector('input').checked)this.style.background=''">
+                  <input type="radio" name="carnet" value="si" class="accent-[#C8282C]"
+                         onchange="document.querySelectorAll('[data-carnet]').forEach(el=>el.style.borderColor='rgba(200,40,44,0.15)'); this.closest('label').style.borderColor='#C8282C'; this.closest('label').style.background='rgba(200,40,44,0.06)';">
+                  <span class="text-sm font-medium text-gray-700">Sí, al día</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer px-4 py-2.5 rounded-xl flex-1 justify-center"
+                       style="border: 1.5px solid rgba(200,40,44,0.15); transition: border-color 0.15s, background 0.15s;"
+                       onmouseover="this.style.background='rgba(200,40,44,0.04)'" onmouseout="if(!this.querySelector('input').checked)this.style.background=''">
+                  <input type="radio" name="carnet" value="no" class="accent-[#C8282C]"
+                         onchange="document.querySelectorAll('[data-carnet]').forEach(el=>el.style.borderColor='rgba(200,40,44,0.15)'); this.closest('label').style.borderColor='#C8282C'; this.closest('label').style.background='rgba(200,40,44,0.06)';">
+                  <span class="text-sm font-medium text-gray-700">No / No sé</span>
+                </label>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">¿Vacuna pendiente o reacción adversa conocida?</label>
+              <input type="text" class="form-input" placeholder="Ej. Falta refuerzo de varicela / reacción leve tras DPT" autocomplete="off">
+            </div>
             <div>
               <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Medicamentos que usa actualmente</label>
               <textarea class="form-input" placeholder="Nombre del medicamento, dosis y frecuencia. Escribe 'ninguno' si no usa." rows="3"></textarea>
