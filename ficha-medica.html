@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./hatttonlogo.png">
+  <link rel="shortcut icon" href="./hatttonlogo.png">
+  <link rel="apple-touch-icon" href="./hatttonlogo.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none'; connect-src 'none';">
+  <title>Pre-Consulta — Dra. Paola Hatton</title>
+  <meta name="description" content="Completa la ficha de preparación antes de tu consulta con la Dra. Paola Hatton. Tu información es privada y nunca abandona tu dispositivo.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dra. Paola Hatton">
+  <meta property="og:title" content="Pre-Consulta — Dra. Paola Hatton">
+  <meta property="og:description" content="Ficha de preparación para la consulta. Privacidad total — tus datos nunca salen de tu dispositivo.">
+  <meta property="og:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
+  <meta property="og:url" content="https://TUDOMINIO.COM/ficha-medica.html">
+  <meta property="og:locale" content="es_DO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pre-Consulta — Dra. Paola Hatton">
+  <meta name="twitter:description" content="Ficha de preparación para la consulta. Privacidad total — tus datos nunca salen de tu dispositivo.">
+  <meta name="twitter:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+    :root { --nav-offset: 144px; }
+    [id] { scroll-margin-top: var(--nav-offset); }
+
+    .nav-link {
+      font-size: 0.875rem; font-weight: 500; color: #374151;
+      text-decoration: none; position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: #C8282C;
+      transform: scaleX(0); transition: transform 0.2s; transform-origin: center;
+    }
+    .nav-link:hover { color: #C8282C; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; border-radius: 2px; }
+    .nav-link-active { color: #C8282C; font-weight: 600; }
+    .nav-link-active::after { transform: scaleX(1); }
+
+    /* Form fields */
+    .form-input {
+      width: 100%;
+      padding: 0.625rem 0.875rem;
+      border-radius: 0.625rem;
+      border: 1.5px solid rgba(200,40,44,0.15);
+      background: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #1a1a1a;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus {
+      border-color: #C8282C;
+      box-shadow: 0 0 0 3px rgba(200,40,44,0.10);
+    }
+    .form-input::placeholder { color: #9ca3af; }
+    textarea.form-input { resize: vertical; min-height: 96px; }
+
+    /* Print button */
+    .btn-print {
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+    }
+    .btn-print:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(200,40,44,0.28), 0 2px 8px rgba(200,40,44,0.14) !important;
+    }
+    .btn-print:active { transform: scale(0.97); }
+
+    /* Scroll-to-top */
+    #scroll-top-btn {
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s, background 0.2s;
+    }
+    #scroll-top-btn:hover {
+      background: #a01e22 !important;
+      box-shadow: 0 6px 20px rgba(200,40,44,0.50), 0 2px 8px rgba(200,40,44,0.25) !important;
+      transform: translateY(-2px) !important;
+    }
+    #scroll-top-btn:active { transform: scale(0.93) !important; }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp   { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeup { animation: fadeUp 0.6s ease both; }
+
+    /* Print styles */
+    @media print {
+      #alert-bar, #main-nav, .no-print, footer, #scroll-top-btn { display: none !important; }
+      body { background: white !important; padding-top: 0 !important; }
+      .print-body { padding-top: 1rem !important; }
+      .print-header { display: block !important; margin-bottom: 1.5rem; }
+      .form-input { border: 1px solid #ddd !important; box-shadow: none !important; }
+    }
+    .print-header { display: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ===== ALERT BAR ===== -->
+  <div id="alert-bar" class="fixed top-0 left-0 right-0 z-[60]" style="background: #C8282C; height: 36px;">
+    <div class="max-w-6xl mx-auto px-4 h-full flex items-center justify-center gap-2 relative">
+      <svg class="w-3.5 h-3.5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-white text-xs font-medium text-center truncate">
+        Agenda abierta para julio —
+        <a href="./index.html#contacto" class="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity ml-1">¡Reserva tu cita hoy!</a>
+      </p>
+      <button id="close-alert" aria-label="Cerrar aviso"
+              class="absolute right-3 md:right-6 text-white/70 hover:text-white transition-colors p-1 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);">
+    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between" style="border-bottom: 1px solid rgba(200,40,44,0.08);">
+      <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+        <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
+      </a>
+      <ul class="hidden md:flex items-center gap-5">
+        <li><a href="./index.html#inicio"   class="nav-link">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link">Mi Compromiso</a></li>
+        <li><a href="./servicios.html"      class="nav-link">Servicios</a></li>
+        <li><a href="./equipo.html"         class="nav-link">Nuestro Equipo</a></li>
+        <li><a href="./guia.html"           class="nav-link">Guía para Padres</a></li>
+        <li><a href="./ficha-medica.html"   class="nav-link nav-link-active">Pre-Consulta</a></li>
+        <li><a href="./index.html#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Franja de emergencia -->
+    <div style="background:#FFFBEB; border-bottom:1px solid rgba(217,119,6,0.20);">
+      <div class="max-w-6xl mx-auto px-4 flex items-center justify-center gap-2" style="height:36px;">
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#B45309" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <p style="color:#92400e; font-size:0.7rem; line-height:1.3; text-align:center;">
+          <strong>¿Emergencia respiratoria?</strong> Diríjase al centro de urgencias más cercano — este consultorio <strong>no</strong> atiende urgencias vitales.
+        </p>
+      </div>
+    </div>
+    <!-- Mobile nav -->
+    <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
+      <ul class="flex flex-col gap-5 mb-5">
+        <li><a href="./index.html#inicio"   class="nav-link" onclick="closeMenu()">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link" onclick="closeMenu()">Mi Compromiso</a></li>
+        <li><a href="./servicios.html"      class="nav-link" onclick="closeMenu()">Servicios</a></li>
+        <li><a href="./equipo.html"         class="nav-link" onclick="closeMenu()">Nuestro Equipo</a></li>
+        <li><a href="./guia.html"           class="nav-link" onclick="closeMenu()">Guía para Padres</a></li>
+        <li><a href="./ficha-medica.html"   class="nav-link nav-link-active" onclick="closeMenu()">Pre-Consulta</a></li>
+        <li><a href="./index.html#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/18098807355" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:8px; background: linear-gradient(135deg,#C8282C,#8B1A1A); color:white; font-weight:700; font-size:0.9rem; padding:12px 24px; border-radius:100px; text-decoration:none;">
+        Pedir Cita
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO / CABECERA ===== -->
+  <section class="pt-[calc(108px+3rem)] pb-10 md:pt-[calc(108px+4rem)] md:pb-14" style="background: #FFFBFB;">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <!-- Volver -->
+      <a href="./index.html" class="no-print inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-6 hover:opacity-75 transition-opacity" style="text-decoration:none;">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Volver al inicio
+      </a>
+
+      <div class="animate-fadeup">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+             style="background: rgba(200,40,44,0.08); color: #C8282C;">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Pre-Consulta
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-4" style="letter-spacing: -0.03em; color: #1a1a1a;">
+          Ficha de Preparación<br>
+          <em class="not-italic" style="color: #C8282C;">para la Consulta</em>
+        </h1>
+        <p class="text-base leading-relaxed" style="color: #6b7280; line-height: 1.7;">
+          Completa esta ficha antes de tu visita para que la Dra. Hatton pueda dedicar más tiempo a tu hijo y menos tiempo a papeleo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AVISO DE SEGURIDAD ===== -->
+  <div class="py-5 no-print" style="background: #fff;">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-2xl"
+           style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); border: 1.5px solid rgba(22,163,74,0.20);">
+        <!-- Shield icon -->
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+             style="background: rgba(22,163,74,0.12);">
+          <svg class="w-6 h-6" fill="none" stroke="#16a34a" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-bold uppercase tracking-wider" style="color: #15803d;">Privacidad Protegida</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"
+                  style="background: rgba(22,163,74,0.15); color: #15803d;">HIPAA</span>
+          </div>
+          <div class="flex flex-wrap gap-x-5 gap-y-1">
+            <span class="text-xs flex items-center gap-1.5" style="color: #166534;">
+              <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              No se almacenan datos en la nube
+            </span>
+            <span class="text-xs flex items-center gap-1.5" style="color: #166534;">
+              <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              La información solo reside en tu dispositivo
+            </span>
+            <span class="text-xs flex items-center gap-1.5" style="color: #166534;">
+              <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              No se envía nada a ningún servidor
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FORMULARIO ===== -->
+  <section class="py-10 md:py-16 print-body" style="background: #fff;">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+
+      <!-- Print header (solo aparece al imprimir) -->
+      <div class="print-header">
+        <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" style="height:48px; margin-bottom:8px;">
+        <h1 style="font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:#1a1a1a; margin-bottom:4px;">Ficha de Preparación para la Consulta</h1>
+        <p style="font-size:0.75rem; color:#6b7280;">Dra. Paola Hatton · Neumóloga Pediatra · Torre KP, Suite 401, Santo Domingo</p>
+        <hr style="margin:12px 0; border-color:#f3f4f6;">
+      </div>
+
+      <form id="ficha-form" onsubmit="return false;" novalidate>
+
+        <!-- ── SECCIÓN 1: Identificación ── -->
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-5">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                 style="background: rgba(200,40,44,0.09);">
+              <span class="text-xs font-bold" style="color:#C8282C;">1</span>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900" style="letter-spacing:-0.02em;">Datos del menor</h2>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Nombre completo del menor</label>
+              <input type="text" class="form-input" placeholder="Ej. Juan Pérez García" autocomplete="off">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Edad</label>
+              <input type="text" class="form-input" placeholder="Ej. 5 años" autocomplete="off">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Fecha de nacimiento</label>
+              <input type="date" class="form-input" autocomplete="off">
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Nombre del padre / madre / tutor</label>
+              <input type="text" class="form-input" placeholder="Nombre completo del acompañante" autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <div class="h-px mb-8" style="background: rgba(200,40,44,0.08);"></div>
+
+        <!-- ── SECCIÓN 2: Motivo de consulta ── -->
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-5">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                 style="background: rgba(200,40,44,0.09);">
+              <span class="text-xs font-bold" style="color:#C8282C;">2</span>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900" style="letter-spacing:-0.02em;">Motivo de consulta y síntomas</h2>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">¿Por qué viene a consulta hoy?</label>
+              <textarea class="form-input" placeholder="Describe brevemente el motivo principal de la visita (tos, dificultad para respirar, revisión rutinaria, etc.)" rows="3"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">¿Desde cuándo presenta estos síntomas?</label>
+              <input type="text" class="form-input" placeholder="Ej. Desde hace 3 días / desde el mes pasado" autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <div class="h-px mb-8" style="background: rgba(200,40,44,0.08);"></div>
+
+        <!-- ── SECCIÓN 3: Antecedentes ── -->
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-5">
+            <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                 style="background: rgba(200,40,44,0.09);">
+              <span class="text-xs font-bold" style="color:#C8282C;">3</span>
+            </div>
+            <h2 class="text-lg font-bold text-gray-900" style="letter-spacing:-0.02em;">Antecedentes e historia clínica</h2>
+          </div>
+
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Alergias conocidas</label>
+              <input type="text" class="form-input" placeholder="Ej. Penicilina, polvo, ninguna conocida" autocomplete="off">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Medicamentos que usa actualmente</label>
+              <textarea class="form-input" placeholder="Nombre del medicamento, dosis y frecuencia. Escribe 'ninguno' si no usa." rows="3"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">Diagnósticos o enfermedades previas relevantes</label>
+              <textarea class="form-input" placeholder="Ej. Asma diagnosticada a los 2 años, bronquitis recurrente, ninguno..." rows="3"></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-600 mb-1.5 uppercase tracking-wide">¿Ha sido hospitalizado anteriormente? ¿Por qué?</label>
+              <input type="text" class="form-input" placeholder="Ej. No / Sí, por neumonía a los 3 años" autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <div class="h-px mb-8" style="background: rgba(200,40,44,0.08);"></div>
+
+        <!-- ── ¿Qué sigue? ── -->
+        <div class="mb-8 p-5 rounded-2xl no-print" style="background: rgba(200,40,44,0.04); border: 1.5px solid rgba(200,40,44,0.12);">
+          <div class="flex items-start gap-3">
+            <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                 style="background: rgba(200,40,44,0.10);">
+              <svg class="w-4.5 h-4.5 w-5 h-5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-sm text-gray-800 mb-1">¿Qué sigue después de completar la ficha?</p>
+              <p class="text-sm leading-relaxed" style="color:#6b7280; line-height:1.7;">
+                Usa el botón de abajo para <strong style="color:#1a1a1a;">imprimir o guardar como PDF</strong>. Lleva la ficha impresa o en tu celular el día de la consulta. Esto le permitirá a la Dra. Hatton conocer el historial de tu hijo desde el primer momento y dedicar más tiempo a la evaluación.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Botón de impresión ── -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 no-print">
+          <button type="button" onclick="window.print()"
+                  class="btn-print inline-flex items-center gap-3 px-7 py-4 rounded-2xl font-semibold text-white"
+                  style="background: linear-gradient(135deg, #C8282C, #8B1A1A); border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(200,40,44,0.30), 0 2px 6px rgba(0,0,0,0.08);">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+            </svg>
+            Imprimir / Guardar como PDF
+          </button>
+          <p class="text-xs" style="color:#9ca3af; line-height:1.6;">
+            Este botón no envía datos a ningún servidor.<br>Tu información nunca sale de este dispositivo.
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-6" style="background: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.07);">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5"
+           style="border-bottom: 1px solid rgba(0,0,0,0.07);">
+        <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
+        </a>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <a href="./index.html#inicio"   class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Inicio</a>
+          <a href="./index.html#sobre-mi" class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Mi Compromiso</a>
+          <a href="./servicios.html"      class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Servicios</a>
+          <a href="./guia.html"           class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Guía para Padres</a>
+          <a href="./ficha-medica.html"   class="text-sm font-semibold" style="color:#C8282C;">Pre-Consulta</a>
+          <a href="./index.html#contacto" class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Contacto</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+             style="color: #6B7280;"
+             onmouseover="this.style.background='#C8282C'; this.style.color='white';"
+             onmouseout="this.style.background=''; this.style.color='#6B7280';">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+             style="color: #6B7280;"
+             onmouseover="this.style.background='#C8282C'; this.style.color='white';"
+             onmouseout="this.style.background=''; this.style.color='#6B7280';">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="pt-5 text-center">
+        <p class="text-sm" style="color: #6B7280;">&copy; 2026 Dra. Paola Hatton &middot; Neumóloga Pediatra &middot; Santo Domingo, R.D.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top-btn" aria-label="Volver arriba"
+          style="position:fixed; bottom:24px; right:24px; z-index:40; width:44px; height:44px; border-radius:50%; background:#C8282C; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(200,40,44,0.35),0 2px 6px rgba(0,0,0,0.12); opacity:0; pointer-events:none; transform:translateY(12px);" class="no-print">
+    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+    function closeMenu() {
+      mobileNav.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Alert bar dismiss
+    const alertBar = document.getElementById('alert-bar');
+    const mainNav  = document.getElementById('main-nav');
+    function dismissAlert() {
+      alertBar.style.display = 'none';
+      mainNav.style.top = '0';
+      document.documentElement.style.setProperty('--nav-offset', '108px');
+      sessionStorage.setItem('alert-dismissed', '1');
+    }
+    if (sessionStorage.getItem('alert-dismissed')) {
+      dismissAlert();
+    } else {
+      document.getElementById('close-alert').addEventListener('click', dismissAlert);
+    }
+
+    // Scroll-to-top button
+    const scrollBtn = document.getElementById('scroll-top-btn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.style.opacity = '1';
+        scrollBtn.style.pointerEvents = 'auto';
+        scrollBtn.style.transform = 'translateY(0)';
+      } else {
+        scrollBtn.style.opacity = '0';
+        scrollBtn.style.pointerEvents = 'none';
+        scrollBtn.style.transform = 'translateY(12px)';
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
