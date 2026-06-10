@@ -30,7 +30,8 @@
     body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
 
-    [id] { scroll-margin-top: 116px; }
+    :root { --nav-offset: 144px; }
+    [id] { scroll-margin-top: var(--nav-offset); }
 
     /* Layered brand shadow */
     .shadow-brand {
@@ -163,27 +164,19 @@
   </div>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04); border-bottom: 1px solid rgba(200,40,44,0.08);">
-    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
-
-      <!-- Logo -->
+  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);">
+    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between" style="border-bottom: 1px solid rgba(200,40,44,0.08);">
       <a href="#inicio" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
         <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
       </a>
-
-      <!-- Desktop Links -->
       <ul class="hidden md:flex items-center gap-5">
-        <li><a href="#inicio" class="nav-link">Inicio</a></li>
-        <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+        <li><a href="#inicio"          class="nav-link">Inicio</a></li>
+        <li><a href="#sobre-mi"        class="nav-link">Sobre Mí</a></li>
         <li><a href="./servicios.html" class="nav-link">Servicios</a></li>
-        <li><a href="./equipo.html" class="nav-link">Nuestro Equipo</a></li>
-        <li><a href="#ubicacion" class="nav-link">Ubicación</a></li>
-        <li><a href="#redes" class="nav-link">Redes</a></li>
-        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        <li><a href="./guia.html"      class="nav-link">Guía para Padres</a></li>
+        <li><a href="#contacto"        class="nav-link">Contacto</a></li>
       </ul>
-
       <div class="flex items-center gap-3">
-        <!-- Hamburger -->
         <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
                 class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -193,16 +186,26 @@
       </div>
     </div>
 
+    <!-- Franja de emergencia (permanente) -->
+    <div style="background:#FFFBEB; border-bottom:1px solid rgba(217,119,6,0.20);">
+      <div class="max-w-6xl mx-auto px-4 flex items-center justify-center gap-2" style="height:36px;">
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#B45309" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <p style="color:#92400e; font-size:0.7rem; line-height:1.3; text-align:center;">
+          <strong>¿Emergencia respiratoria?</strong> Diríjase al centro de urgencias más cercano — este consultorio <strong>no</strong> atiende urgencias vitales.
+        </p>
+      </div>
+    </div>
+
     <!-- Mobile Menu -->
     <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
       <ul class="flex flex-col gap-5 mb-5">
-        <li><a href="#inicio"    class="nav-link" onclick="closeMenu()">Inicio</a></li>
-        <li><a href="#sobre-mi"  class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
+        <li><a href="#inicio"          class="nav-link" onclick="closeMenu()">Inicio</a></li>
+        <li><a href="#sobre-mi"        class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
         <li><a href="./servicios.html" class="nav-link" onclick="closeMenu()">Servicios</a></li>
-        <li><a href="./equipo.html" class="nav-link" onclick="closeMenu()">Nuestro Equipo</a></li>
-        <li><a href="#ubicacion" class="nav-link" onclick="closeMenu()">Ubicación</a></li>
-        <li><a href="#redes"     class="nav-link" onclick="closeMenu()">Redes</a></li>
-        <li><a href="#contacto"  class="nav-link" onclick="closeMenu()">Contacto</a></li>
+        <li><a href="./guia.html"      class="nav-link" onclick="closeMenu()">Guía para Padres</a></li>
+        <li><a href="#contacto"        class="nav-link" onclick="closeMenu()">Contacto</a></li>
       </ul>
       <a href="https://wa.me/18098807355" target="_blank" rel="noopener" class="btn-primary">
         <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
@@ -213,7 +216,7 @@
 
 
   <!-- ===== INICIO ===== -->
-  <section id="inicio" class="relative overflow-hidden pt-[calc(72px+3rem)] pb-16 md:pt-[calc(72px+5rem)] md:pb-24"
+  <section id="inicio" class="relative overflow-hidden pt-[calc(108px+3rem)] pb-16 md:pt-[calc(108px+5rem)] md:pb-24"
            style="background: #FFF0F5;">
 
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
@@ -775,6 +778,7 @@
     function dismissAlert() {
       alertBar.style.display = 'none';
       mainNav.style.top = '0';
+      document.documentElement.style.setProperty('--nav-offset', '108px');
       sessionStorage.setItem('alert-dismissed', '1');
     }
     if (sessionStorage.getItem('alert-dismissed')) {

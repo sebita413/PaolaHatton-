@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./hatttonlogo.png">
+  <link rel="shortcut icon" href="./hatttonlogo.png">
+  <link rel="apple-touch-icon" href="./hatttonlogo.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none'; connect-src 'none';">
+  <title>Guía para Padres — Dra. Paola Hatton</title>
+  <meta name="description" content="Recursos prácticos para familias: manejo de fiebre, asma infantil, calendario de vacunas y más. Del consultorio de la Dra. Paola Hatton, Neumóloga Pediatra.">
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dra. Paola Hatton">
+  <meta property="og:title" content="Guía para Padres — Dra. Paola Hatton">
+  <meta property="og:description" content="Recursos prácticos para familias: manejo de fiebre, asma infantil, vacunas y más. Dra. Paola Hatton, Neumóloga Pediatra en Santo Domingo.">
+  <meta property="og:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
+  <meta property="og:url" content="https://TUDOMINIO.COM/guia.html">
+  <meta property="og:locale" content="es_DO">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guía para Padres — Dra. Paola Hatton">
+  <meta name="twitter:description" content="Recursos prácticos para familias del consultorio de la Dra. Paola Hatton en Santo Domingo.">
+  <meta name="twitter:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
+    :root { --nav-offset: 144px; }
+    [id] { scroll-margin-top: var(--nav-offset); }
+    .nav-link {
+      font-size: 0.875rem; font-weight: 500; color: #374151;
+      text-decoration: none; position: relative;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: #C8282C;
+      transform: scaleX(0); transition: transform 0.2s; transform-origin: center;
+    }
+    .nav-link:hover { color: #C8282C; }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; border-radius: 2px; }
+    .nav-link-active { color: #C8282C; font-weight: 600; }
+    .nav-link-active::after { transform: scaleX(1); }
+
+    /* FAQ accordion */
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1); }
+    .faq-icon { transition: transform 0.25s ease; }
+    .faq-btn { background: white; border: none; cursor: pointer; width: 100%; text-align: left; }
+    .faq-btn:focus-visible { outline: 2px solid #C8282C; outline-offset: 2px; border-radius: 4px; }
+
+    /* Download button hover */
+    .download-btn {
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(200,40,44,0.22), 0 2px 8px rgba(200,40,44,0.12) !important;
+    }
+    .download-btn:active { transform: scale(0.97); }
+
+    /* Info card hover */
+    .info-card {
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s;
+    }
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(200,40,44,0.10), 0 20px 52px rgba(0,0,0,0.06) !important;
+    }
+
+    /* Scroll-to-top */
+    #scroll-top-btn {
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.2s, background 0.2s;
+    }
+    #scroll-top-btn:hover {
+      background: #a01e22 !important;
+      box-shadow: 0 6px 20px rgba(200,40,44,0.50), 0 2px 8px rgba(200,40,44,0.25) !important;
+      transform: translateY(-2px) !important;
+    }
+    #scroll-top-btn:active { transform: scale(0.93) !important; }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp   { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeup { animation: fadeUp 0.6s ease both; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- ===== ALERT BAR ===== -->
+  <div id="alert-bar" class="fixed top-0 left-0 right-0 z-[60]" style="background: #C8282C; height: 36px;">
+    <div class="max-w-6xl mx-auto px-4 h-full flex items-center justify-center gap-2 relative">
+      <svg class="w-3.5 h-3.5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-white text-xs font-medium text-center truncate">
+        Agenda abierta para julio —
+        <a href="./index.html#contacto" class="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity ml-1">¡Reserva tu cita hoy!</a>
+      </p>
+      <button id="close-alert" aria-label="Cerrar aviso"
+              class="absolute right-3 md:right-6 text-white/70 hover:text-white transition-colors p-1 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);">
+    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between" style="border-bottom: 1px solid rgba(200,40,44,0.08);">
+      <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+        <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
+      </a>
+      <ul class="hidden md:flex items-center gap-5">
+        <li><a href="./index.html#inicio"   class="nav-link">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link">Sobre Mí</a></li>
+        <li><a href="./servicios.html"      class="nav-link">Servicios</a></li>
+        <li><a href="./guia.html"           class="nav-link nav-link-active">Guía para Padres</a></li>
+        <li><a href="./index.html#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
+                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Franja de emergencia (permanente) -->
+    <div style="background:#FFFBEB; border-bottom:1px solid rgba(217,119,6,0.20);">
+      <div class="max-w-6xl mx-auto px-4 flex items-center justify-center gap-2" style="height:36px;">
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#B45309" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <p style="color:#92400e; font-size:0.7rem; line-height:1.3; text-align:center;">
+          <strong>¿Emergencia respiratoria?</strong> Diríjase al centro de urgencias más cercano — este consultorio <strong>no</strong> atiende urgencias vitales.
+        </p>
+      </div>
+    </div>
+    <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
+      <ul class="flex flex-col gap-5 mb-5">
+        <li><a href="./index.html#inicio"   class="nav-link" onclick="closeMenu()">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
+        <li><a href="./servicios.html"      class="nav-link" onclick="closeMenu()">Servicios</a></li>
+        <li><a href="./guia.html"           class="nav-link nav-link-active" onclick="closeMenu()">Guía para Padres</a></li>
+        <li><a href="./index.html#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/18098807355" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:8px; background: linear-gradient(135deg,#C8282C,#8B1A1A); color:white; font-weight:700; font-size:0.9rem; padding:12px 24px; border-radius:100px; text-decoration:none;">
+        Pedir Cita
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="inicio" class="pt-[calc(108px+3rem)] pb-14 md:pt-[calc(108px+5rem)] md:pb-20" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <a href="./index.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-6 hover:opacity-75 transition-opacity" style="text-decoration:none;">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Volver al inicio
+      </a>
+      <div class="max-w-2xl animate-fadeup">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+             style="background: rgba(200,40,44,0.08); color: #C8282C;">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          Recursos para Familias
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4" style="letter-spacing: -0.03em; color: #1a1a1a;">
+          Recursos para una<br>
+          <em class="not-italic" style="color: #C8282C;">familia saludable</em>
+        </h1>
+        <p class="text-lg leading-relaxed" style="color: #6b7280; line-height: 1.7;">
+          Información práctica y confiable del consultorio de la Dra. Hatton para ayudarte a cuidar mejor la salud respiratoria de tu hijo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRIMERA VISITA ===== -->
+  <section id="primera-visita" class="py-14 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="info-card rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #FFFBFB 0%, #fff 100%); border: 1px solid rgba(200,40,44,0.12); box-shadow: 0 4px 20px rgba(200,40,44,0.06), 0 12px 40px rgba(0,0,0,0.04);">
+        <div class="flex flex-col md:flex-row items-stretch">
+          <!-- Icon column -->
+          <div class="flex items-center justify-center p-8 md:p-12 md:w-52 flex-shrink-0" style="background: linear-gradient(145deg, rgba(200,40,44,0.07), rgba(200,40,44,0.03));">
+            <div class="w-20 h-20 rounded-2xl flex items-center justify-center" style="background: rgba(200,40,44,0.10);">
+              <svg class="w-10 h-10" fill="none" stroke="#C8282C" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Content -->
+          <div class="p-8 md:p-10 flex-1">
+            <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-[0.10em]"
+                 style="background: rgba(200,40,44,0.08); color: #C8282C;">
+              Primera visita
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="letter-spacing: -0.02em; color: #1a1a1a;">
+              ¿Primera vez en consulta?<br>Mira qué llevar
+            </h2>
+            <p class="mb-6" style="color: #6b7280; line-height: 1.7;">
+              Prepárate para que la consulta sea más ágil y completa. Trae los siguientes documentos y datos:
+            </p>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <!-- Checklist items -->
+              <div class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-sm" style="color:#374151; line-height:1.6;">Carnet de vacunación actualizado</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-sm" style="color:#374151; line-height:1.6;">Resultados de exámenes previos (radiografías, espirometría)</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-sm" style="color:#374151; line-height:1.6;">Lista de medicamentos que usa actualmente</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-sm" style="color:#374151; line-height:1.6;">Tarjeta del seguro médico (ARS)</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-sm" style="color:#374151; line-height:1.6;">Cédula o acta de nacimiento del menor</p>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <p class="text-sm" style="color:#374151; line-height:1.6;">Historial de alergias conocidas</p>
+              </div>
+            </div>
+            <div class="mt-6 pt-5" style="border-top: 1px solid rgba(200,40,44,0.10);">
+              <p class="text-xs" style="color: #9ca3af;">
+                ¿Tienes dudas antes de la consulta?
+                <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="font-semibold hover:opacity-75 transition-opacity" style="color: #C8282C; text-decoration: none;">Escríbenos por WhatsApp →</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ BIBLIOTECA ===== -->
+  <section id="preguntas" class="py-14 md:py-20" style="background: #FFFBFB;">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+             style="background: rgba(200,40,44,0.08); color: #C8282C;">
+          Preguntas frecuentes
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="letter-spacing: -0.02em; color: #1a1a1a;">
+          Biblioteca de respuestas
+        </h2>
+        <p style="color: #6b7280; line-height: 1.7;">
+          Toca cualquier tema para expandirlo. Si no encuentras tu respuesta, escríbenos directamente.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+
+        <!-- FAQ: Manejo de fiebre -->
+        <div class="rounded-xl overflow-hidden" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-6 py-5 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <span class="font-semibold text-gray-800">Manejo de fiebre en niños</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-6 pb-6 space-y-4" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p><strong>¿Cuándo es fiebre?</strong> Se considera fiebre cuando la temperatura axilar supera los <strong>38 °C</strong>. La temperatura rectal es 0.5 °C más alta.</p>
+                <p><strong>¿Qué hacer primero?</strong> Mantén al niño hidratado con agua o suero oral, retira ropa de más y ventila el ambiente. No abrigues de más.</p>
+                <p><strong>Medicamentos:</strong> El paracetamol (acetaminofén) a dosis de <strong>10–15 mg/kg</strong> cada 6 horas es la primera línea. El ibuprofeno (>6 meses) puede alternarse a 5–10 mg/kg cada 8 horas.</p>
+                <p><strong>¡Nunca uses aspirina!</strong> En menores de 18 años puede causar el síndrome de Reye, una complicación grave.</p>
+                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.05); border-left: 3px solid #C8282C;">
+                  <p class="text-xs font-semibold" style="color: #C8282C;">¿Cuándo acudir al médico?</p>
+                  <ul class="mt-1 text-xs space-y-1" style="color: #374151;">
+                    <li>• Niño menor de 3 meses con cualquier fiebre</li>
+                    <li>• Fiebre > 40 °C o que dura más de 3 días</li>
+                    <li>• Convulsiones, dificultad para respirar o manchas en la piel</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ: Asma -->
+        <div class="rounded-xl overflow-hidden" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-6 py-5 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <span class="font-semibold text-gray-800">Dudas sobre asma infantil</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-6 pb-6 space-y-4" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p><strong>¿Qué es el asma?</strong> Es una enfermedad crónica de las vías aéreas que causa silbidos al respirar, tos persistente (especialmente de noche) y sensación de pecho apretado.</p>
+                <p><strong>¿Tiene cura?</strong> No tiene cura, pero con el tratamiento adecuado se controla completamente y el niño puede llevar una vida normal, incluyendo deportes.</p>
+                <p><strong>¿Cuáles son los desencadenantes más comunes?</strong></p>
+                <ul class="space-y-1 text-sm pl-2" style="color: #374151;">
+                  <li>• Polvo, ácaros y moho en el hogar</li>
+                  <li>• Humo de cigarrillo (activo o pasivo)</li>
+                  <li>• Polen, animales con pelo o plumas</li>
+                  <li>• Infecciones respiratorias (catarros, gripes)</li>
+                  <li>• Ejercicio intenso sin calentamiento</li>
+                </ul>
+                <p><strong>¿Puedo suspender el inhalador si el niño está bien?</strong> <em>No</em>. El inhalador preventivo (corticoide inhalado) se usa todos los días aunque no haya síntomas. Suspenderlo sin indicación médica es la causa más frecuente de recaídas.</p>
+                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.05); border-left: 3px solid #C8282C;">
+                  <p class="text-xs font-semibold" style="color: #C8282C;">Crisis de asma: actúa así</p>
+                  <ol class="mt-1 text-xs space-y-1 list-decimal list-inside" style="color: #374151;">
+                    <li>Administra el broncodilatador de rescate (salbutamol)</li>
+                    <li>Siéntalo derecho y tranquilízalo</li>
+                    <li>Si no mejora en 20 min, ve a urgencias</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ: Vacunas -->
+        <div class="rounded-xl overflow-hidden" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-6 py-5 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <span class="font-semibold text-gray-800">Calendario de vacunas</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-6 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-4" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>El Programa Ampliado de Inmunización (PAI) de República Dominicana establece el siguiente esquema básico:</p>
+                <div class="overflow-x-auto rounded-lg" style="border: 1px solid rgba(200,40,44,0.10);">
+                  <table class="w-full text-xs">
+                    <thead>
+                      <tr style="background: rgba(200,40,44,0.07);">
+                        <th class="px-4 py-2.5 text-left font-semibold" style="color: #C8282C;">Edad</th>
+                        <th class="px-4 py-2.5 text-left font-semibold" style="color: #C8282C;">Vacunas</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y" style="divide-color: rgba(200,40,44,0.06);">
+                      <tr class="hover:bg-red-50/30 transition-colors">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">Al nacer</td>
+                        <td class="px-4 py-2.5">BCG, Hepatitis B</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">2 meses</td>
+                        <td class="px-4 py-2.5">Pentavalente, Polio oral, Rotavirus, Neumococo</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">4 meses</td>
+                        <td class="px-4 py-2.5">Pentavalente, Polio oral, Rotavirus, Neumococo</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">6 meses</td>
+                        <td class="px-4 py-2.5">Pentavalente, Polio oral, Influenza</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">12 meses</td>
+                        <td class="px-4 py-2.5">SRP (sarampión, rubéola, paperas), Neumococo</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">15 meses</td>
+                        <td class="px-4 py-2.5">Varicela</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">18 meses</td>
+                        <td class="px-4 py-2.5">Pentavalente (refuerzo), DPT, Polio</td>
+                      </tr>
+                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
+                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">4–6 años</td>
+                        <td class="px-4 py-2.5">DPT, Polio, SRP (refuerzo)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="text-xs" style="color: #9ca3af;">Este esquema es orientativo. La Dra. Hatton revisará tu carnet en consulta y te indicará si hay dosis pendientes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ZONA DE DESCARGAS ===== -->
+  <section id="descargas" class="py-14 md:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-6 text-center">
+      <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+           style="background: rgba(200,40,44,0.08); color: #C8282C;">
+        Descargas
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" style="letter-spacing: -0.02em; color: #1a1a1a;">
+        Documentos útiles
+      </h2>
+      <p class="mb-10" style="color: #6b7280; line-height: 1.7;">
+        Descarga y completa la ficha antes de tu primera consulta para ahorrar tiempo.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <!-- Ficha de paciente -->
+        <a href="#" class="download-btn inline-flex items-center gap-3 px-6 py-4 rounded-2xl font-semibold"
+           style="background: linear-gradient(135deg, #C8282C, #8B1A1A); color: white; text-decoration: none; box-shadow: 0 4px 16px rgba(200,40,44,0.30), 0 2px 6px rgba(0,0,0,0.08);">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Descargar Ficha de Paciente
+          <span class="text-xs font-normal opacity-70">PDF</span>
+        </a>
+        <!-- WhatsApp alternativo -->
+        <a href="https://wa.me/18098807355?text=Hola%2C%20necesito%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20ficha%20de%20paciente." target="_blank" rel="noopener"
+           class="download-btn inline-flex items-center gap-3 px-6 py-4 rounded-2xl font-semibold"
+           style="background: white; color: #374151; text-decoration: none; border: 1.5px solid rgba(200,40,44,0.15); box-shadow: 0 2px 10px rgba(0,0,0,0.06);">
+          <svg class="w-5 h-5 flex-shrink-0 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          Solicitar por WhatsApp
+        </a>
+      </div>
+      <p class="mt-4 text-xs" style="color: #9ca3af;">La ficha en PDF estará disponible próximamente. Por ahora, escríbenos y te la enviamos.</p>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="py-16 md:py-24" style="background: linear-gradient(135deg, #1a0505 0%, #2d0808 50%, #1a0505 100%); position: relative; overflow: hidden;">
+    <!-- decorative radial glow -->
+    <div style="position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:600px; height:400px; border-radius:50%; background: radial-gradient(ellipse, rgba(200,40,44,0.20) 0%, transparent 70%); pointer-events:none;"></div>
+    <div class="max-w-2xl mx-auto px-4 md:px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+           style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.70);">
+        ¿Tienes más preguntas?
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" style="letter-spacing: -0.02em;">
+        Escríbele directamente<br>a la Dra. Hatton
+      </h2>
+      <p class="mb-8" style="color: rgba(255,255,255,0.60); line-height: 1.7;">
+        Responde dudas puntuales por WhatsApp. Para diagnósticos o tratamientos, agenda una consulta.
+      </p>
+      <a href="https://wa.me/18098807355?text=Hola%20Dra.%20Hatton%2C%20tengo%20una%20pregunta%20sobre%20la%20salud%20de%20mi%20hijo." target="_blank" rel="noopener"
+         class="inline-flex items-center gap-3 px-8 py-4 rounded-full font-bold text-white transition-transform duration-200 hover:-translate-y-1 active:scale-95"
+         style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 6px 24px rgba(37,211,102,0.35), 0 2px 8px rgba(0,0,0,0.20); text-decoration: none; font-size: 1rem;">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-6" style="background: #111827;">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5"
+           style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto opacity-90">
+        </a>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <a href="./index.html#inicio"   class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Inicio</a>
+          <a href="./index.html#sobre-mi" class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Sobre Mí</a>
+          <a href="./servicios.html"      class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Servicios</a>
+          <a href="./guia.html"           class="text-sm font-semibold" style="color: #C8282C;">Guía para Padres</a>
+          <a href="./index.html#contacto" class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Contacto</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+             style="color: rgba(255,255,255,0.45);"
+             onmouseover="this.style.background='#C8282C'; this.style.color='white';"
+             onmouseout="this.style.background=''; this.style.color='rgba(255,255,255,0.45)';">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener"
+             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+             style="color: rgba(255,255,255,0.45);"
+             onmouseover="this.style.background='#C8282C'; this.style.color='white';"
+             onmouseout="this.style.background=''; this.style.color='rgba(255,255,255,0.45)';">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="pt-5 text-center">
+        <p class="text-sm" style="color: rgba(255,255,255,0.45);">&copy; 2026 Dra. Paola Hatton &middot; Neumóloga Pediatra &middot; Santo Domingo, R.D.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top-btn" aria-label="Volver arriba"
+          style="position:fixed; bottom:24px; right:24px; z-index:40; width:44px; height:44px; border-radius:50%; background:#C8282C; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(200,40,44,0.35),0 2px 6px rgba(0,0,0,0.12); opacity:0; pointer-events:none; transform:translateY(12px);">
+    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script>
+    // Mobile nav
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = !mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden');
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+    function closeMenu() {
+      mobileNav.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    // Alert bar dismiss
+    const alertBar = document.getElementById('alert-bar');
+    const mainNav  = document.getElementById('main-nav');
+    function dismissAlert() {
+      alertBar.style.display = 'none';
+      mainNav.style.top = '0';
+      document.documentElement.style.setProperty('--nav-offset', '108px');
+      sessionStorage.setItem('alert-dismissed', '1');
+    }
+    if (sessionStorage.getItem('alert-dismissed')) {
+      dismissAlert();
+    } else {
+      document.getElementById('close-alert').addEventListener('click', dismissAlert);
+    }
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+      document.querySelectorAll('.faq-body').forEach(b => { b.style.maxHeight = '0px'; });
+      document.querySelectorAll('.faq-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
+      document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); });
+      if (!isOpen) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // Scroll-to-top button
+    const scrollBtn = document.getElementById('scroll-top-btn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.style.opacity = '1';
+        scrollBtn.style.pointerEvents = 'auto';
+        scrollBtn.style.transform = 'translateY(0)';
+      } else {
+        scrollBtn.style.opacity = '0';
+        scrollBtn.style.pointerEvents = 'none';
+        scrollBtn.style.transform = 'translateY(12px)';
+      }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

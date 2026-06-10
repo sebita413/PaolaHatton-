@@ -114,38 +114,45 @@
   </div>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04); border-bottom: 1px solid rgba(200,40,44,0.08);">
-    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);">
+    <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between" style="border-bottom: 1px solid rgba(200,40,44,0.08);">
       <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
         <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
       </a>
       <ul class="hidden md:flex items-center gap-5">
-        <li><a href="./index.html#inicio"    class="nav-link">Inicio</a></li>
-        <li><a href="./index.html#sobre-mi"  class="nav-link">Sobre Mí</a></li>
-        <li><a href="./servicios.html"       class="nav-link nav-link-active">Servicios</a></li>
-        <li><a href="./equipo.html"          class="nav-link">Nuestro Equipo</a></li>
-        <li><a href="./index.html#ubicacion" class="nav-link">Ubicación</a></li>
-        <li><a href="./index.html#redes"     class="nav-link">Redes</a></li>
-        <li><a href="./index.html#contacto"  class="nav-link">Contacto</a></li>
+        <li><a href="./index.html#inicio"   class="nav-link">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link">Sobre Mí</a></li>
+        <li><a href="./servicios.html"      class="nav-link nav-link-active">Servicios</a></li>
+        <li><a href="./guia.html"           class="nav-link">Guía para Padres</a></li>
+        <li><a href="./index.html#contacto" class="nav-link">Contacto</a></li>
       </ul>
       <div class="flex items-center gap-3">
         <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
-                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200">
+                class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
     </div>
+    <!-- Franja de emergencia (permanente) -->
+    <div style="background:#FFFBEB; border-bottom:1px solid rgba(217,119,6,0.20);">
+      <div class="max-w-6xl mx-auto px-4 flex items-center justify-center gap-2" style="height:36px;">
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#B45309" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <p style="color:#92400e; font-size:0.7rem; line-height:1.3; text-align:center;">
+          <strong>¿Emergencia respiratoria?</strong> Diríjase al centro de urgencias más cercano — este consultorio <strong>no</strong> atiende urgencias vitales.
+        </p>
+      </div>
+    </div>
     <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
       <ul class="flex flex-col gap-5 mb-5">
-        <li><a href="./index.html#inicio"    class="nav-link" onclick="closeMenu()">Inicio</a></li>
-        <li><a href="./index.html#sobre-mi"  class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
-        <li><a href="./servicios.html"       class="nav-link nav-link-active" onclick="closeMenu()">Servicios</a></li>
-        <li><a href="./equipo.html"          class="nav-link" onclick="closeMenu()">Nuestro Equipo</a></li>
-        <li><a href="./index.html#ubicacion" class="nav-link" onclick="closeMenu()">Ubicación</a></li>
-        <li><a href="./index.html#redes"     class="nav-link" onclick="closeMenu()">Redes</a></li>
-        <li><a href="./index.html#contacto"  class="nav-link" onclick="closeMenu()">Contacto</a></li>
+        <li><a href="./index.html#inicio"   class="nav-link" onclick="closeMenu()">Inicio</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
+        <li><a href="./servicios.html"      class="nav-link nav-link-active" onclick="closeMenu()">Servicios</a></li>
+        <li><a href="./guia.html"           class="nav-link" onclick="closeMenu()">Guía para Padres</a></li>
+        <li><a href="./index.html#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
       </ul>
       <a href="https://wa.me/18098807355" target="_blank" rel="noopener"
          style="display:inline-flex; align-items:center; gap:8px; background: linear-gradient(135deg,#C8282C,#8B1A1A); color:white; font-weight:700; font-size:0.9rem; padding:12px 24px; border-radius:100px; text-decoration:none;">
@@ -156,7 +163,7 @@
 
 
   <!-- ===== HERO ===== -->
-  <section class="pt-[calc(72px+3rem)] pb-14 md:pt-[calc(72px+4.5rem)] md:pb-20 bg-white">
+  <section class="pt-[calc(108px+3rem)] pb-14 md:pt-[calc(108px+4.5rem)] md:pb-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
       <a href="./index.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-6 hover:opacity-75 transition-opacity">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -652,38 +659,39 @@
   </button>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="py-10 border-t bg-white" style="border-color: rgba(200,40,44,0.10);">
+  <footer class="py-6" style="background: #111827;">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-7"
-           style="border-bottom: 1px solid rgba(200,40,44,0.07);">
-        <a href="./index.html" class="flex-shrink-0">
-          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5"
+           style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
+          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto opacity-90">
         </a>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <a href="./index.html#inicio"    class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Inicio</a>
-          <a href="./index.html#sobre-mi"  class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Sobre Mí</a>
-          <a href="./servicios.html"       class="text-[#C8282C] text-sm font-semibold">Servicios</a>
-          <a href="./equipo.html"          class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Nuestro Equipo</a>
-          <a href="./index.html#ubicacion" class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Ubicación</a>
-          <a href="./index.html#contacto"  class="text-gray-400 text-sm font-medium hover:text-[#C8282C] transition-colors duration-200">Contacto</a>
+          <a href="./index.html#inicio"   class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Inicio</a>
+          <a href="./index.html#sobre-mi" class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Sobre Mí</a>
+          <a href="./servicios.html"      class="text-sm font-semibold" style="color: #C8282C;">Servicios</a>
+          <a href="./guia.html"           class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Guía para Padres</a>
+          <a href="./index.html#contacto" class="text-sm font-medium transition-colors duration-200" style="color: rgba(255,255,255,0.45);" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">Contacto</a>
         </nav>
         <div class="flex items-center gap-3">
           <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
-             class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 transition-colors duration-200"
+             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+             style="color: rgba(255,255,255,0.45);"
              onmouseover="this.style.background='#C8282C'; this.style.color='white';"
-             onmouseout="this.style.background=''; this.style.color='';">
+             onmouseout="this.style.background=''; this.style.color='rgba(255,255,255,0.45)';">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
           <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener"
-             class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 transition-colors duration-200"
+             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+             style="color: rgba(255,255,255,0.45);"
              onmouseover="this.style.background='#C8282C'; this.style.color='white';"
-             onmouseout="this.style.background=''; this.style.color='';">
+             onmouseout="this.style.background=''; this.style.color='rgba(255,255,255,0.45)';">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
       </div>
-      <div class="pt-6 text-center">
-        <p class="text-gray-400 text-sm">&copy; 2026 Dra. Paola Hatton &middot; Neumóloga Pediatra &middot; Santo Domingo, R.D.</p>
+      <div class="pt-5 text-center">
+        <p class="text-sm" style="color: rgba(255,255,255,0.45);">&copy; 2026 Dra. Paola Hatton &middot; Neumóloga Pediatra &middot; Santo Domingo, R.D.</p>
       </div>
     </div>
   </footer>
