@@ -14,7 +14,7 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
 
-    [id] { scroll-margin-top: 80px; }
+    [id] { scroll-margin-top: 116px; }
 
     /* Layered brand shadow */
     .shadow-brand {
@@ -127,9 +127,27 @@
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
+  <!-- ===== ALERT BAR ===== -->
+  <div id="alert-bar" class="fixed top-0 left-0 right-0 z-[60]" style="background: #C8282C; height: 36px;">
+    <div class="max-w-6xl mx-auto px-4 h-full flex items-center justify-center gap-2 relative">
+      <svg class="w-3.5 h-3.5 text-white/80 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+      </svg>
+      <p class="text-white text-xs font-medium text-center truncate">
+        Agenda abierta para julio —
+        <a href="#contacto" class="font-bold underline underline-offset-2 hover:opacity-80 transition-opacity ml-1">¡Reserva tu cita hoy!</a>
+      </p>
+      <button id="close-alert" aria-label="Cerrar aviso"
+              class="absolute right-3 md:right-6 text-white/70 hover:text-white transition-colors p-1 rounded focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <!-- ===== NAVIGATION ===== -->
-  <nav class="fixed top-0 left-0 right-0 z-50" style="background: #FFFFFF;"
-       style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04); border-bottom: 1px solid rgba(200,40,44,0.08);">
+  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04); border-bottom: 1px solid rgba(200,40,44,0.08);">
     <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
 
       <!-- Logo -->
@@ -793,6 +811,20 @@
         answer.style.maxHeight = answer.scrollHeight + 'px';
         icon.style.transform = 'rotate(45deg)';
       }
+    }
+
+    // Alert bar dismiss
+    const alertBar = document.getElementById('alert-bar');
+    const mainNav  = document.getElementById('main-nav');
+    function dismissAlert() {
+      alertBar.style.display = 'none';
+      mainNav.style.top = '0';
+      sessionStorage.setItem('alert-dismissed', '1');
+    }
+    if (sessionStorage.getItem('alert-dismissed')) {
+      dismissAlert();
+    } else {
+      document.getElementById('close-alert').addEventListener('click', dismissAlert);
     }
 
     // Scroll-to-top button
