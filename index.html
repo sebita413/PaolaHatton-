@@ -332,18 +332,48 @@
               </div>
               <p class="text-sm font-semibold text-gray-700 leading-tight">Años de experiencia</p>
             </div>
-            <div class="rounded-2xl p-5"
-                 style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.18); box-shadow: 0 1px 6px rgba(200,40,44,0.07);">
+            <!-- UASD badge — clicable, abre acordeón -->
+            <button id="uasd-btn" onclick="toggleUasd()" aria-expanded="false"
+                    class="rounded-2xl p-5 text-left w-full transition-all duration-200"
+                    style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.18); box-shadow: 0 1px 6px rgba(200,40,44,0.07); cursor: pointer;"
+                    onmouseover="this.style.background='#FFF5F5'; this.style.borderColor='rgba(200,40,44,0.35)';"
+                    onmouseout="this.style.background='#FFFCF8'; this.style.borderColor='rgba(200,40,44,0.18)';">
               <div class="flex items-start justify-between mb-2">
                 <p class="text-xl font-bold leading-none text-[#C8282C]"
                    style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">UASD</p>
-                <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                     style="color: rgba(200,40,44,0.35);">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                <svg id="uasd-chevron" class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24"
+                     style="transition: transform 0.28s ease;">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
                 </svg>
               </div>
               <p class="text-sm font-semibold text-gray-700 leading-tight">Formación académica</p>
+            </button>
+          </div>
+
+          <!-- Acordeón formación -->
+          <div id="uasd-body" style="max-height:0; overflow:hidden; transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);">
+            <div class="rounded-2xl p-5 space-y-3 mt-1" style="background:#FFFCF8; border:1.5px solid rgba(200,40,44,0.18);">
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#C8282C;"></div>
+                <div>
+                  <p class="font-semibold text-gray-800 text-sm">Médico General</p>
+                  <p class="text-gray-500 text-xs">Universidad Autónoma de Santo Domingo (UASD)</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#C8282C;"></div>
+                <div>
+                  <p class="font-semibold text-gray-800 text-sm">Especialidad en Pediatría</p>
+                  <p class="text-gray-500 text-xs">Residencia médica — Santo Domingo, R.D.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-2 h-2 rounded-full mt-1.5 flex-shrink-0" style="background:#C8282C;"></div>
+                <div>
+                  <p class="font-semibold text-gray-800 text-sm">Subespecialidad en Neumología Pediátrica</p>
+                  <p class="text-gray-500 text-xs">Formación avanzada en enfermedades respiratorias infantiles</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -711,6 +741,23 @@
         closeMenu();
       }
     });
+
+    // Badge UASD acordeón
+    function toggleUasd() {
+      const body = document.getElementById('uasd-body');
+      const chevron = document.getElementById('uasd-chevron');
+      const btn = document.getElementById('uasd-btn');
+      const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+      if (isOpen) {
+        body.style.maxHeight = '0px';
+        chevron.style.transform = 'rotate(0deg)';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        chevron.style.transform = 'rotate(180deg)';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
 
     // Acordeón Sobre Mí
     function toggleAcc(btn) {
