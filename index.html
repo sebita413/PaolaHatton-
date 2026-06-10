@@ -109,6 +109,10 @@
     }
 
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 767px) {
+      .sobre-mi-photo-wrap { max-height: 200px; overflow: hidden; }
+    }
     @keyframes cta-glow {
       0%, 100% { box-shadow: 0 4px 16px rgba(200,40,44,0.35), 0 0 0 0px rgba(200,40,44,0.20); }
       50%       { box-shadow: 0 6px 32px rgba(200,40,44,0.60), 0 0 0 8px rgba(200,40,44,0.08), 0 0 60px rgba(200,40,44,0.25); }
@@ -187,7 +191,14 @@
 
         <!-- Left: text -->
         <div class="flex flex-col justify-center">
-          <span class="inline-block text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-5">Neumóloga · Pediatra</span>
+          <!-- Mobile: badge + small avatar side by side -->
+          <div class="flex items-center gap-4 mb-5">
+            <span class="inline-block text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Neumóloga · Pediatra</span>
+            <div class="md:hidden flex-shrink-0 w-20 h-20 rounded-2xl overflow-hidden ml-auto"
+                 style="box-shadow: 0 4px 16px rgba(0,0,0,0.18);">
+              <img src="./hattonhero.jpg" alt="Dra. Paola Hatton" class="w-full h-full object-cover object-top">
+            </div>
+          </div>
           <h1 class="text-[2rem] md:text-5xl lg:text-[3.2rem] font-bold text-gray-900 mb-5"
               style="font-family: 'Playfair Display', serif; letter-spacing: -0.03em; line-height: 1.18;">
             Cuidando la salud<br>
@@ -219,8 +230,8 @@
           </div>
         </div>
 
-        <!-- Right: photo with red accent frame -->
-        <div class="relative pb-7 pr-7 md:pb-9 md:pr-9 mt-8 md:mt-0">
+        <!-- Right: photo with red accent frame (hidden on mobile, replaced by small avatar above) -->
+        <div class="hidden md:block relative pb-7 pr-7 md:pb-9 md:pr-9 mt-8 md:mt-0">
           <!-- Red accent block -->
           <div class="absolute bottom-0 right-0 top-7 left-7 md:top-9 md:left-9 rounded-3xl"
                style="background: #C8282C; opacity: 0.18;"></div>
@@ -248,7 +259,7 @@
       <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-start">
         <!-- Photo -->
         <div class="md:col-span-2">
-          <div class="relative overflow-hidden rounded-2xl"
+          <div class="sobre-mi-photo-wrap relative overflow-hidden rounded-2xl"
                style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.08);">
             <img src="./sobremi.png" alt="Dra. Paola Hatton"
                  class="w-full object-cover object-top"
