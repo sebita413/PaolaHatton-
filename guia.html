@@ -9,7 +9,6 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src 'none'; connect-src 'none';">
   <title>Guía para Padres — Dra. Paola Hatton</title>
   <meta name="description" content="Recursos prácticos para familias: manejo de fiebre, asma infantil, calendario de vacunas y más. Del consultorio de la Dra. Paola Hatton, Neumóloga Pediatra.">
-  <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dra. Paola Hatton">
   <meta property="og:title" content="Guía para Padres — Dra. Paola Hatton">
@@ -17,7 +16,6 @@
   <meta property="og:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
   <meta property="og:url" content="https://TUDOMINIO.COM/guia.html">
   <meta property="og:locale" content="es_DO">
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Guía para Padres — Dra. Paola Hatton">
   <meta name="twitter:description" content="Recursos prácticos para familias del consultorio de la Dra. Paola Hatton en Santo Domingo.">
@@ -47,21 +45,12 @@
     .nav-link-active { color: #C8282C; font-weight: 600; }
     .nav-link-active::after { transform: scaleX(1); }
 
-    /* FAQ accordion */
-    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1); }
+    /* Accordion */
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1); }
     .faq-icon { transition: transform 0.25s ease; }
     .faq-btn { background: white; border: none; cursor: pointer; width: 100%; text-align: left; }
     .faq-btn:focus-visible { outline: 2px solid #C8282C; outline-offset: 2px; border-radius: 4px; }
-
-    /* Download button hover */
-    .download-btn {
-      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
-    }
-    .download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(200,40,44,0.22), 0 2px 8px rgba(200,40,44,0.12) !important;
-    }
-    .download-btn:active { transform: scale(0.97); }
+    .faq-btn:hover .faq-title { color: #C8282C; }
 
     /* Info card hover */
     .info-card {
@@ -71,6 +60,18 @@
       transform: translateY(-3px);
       box-shadow: 0 10px 32px rgba(200,40,44,0.10), 0 20px 52px rgba(0,0,0,0.06) !important;
     }
+
+    /* Myth card */
+    .myth-card { transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1); }
+    .myth-card:hover { transform: translateY(-2px); }
+
+    /* CTA buttons */
+    .cta-btn {
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s, opacity 0.2s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); }
+    .cta-btn:active { transform: scale(0.97); }
+    .cta-btn:focus-visible { outline: 2px solid white; outline-offset: 3px; }
 
     /* Scroll-to-top */
     #scroll-top-btn {
@@ -86,6 +87,17 @@
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeUp   { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
     .animate-fadeup { animation: fadeUp 0.6s ease both; }
+
+    /* Category label */
+    .category-label {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #9ca3af; margin-bottom: 12px; margin-top: 28px;
+    }
+    .category-label::before, .category-label::after {
+      content: ''; flex: 1; height: 1px; background: rgba(0,0,0,0.07);
+    }
+    .category-label:first-child { margin-top: 0; }
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -117,7 +129,7 @@
       </a>
       <ul class="hidden md:flex items-center gap-5">
         <li><a href="./index.html#inicio"   class="nav-link">Inicio</a></li>
-        <li><a href="./index.html#sobre-mi" class="nav-link">Sobre Mí</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link">Mi Compromiso</a></li>
         <li><a href="./servicios.html"      class="nav-link">Servicios</a></li>
         <li><a href="./ficha-medica.html"   class="nav-link">Pre-Consulta</a></li>
         <li><a href="./equipo.html"         class="nav-link">Nuestro Equipo</a></li>
@@ -133,7 +145,7 @@
         </button>
       </div>
     </div>
-    <!-- Franja de emergencia (permanente) -->
+    <!-- Franja de emergencia -->
     <div style="background:#FFFBEB; border-bottom:1px solid rgba(217,119,6,0.20);">
       <div class="max-w-6xl mx-auto px-4 flex items-center justify-center gap-2" style="height:36px;">
         <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#B45309" stroke-width="2" viewBox="0 0 24 24">
@@ -147,7 +159,7 @@
     <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
       <ul class="flex flex-col gap-5 mb-5">
         <li><a href="./index.html#inicio"   class="nav-link" onclick="closeMenu()">Inicio</a></li>
-        <li><a href="./index.html#sobre-mi" class="nav-link" onclick="closeMenu()">Sobre Mí</a></li>
+        <li><a href="./index.html#sobre-mi" class="nav-link" onclick="closeMenu()">Mi Compromiso</a></li>
         <li><a href="./servicios.html"      class="nav-link" onclick="closeMenu()">Servicios</a></li>
         <li><a href="./ficha-medica.html"   class="nav-link" onclick="closeMenu()">Pre-Consulta</a></li>
         <li><a href="./equipo.html"         class="nav-link" onclick="closeMenu()">Nuestro Equipo</a></li>
@@ -162,7 +174,7 @@
   </nav>
 
   <!-- ===== HERO ===== -->
-  <section id="inicio" class="pt-[calc(108px+3rem)] pb-14 md:pt-[calc(108px+5rem)] md:pb-20" style="background: #FFFBFB;">
+  <section id="inicio" class="pt-[calc(108px+3rem)] pb-12 md:pt-[calc(108px+4rem)] md:pb-16" style="background: #FFFBFB;">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
       <a href="./index.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-6 hover:opacity-75 transition-opacity" style="text-decoration:none;">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -174,20 +186,416 @@
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
           </svg>
-          Recursos para Familias
+          Guía para Padres
         </div>
         <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4" style="letter-spacing: -0.03em; color: #1a1a1a;">
-          Recursos para una<br>
-          <em class="not-italic" style="color: #C8282C;">familia saludable</em>
+          Información clara<br>
+          <em class="not-italic" style="color: #C8282C;">para tu tranquilidad</em>
         </h1>
         <p class="text-lg leading-relaxed" style="color: #6b7280; line-height: 1.7;">
-          Información práctica y confiable del consultorio de la Dra. Hatton para ayudarte a cuidar mejor la salud respiratoria de tu hijo.
+          Recursos prácticos y confiables del consultorio de la Dra. Hatton para que cuides mejor la salud respiratoria de tu hijo.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== PRIMERA VISITA ===== -->
+  <!-- ===== MENSAJE DE BIENVENIDA ===== -->
+  <section class="py-10 md:py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="relative rounded-2xl p-7 md:p-10 overflow-hidden"
+           style="background: linear-gradient(135deg, #FFFBFB 0%, #fff5f5 100%); border: 1.5px solid rgba(200,40,44,0.12); box-shadow: 0 4px 24px rgba(200,40,44,0.06), 0 12px 40px rgba(0,0,0,0.04);">
+        <!-- decorative quote mark -->
+        <div class="absolute top-4 left-6 opacity-[0.06]" style="font-family: Georgia, serif; font-size: 9rem; line-height: 1; color: #C8282C; pointer-events: none; user-select: none;">"</div>
+        <div class="relative flex flex-col sm:flex-row items-start gap-6">
+          <div class="flex-shrink-0">
+            <div class="w-14 h-14 rounded-2xl overflow-hidden" style="box-shadow: 0 4px 14px rgba(200,40,44,0.18);">
+              <img src="./hattonhero.jpg" alt="Dra. Paola Hatton" class="w-full h-full object-cover object-top">
+            </div>
+          </div>
+          <div class="flex-1">
+            <p class="text-base md:text-lg leading-relaxed mb-4" style="color: #374151; line-height: 1.8; font-style: italic;">
+              "Entiendo que la salud de tu hijo es tu mayor prioridad. Aquí encontrarás respuestas claras a las dudas más comunes sobre salud respiratoria para que sepas qué hacer y cuándo mantener la calma."
+            </p>
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-0.5 rounded" style="background: #C8282C;"></div>
+              <p class="text-sm font-semibold" style="color: #C8282C;">Dra. Paola Hatton</p>
+              <span class="text-xs" style="color: #9ca3af;">· Neumóloga Pediatra</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BIBLIOTECA DE SALUD ===== -->
+  <section id="biblioteca" class="py-12 md:py-20" style="background: #FFFBFB;">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+             style="background: rgba(200,40,44,0.08); color: #C8282C;">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          Biblioteca de Salud
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="letter-spacing: -0.02em; color: #1a1a1a;">
+          Toca cualquier tema<br>para expandirlo
+        </h2>
+        <p style="color: #6b7280; line-height: 1.7;">
+          Si no encuentras tu respuesta, escríbenos directamente por WhatsApp.
+        </p>
+      </div>
+
+      <!-- ── Categoría: Salud Respiratoria ── -->
+      <div class="category-label">Salud Respiratoria</div>
+      <div class="space-y-3" data-faq-group="respiratoria">
+
+        <!-- 1. Gripe vs. algo más serio -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">¿Cómo diferenciar una gripe común de algo más serio?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>La gripe común suele iniciar con <strong>fiebre moderada, congestión, tos seca y malestar general</strong>. En 5–7 días el niño mejora progresivamente sin necesidad de antibióticos.</p>
+                <div class="grid sm:grid-cols-2 gap-3 mt-1">
+                  <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.04); border: 1px solid rgba(200,40,44,0.12);">
+                    <p class="text-xs font-bold mb-1.5" style="color: #C8282C;">Señales de alerta — acude pronto</p>
+                    <ul class="text-xs space-y-1" style="color: #374151;">
+                      <li>• Respiración rápida o laboriosa</li>
+                      <li>• Labios o uñas azulados</li>
+                      <li>• Fiebre > 40 °C o que dura > 3 días</li>
+                      <li>• El niño no quiere comer ni beber nada</li>
+                      <li>• Llanto inconsolable o somnolencia extrema</li>
+                    </ul>
+                  </div>
+                  <div class="rounded-lg p-3" style="background: rgba(16,185,129,0.04); border: 1px solid rgba(16,185,129,0.15);">
+                    <p class="text-xs font-bold mb-1.5" style="color: #059669;">En casa está bien si…</p>
+                    <ul class="text-xs space-y-1" style="color: #374151;">
+                      <li>• Respira con normalidad</li>
+                      <li>• Fiebre baja con paracetamol</li>
+                      <li>• Sigue bebiendo líquidos</li>
+                      <li>• Mejora día a día</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="text-xs" style="color: #9ca3af;">Ante la duda, es mejor una llamada o consulta. Nunca está de más verificar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Asma en casa -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">Manejo básico del asma en casa: ¿Qué tener siempre a mano?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>Con el tratamiento correcto, un niño con asma puede llevar una vida completamente normal. La clave es estar preparado.</p>
+                <p><strong>Tu kit en casa debe incluir siempre:</strong></p>
+                <ul class="space-y-2 text-sm">
+                  <li class="flex items-start gap-2">
+                    <div class="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(200,40,44,0.10);">
+                      <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span><strong>Inhalador de rescate</strong> (salbutamol/ventolín) — siempre con carga suficiente</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <div class="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(200,40,44,0.10);">
+                      <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span><strong>Espaciador (aerocámara)</strong> — mejora la absorción del medicamento hasta un 80 %</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <div class="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(200,40,44,0.10);">
+                      <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span><strong>Plan de acción escrito</strong> que le dio la Dra. Hatton — guárdalo en tu celular</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <div class="mt-1 w-4 h-4 rounded-full flex-shrink-0 flex items-center justify-center" style="background: rgba(200,40,44,0.10);">
+                      <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span><strong>Inhalador preventivo</strong> (corticoide) — úsalo <em>todos los días</em> aunque el niño esté bien</span>
+                  </li>
+                </ul>
+                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.05); border-left: 3px solid #C8282C;">
+                  <p class="text-xs font-semibold" style="color: #C8282C;">En una crisis: actúa así</p>
+                  <ol class="mt-1 text-xs space-y-1 list-decimal list-inside" style="color: #374151;">
+                    <li>Administra 2–4 puffs del rescate con aerocámara</li>
+                    <li>Siéntalo derecho y tranquilízalo</li>
+                    <li>Si no mejora en 20 min → urgencias</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Uso correcto de inhaladores -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">Uso correcto del inhalador con aerocámara</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>El error más frecuente es usar el inhalador sin aerocámara y de forma apresurada. Así lo hacemos bien:</p>
+                <ol class="space-y-2 text-sm list-none">
+                  <li class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center mt-0.5" style="background: rgba(200,40,44,0.10); color: #C8282C;">1</span>
+                    <span>Agita bien el inhalador y colócalo en la aerocámara.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center mt-0.5" style="background: rgba(200,40,44,0.10); color: #C8282C;">2</span>
+                    <span>Pide al niño que exhale despacio antes de aplicar.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center mt-0.5" style="background: rgba(200,40,44,0.10); color: #C8282C;">3</span>
+                    <span>Presiona <strong>una vez</strong> el inhalador y pide que inhale lento y profundo.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center mt-0.5" style="background: rgba(200,40,44,0.10); color: #C8282C;">4</span>
+                    <span>Que aguante el aire <strong>10 segundos</strong>, luego exhala.</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="flex-shrink-0 w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center mt-0.5" style="background: rgba(200,40,44,0.10); color: #C8282C;">5</span>
+                    <span>Espera 30–60 segundos antes del siguiente puff.</span>
+                  </li>
+                </ol>
+                <div class="flex items-center gap-2 mt-1 p-3 rounded-lg" style="background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.15);">
+                  <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <p class="text-xs" style="color: #374151;">
+                    <strong style="color:#3b82f6;">Video de referencia:</strong> Busca en YouTube <em>"uso de inhalador con aerocámara niños"</em> — hay guías visuales de la Sociedad Latinoamericana de Neumología Pediátrica.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /group respiratoria -->
+
+      <!-- ── Categoría: Cuidados Generales ── -->
+      <div class="category-label">Cuidados Generales</div>
+      <div class="space-y-3" data-faq-group="generales">
+
+        <!-- 4. Fiebre -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">Manejo de la fiebre: ¿Cuándo medicar y cuándo acudir a urgencias?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p><strong>¿Cuándo es fiebre?</strong> Temperatura axilar superior a <strong>38 °C</strong>. La rectal es 0.5 °C más alta.</p>
+                <p><strong>Qué hacer primero:</strong> Mantén al niño hidratado, retira ropa de más, ventila el ambiente. No abrigues de más.</p>
+                <p><strong>Medicamentos:</strong> Paracetamol (10–15 mg/kg cada 6 h) como primera línea. Ibuprofeno (>6 meses) a 5–10 mg/kg cada 8 h puede alternarse. <strong>Nunca aspirina</strong> en menores de 18 años.</p>
+                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.05); border-left: 3px solid #C8282C;">
+                  <p class="text-xs font-semibold" style="color: #C8282C;">¿Cuándo acudir al médico?</p>
+                  <ul class="mt-1 text-xs space-y-1" style="color: #374151;">
+                    <li>• Niño menor de 3 meses con cualquier fiebre</li>
+                    <li>• Fiebre > 40 °C o que dura más de 3 días</li>
+                    <li>• Convulsiones, dificultad para respirar o manchas en la piel</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Alergias estacionales -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">Alergias estacionales: ¿Cómo identificar los desencadenantes?</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>Las alergias estacionales se caracterizan por <strong>estornudos repetidos, picazón de ojos y nariz, y congestión</strong> que aparecen en épocas similares cada año.</p>
+                <p><strong>Cómo identificar el desencadenante:</strong></p>
+                <ul class="space-y-1 text-sm pl-1">
+                  <li>• Lleva un diario: anota cuándo empeoran los síntomas y dónde estaba el niño</li>
+                  <li>• Los ácaros del polvo empeoran en interiores cerrados (dormitorios, alfombras)</li>
+                  <li>• El Polen suele ser peor en las mañanas y días ventosos</li>
+                  <li>• El moho aparece en espacios húmedos o con filtraciones</li>
+                  <li>• Las mascotas con pelo o plumas pueden ser un factor silencioso</li>
+                </ul>
+                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.04); border: 1px solid rgba(200,40,44,0.10);">
+                  <p class="text-xs font-semibold mb-1" style="color: #C8282C;">Medidas en casa</p>
+                  <ul class="text-xs space-y-0.5" style="color: #374151;">
+                    <li>• Lava la ropa de cama semanalmente con agua caliente</li>
+                    <li>• Usa fundas antiácaros en almohadas y colchón</li>
+                    <li>• Ventila 15 min por la mañana, luego cierra durante el día</li>
+                    <li>• Evita alfombras y peluches acumuladores de polvo</li>
+                  </ul>
+                </div>
+                <p class="text-xs" style="color: #9ca3af;">La prueba de alergia en consulta es la forma más precisa de identificar el desencadenante específico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /group generales -->
+
+      <!-- ── Categoría: Preventivos ── -->
+      <div class="category-label">Preventivos</div>
+      <div class="space-y-3" data-faq-group="preventivos">
+
+        <!-- 6. Calendario de vacunas -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">Calendario de vacunación: importancia y seguimiento</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-4" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>El Programa Ampliado de Inmunización (PAI) de República Dominicana establece el siguiente esquema básico:</p>
+                <div class="overflow-x-auto rounded-lg" style="border: 1px solid rgba(200,40,44,0.10);">
+                  <table class="w-full text-xs">
+                    <thead>
+                      <tr style="background: rgba(200,40,44,0.07);">
+                        <th class="px-4 py-2.5 text-left font-semibold" style="color: #C8282C;">Edad</th>
+                        <th class="px-4 py-2.5 text-left font-semibold" style="color: #C8282C;">Vacunas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">Al nacer</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">BCG, Hepatitis B</td></tr>
+                      <tr style="background: rgba(200,40,44,0.02);"><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">2 meses</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">Pentavalente, Polio oral, Rotavirus, Neumococo</td></tr>
+                      <tr><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">4 meses</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">Pentavalente, Polio oral, Rotavirus, Neumococo</td></tr>
+                      <tr style="background: rgba(200,40,44,0.02);"><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">6 meses</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">Pentavalente, Polio oral, Influenza</td></tr>
+                      <tr><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">12 meses</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">SRP (sarampión, rubéola, paperas), Neumococo</td></tr>
+                      <tr style="background: rgba(200,40,44,0.02);"><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">15 meses</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">Varicela</td></tr>
+                      <tr><td class="px-4 py-2.5 font-medium whitespace-nowrap border-b" style="border-color: rgba(200,40,44,0.06);">18 meses</td><td class="px-4 py-2.5 border-b" style="border-color: rgba(200,40,44,0.06);">Pentavalente (refuerzo), DPT, Polio</td></tr>
+                      <tr style="background: rgba(200,40,44,0.02);"><td class="px-4 py-2.5 font-medium whitespace-nowrap">4–6 años</td><td class="px-4 py-2.5">DPT, Polio, SRP (refuerzo)</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="text-xs" style="color: #9ca3af;">Este esquema es orientativo. La Dra. Hatton revisará tu carnet en consulta y te indicará si hay dosis pendientes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Entorno saludable -->
+        <div class="rounded-xl overflow-hidden bg-white" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <button class="faq-btn px-5 py-4 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
+            <div class="flex items-center gap-3 text-left">
+              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+              </div>
+              <span class="faq-title font-semibold text-gray-800 text-sm transition-colors duration-200">Entorno saludable: cómo mejorar la calidad del aire en casa</span>
+            </div>
+            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <div class="faq-body">
+            <div class="px-5 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
+              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
+                <p>El hogar es donde el niño pasa más tiempo — y donde los alérgenos e irritantes respiratorios se acumulan sin que lo notes.</p>
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div>
+                    <p class="text-xs font-bold mb-2" style="color: #C8282C;">Haz esto</p>
+                    <ul class="space-y-1 text-xs" style="color: #374151;">
+                      <li class="flex items-start gap-1.5"><span style="color:#C8282C;">✓</span> Ventila el hogar 15 min cada mañana</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#C8282C;">✓</span> Aspira colchones y sofás 1x semana</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#C8282C;">✓</span> Lava la ropa de cama en agua caliente</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#C8282C;">✓</span> Mantén la humedad entre 40–50 %</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#C8282C;">✓</span> Coloca plantas de exterior, no interior</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold mb-2" style="color: #6b7280;">Evita</p>
+                    <ul class="space-y-1 text-xs" style="color: #374151;">
+                      <li class="flex items-start gap-1.5"><span style="color:#6b7280;">✗</span> Fumar dentro de la casa o el auto</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#6b7280;">✗</span> Velas perfumadas o incienso</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#6b7280;">✗</span> Aerosoles y ambientadores en spray</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#6b7280;">✗</span> Alfombras en el dormitorio del niño</li>
+                      <li class="flex items-start gap-1.5"><span style="color:#6b7280;">✗</span> Acumulación de peluches sin lavar</li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="text-xs" style="color: #9ca3af;">Si el niño tiene asma, considera un purificador de aire HEPA en su dormitorio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /group preventivos -->
+
+    </div>
+  </section>
+
+  <!-- ===== PREPARANDO TU VISITA ===== -->
   <section id="primera-visita" class="py-14 md:py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
       <div class="info-card rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #FFFBFB 0%, #fff 100%); border: 1px solid rgba(200,40,44,0.12); box-shadow: 0 4px 20px rgba(200,40,44,0.06), 0 12px 40px rgba(0,0,0,0.04);">
@@ -204,12 +612,13 @@
           <div class="p-8 md:p-10 flex-1">
             <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-[0.10em]"
                  style="background: rgba(200,40,44,0.08); color: #C8282C;">
-              Primera visita
+              Checklist · Primera visita
             </div>
-            <h2 class="text-2xl md:text-3xl font-bold mb-3" style="letter-spacing: -0.02em; color: #1a1a1a;">
+            <h2 class="text-2xl md:text-3xl font-bold mb-1" style="letter-spacing: -0.02em; color: #1a1a1a;">
               ¿Primera vez en consulta?<br>Mira qué llevar
             </h2>
-            <p class="mb-6" style="color: #6b7280; line-height: 1.7;">
+            <p class="text-sm italic mb-1" style="color: #C8282C; font-family: 'Playfair Display', serif;">"La clave de una consulta efectiva es el orden."</p>
+            <p class="mb-5 mt-2" style="color: #6b7280; line-height: 1.7; font-size: 0.9rem;">
               Para tu primera visita, asegúrate de tener a mano documentos como tu carnet de vacunación, resultados de exámenes previos y tarjeta de seguro. Trae los siguientes:
             </p>
             <!-- Requisito General -->
@@ -218,12 +627,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
               </svg>
               <p class="text-sm" style="color:#374151; line-height:1.6;">
-                <strong style="color:#C8282C;">Requisito General:</strong> Te recordamos que para toda consulta pediátrica es indispensable presentar el carnet de vacunación y documentos de identidad.
+                <strong style="color:#C8282C;">Requisito General:</strong> Para toda consulta pediátrica es indispensable presentar el carnet de vacunación y documentos de identidad.
               </p>
             </div>
 
-            <div class="grid sm:grid-cols-2 gap-3">
-              <!-- Checklist items -->
+            <div class="grid sm:grid-cols-2 gap-3 mb-6">
               <div class="flex items-start gap-3">
                 <div class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
                   <svg class="w-2.5 h-2.5" fill="none" stroke="#C8282C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -261,11 +669,18 @@
                 <p class="text-sm" style="color:#374151; line-height:1.6;">Historial de alergias conocidas</p>
               </div>
             </div>
-            <div class="mt-6 pt-5" style="border-top: 1px solid rgba(200,40,44,0.10);">
-              <p class="text-xs" style="color: #9ca3af;">
-                ¿Tienes dudas antes de la consulta?
-                <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="font-semibold hover:opacity-75 transition-opacity" style="color: #C8282C; text-decoration: none;">Escríbenos por WhatsApp →</a>
-              </p>
+
+            <!-- El atajo: Pre-Consulta -->
+            <div class="flex items-start gap-3 p-4 rounded-xl" style="background: rgba(200,40,44,0.04); border: 1.5px dashed rgba(200,40,44,0.25);">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+              <div>
+                <p class="text-sm font-semibold mb-1" style="color: #1a1a1a;">El atajo para una consulta más ágil</p>
+                <p class="text-sm" style="color: #6b7280; line-height: 1.6;">
+                  Si quieres que nuestra consulta sea más ágil, <a href="./ficha-medica.html" class="font-semibold hover:opacity-75 transition-opacity" style="color: #C8282C; text-decoration: underline; text-underline-offset: 2px;">completa aquí nuestra Ficha de Pre-Consulta</a>. Al traerla lista, ganamos tiempo valioso para evaluar a tu pequeño.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -273,173 +688,132 @@
     </div>
   </section>
 
-  <!-- ===== FAQ BIBLIOTECA ===== -->
-  <section id="preguntas" class="py-14 md:py-20" style="background: #FFFBFB;">
+  <!-- ===== MITOS VS. REALIDAD ===== -->
+  <section id="mitos" class="py-14 md:py-20" style="background: #FFFBFB;">
     <div class="max-w-3xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-12">
+      <div class="text-center mb-10">
         <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
              style="background: rgba(200,40,44,0.08); color: #C8282C;">
-          Preguntas frecuentes
+          Mitos vs. Realidad
         </div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="letter-spacing: -0.02em; color: #1a1a1a;">
-          Biblioteca de respuestas
+        <h2 class="text-3xl md:text-4xl font-bold mb-3" style="letter-spacing: -0.02em; color: #1a1a1a;">
+          Creencias comunes<br>que vale la pena aclarar
         </h2>
-        <p style="color: #6b7280; line-height: 1.7;">
-          Toca cualquier tema para expandirlo. Si no encuentras tu respuesta, escríbenos directamente.
+        <p style="color: #6b7280; line-height: 1.7; font-size: 0.95rem;">
+          Estas dudas las escucho en el consultorio todos los días.
         </p>
       </div>
 
-      <div class="space-y-3">
+      <div class="space-y-4">
 
-        <!-- FAQ: Manejo de fiebre -->
-        <div class="rounded-xl overflow-hidden" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <button class="faq-btn px-6 py-5 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
-            <div class="flex items-center gap-3 text-left">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
+        <!-- Mito 1 -->
+        <div class="myth-card rounded-2xl overflow-hidden bg-white" style="border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <div class="grid sm:grid-cols-2">
+            <div class="p-6" style="background: rgba(200,40,44,0.04); border-right: 1px solid rgba(200,40,44,0.10);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.12); color: #C8282C;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                Mito
               </div>
-              <span class="font-semibold text-gray-800">Manejo de fiebre en niños</span>
+              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
+                "Si mi hijo usa el inhalador, se volverá dependiente o adicto al medicamento."
+              </p>
             </div>
-            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24"
-               style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
-            </svg>
-          </button>
-          <div class="faq-body">
-            <div class="px-6 pb-6 space-y-4" style="border-top: 1px solid rgba(200,40,44,0.08);">
-              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
-                <p><strong>¿Cuándo es fiebre?</strong> Se considera fiebre cuando la temperatura axilar supera los <strong>38 °C</strong>. La temperatura rectal es 0.5 °C más alta.</p>
-                <p><strong>¿Qué hacer primero?</strong> Mantén al niño hidratado con agua o suero oral, retira ropa de más y ventila el ambiente. No abrigues de más.</p>
-                <p><strong>Medicamentos:</strong> El paracetamol (acetaminofén) a dosis de <strong>10–15 mg/kg</strong> cada 6 horas es la primera línea. El ibuprofeno (>6 meses) puede alternarse a 5–10 mg/kg cada 8 horas.</p>
-                <p><strong>¡Nunca uses aspirina!</strong> En menores de 18 años puede causar el síndrome de Reye, una complicación grave.</p>
-                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.05); border-left: 3px solid #C8282C;">
-                  <p class="text-xs font-semibold" style="color: #C8282C;">¿Cuándo acudir al médico?</p>
-                  <ul class="mt-1 text-xs space-y-1" style="color: #374151;">
-                    <li>• Niño menor de 3 meses con cualquier fiebre</li>
-                    <li>• Fiebre > 40 °C o que dura más de 3 días</li>
-                    <li>• Convulsiones, dificultad para respirar o manchas en la piel</li>
-                  </ul>
-                </div>
+            <div class="p-6" style="background: rgba(16,185,129,0.03);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(16,185,129,0.12); color: #059669;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Realidad
               </div>
+              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
+                El inhalador es la vía <strong>más segura y eficiente</strong>: el medicamento va directo al pulmón, la dosis es mínima y no genera dependencia. Usarlo correctamente es la clave del control del asma.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- FAQ: Asma -->
-        <div class="rounded-xl overflow-hidden" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <button class="faq-btn px-6 py-5 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
-            <div class="flex items-center gap-3 text-left">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
+        <!-- Mito 2 -->
+        <div class="myth-card rounded-2xl overflow-hidden bg-white" style="border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <div class="grid sm:grid-cols-2">
+            <div class="p-6" style="background: rgba(200,40,44,0.04); border-right: 1px solid rgba(200,40,44,0.10);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.12); color: #C8282C;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                Mito
               </div>
-              <span class="font-semibold text-gray-800">Dudas sobre asma infantil</span>
+              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
+                "Los antibióticos son lo mejor para la tos y los virus respiratorios."
+              </p>
             </div>
-            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24"
-               style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
-            </svg>
-          </button>
-          <div class="faq-body">
-            <div class="px-6 pb-6 space-y-4" style="border-top: 1px solid rgba(200,40,44,0.08);">
-              <div class="pt-4 space-y-3" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
-                <p><strong>¿Qué es el asma?</strong> Es una enfermedad crónica de las vías aéreas que causa silbidos al respirar, tos persistente (especialmente de noche) y sensación de pecho apretado.</p>
-                <p><strong>¿Tiene cura?</strong> No tiene cura, pero con el tratamiento adecuado se controla completamente y el niño puede llevar una vida normal, incluyendo deportes.</p>
-                <p><strong>¿Cuáles son los desencadenantes más comunes?</strong></p>
-                <ul class="space-y-1 text-sm pl-2" style="color: #374151;">
-                  <li>• Polvo, ácaros y moho en el hogar</li>
-                  <li>• Humo de cigarrillo (activo o pasivo)</li>
-                  <li>• Polen, animales con pelo o plumas</li>
-                  <li>• Infecciones respiratorias (catarros, gripes)</li>
-                  <li>• Ejercicio intenso sin calentamiento</li>
-                </ul>
-                <p><strong>¿Puedo suspender el inhalador si el niño está bien?</strong> <em>No</em>. El inhalador preventivo (corticoide inhalado) se usa todos los días aunque no haya síntomas. Suspenderlo sin indicación médica es la causa más frecuente de recaídas.</p>
-                <div class="rounded-lg p-3" style="background: rgba(200,40,44,0.05); border-left: 3px solid #C8282C;">
-                  <p class="text-xs font-semibold" style="color: #C8282C;">Crisis de asma: actúa así</p>
-                  <ol class="mt-1 text-xs space-y-1 list-decimal list-inside" style="color: #374151;">
-                    <li>Administra el broncodilatador de rescate (salbutamol)</li>
-                    <li>Siéntalo derecho y tranquilízalo</li>
-                    <li>Si no mejora en 20 min, ve a urgencias</li>
-                  </ol>
-                </div>
+            <div class="p-6" style="background: rgba(16,185,129,0.03);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(16,185,129,0.12); color: #059669;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Realidad
               </div>
+              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
+                Los antibióticos <strong>no actúan sobre los virus</strong>. El 80 % de las infecciones respiratorias en niños son virales. Usarlos sin indicación médica crea resistencia bacteriana, un problema grave de salud pública.
+              </p>
             </div>
           </div>
         </div>
 
-        <!-- FAQ: Vacunas -->
-        <div class="rounded-xl overflow-hidden" style="border: 1px solid rgba(200,40,44,0.10); box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
-          <button class="faq-btn px-6 py-5 flex items-center justify-between w-full" onclick="toggleFaq(this)" aria-expanded="false">
-            <div class="flex items-center gap-3 text-left">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-                <svg class="w-4 h-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                </svg>
+        <!-- Mito 3 -->
+        <div class="myth-card rounded-2xl overflow-hidden bg-white" style="border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <div class="grid sm:grid-cols-2">
+            <div class="p-6" style="background: rgba(200,40,44,0.04); border-right: 1px solid rgba(200,40,44,0.10);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.12); color: #C8282C;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                Mito
               </div>
-              <span class="font-semibold text-gray-800">Calendario de vacunas</span>
+              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
+                "Si el niño tiene fiebre, hay que bañarlo con agua bien fría para bajarla rápido."
+              </p>
             </div>
-            <svg class="faq-icon w-5 h-5 flex-shrink-0 ml-4" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24"
-               style="transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
-            </svg>
-          </button>
-          <div class="faq-body">
-            <div class="px-6 pb-6" style="border-top: 1px solid rgba(200,40,44,0.08);">
-              <div class="pt-4 space-y-4" style="color: #374151; line-height: 1.7; font-size: 0.9rem;">
-                <p>El Programa Ampliado de Inmunización (PAI) de República Dominicana establece el siguiente esquema básico:</p>
-                <div class="overflow-x-auto rounded-lg" style="border: 1px solid rgba(200,40,44,0.10);">
-                  <table class="w-full text-xs">
-                    <thead>
-                      <tr style="background: rgba(200,40,44,0.07);">
-                        <th class="px-4 py-2.5 text-left font-semibold" style="color: #C8282C;">Edad</th>
-                        <th class="px-4 py-2.5 text-left font-semibold" style="color: #C8282C;">Vacunas</th>
-                      </tr>
-                    </thead>
-                    <tbody class="divide-y" style="divide-color: rgba(200,40,44,0.06);">
-                      <tr class="hover:bg-red-50/30 transition-colors">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">Al nacer</td>
-                        <td class="px-4 py-2.5">BCG, Hepatitis B</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">2 meses</td>
-                        <td class="px-4 py-2.5">Pentavalente, Polio oral, Rotavirus, Neumococo</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">4 meses</td>
-                        <td class="px-4 py-2.5">Pentavalente, Polio oral, Rotavirus, Neumococo</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">6 meses</td>
-                        <td class="px-4 py-2.5">Pentavalente, Polio oral, Influenza</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">12 meses</td>
-                        <td class="px-4 py-2.5">SRP (sarampión, rubéola, paperas), Neumococo</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">15 meses</td>
-                        <td class="px-4 py-2.5">Varicela</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">18 meses</td>
-                        <td class="px-4 py-2.5">Pentavalente (refuerzo), DPT, Polio</td>
-                      </tr>
-                      <tr class="hover:bg-red-50/30 transition-colors" style="background: rgba(200,40,44,0.02);">
-                        <td class="px-4 py-2.5 font-medium whitespace-nowrap">4–6 años</td>
-                        <td class="px-4 py-2.5">DPT, Polio, SRP (refuerzo)</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <p class="text-xs" style="color: #9ca3af;">Este esquema es orientativo. La Dra. Hatton revisará tu carnet en consulta y te indicará si hay dosis pendientes.</p>
+            <div class="p-6" style="background: rgba(16,185,129,0.03);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(16,185,129,0.12); color: #059669;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Realidad
               </div>
+              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
+                El agua fría causa <strong>vasoconstricción</strong>: el cuerpo retiene calor y la temperatura puede subir aún más. Si es necesario, usa paños con agua tibia-fresca en frente y axilas, y administra el antipirético adecuado.
+              </p>
             </div>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="py-16 md:py-24" style="background: linear-gradient(135deg, #1a0405 0%, #2d0708 40%, #1a0405 100%);">
+    <!-- subtle grain -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\");"></div>
+    <div class="relative max-w-2xl mx-auto px-4 md:px-6 text-center">
+      <div class="inline-flex items-center gap-2 mb-6 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+           style="background: rgba(200,40,44,0.20); color: rgba(255,255,255,0.80);">
+        ¿Tienes preguntas?
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" style="letter-spacing: -0.02em; color: #ffffff; line-height: 1.2;">
+        ¿Tienes dudas sobre el<br>caso específico de tu hijo?
+      </h2>
+      <p class="text-base mb-10" style="color: rgba(255,255,255,0.60); line-height: 1.7;">
+        Cada niño es único. Si tienes preguntas que esta guía no resuelve, escríbenos o agenda una consulta — con gusto te ayudamos.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/18494490550" target="_blank" rel="noopener noreferrer"
+           class="cta-btn inline-flex items-center gap-3 px-7 py-4 rounded-2xl font-semibold text-white text-sm"
+           style="background: linear-gradient(135deg, #25D366, #128C7E); box-shadow: 0 4px 20px rgba(37,211,102,0.35), 0 2px 8px rgba(0,0,0,0.15); text-decoration: none; min-width: 220px; justify-content: center;">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Escríbenos por WhatsApp
+        </a>
+        <a href="./index.html#contacto"
+           class="cta-btn inline-flex items-center gap-3 px-7 py-4 rounded-2xl font-semibold text-sm"
+           style="background: rgba(255,255,255,0.10); color: white; border: 1.5px solid rgba(255,255,255,0.18); text-decoration: none; min-width: 200px; justify-content: center; backdrop-filter: blur(8px);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          Agenda tu cita
+        </a>
       </div>
     </div>
   </section>
@@ -454,7 +828,7 @@
         </a>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <a href="./index.html#inicio"   class="text-sm font-medium transition-colors duration-200" style="color: #6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Inicio</a>
-          <a href="./index.html#sobre-mi" class="text-sm font-medium transition-colors duration-200" style="color: #6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Sobre Mí</a>
+          <a href="./index.html#sobre-mi" class="text-sm font-medium transition-colors duration-200" style="color: #6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Mi Compromiso</a>
           <a href="./servicios.html"      class="text-sm font-medium transition-colors duration-200" style="color: #6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Servicios</a>
           <a href="./ficha-medica.html"   class="text-sm font-medium transition-colors duration-200" style="color: #6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Pre-Consulta</a>
           <a href="./guia.html"           class="text-sm font-semibold" style="color: #C8282C;">Guía para Padres</a>
@@ -520,14 +894,19 @@
       document.getElementById('close-alert').addEventListener('click', dismissAlert);
     }
 
-    // FAQ accordion — Biblioteca de respuestas
+    // FAQ accordion — per group: only one open within each group
     function toggleFaq(btn) {
       const body = btn.nextElementSibling;
       const icon = btn.querySelector('.faq-icon');
+      const group = btn.closest('[data-faq-group]');
       const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
-      document.querySelectorAll('.faq-body').forEach(b => { b.style.maxHeight = '0px'; });
-      document.querySelectorAll('.faq-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
-      document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); });
+
+      if (group) {
+        group.querySelectorAll('.faq-body').forEach(b => { b.style.maxHeight = '0px'; });
+        group.querySelectorAll('.faq-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
+        group.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); });
+      }
+
       if (!isOpen) {
         body.style.maxHeight = body.scrollHeight + 'px';
         icon.style.transform = 'rotate(45deg)';
@@ -535,20 +914,7 @@
       }
     }
 
-    // FAQ accordion — Dudas frecuentes
-    function toggleFaqD(btn) {
-      const answer = btn.nextElementSibling;
-      const icon = btn.querySelector('.faqd-icon');
-      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-      document.querySelectorAll('.faqd-answer').forEach(a => { a.style.maxHeight = '0px'; });
-      document.querySelectorAll('.faqd-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
-      if (!isOpen) {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        icon.style.transform = 'rotate(45deg)';
-      }
-    }
-
-    // Scroll-to-top button
+    // Scroll-to-top
     const scrollBtn = document.getElementById('scroll-top-btn');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
