@@ -4,22 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="./hatttonlogo.png">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com; connect-src 'none';">
-  <title>Nuestro Equipo — Dra. Paola Hatton</title>
-  <meta name="description" content="Conoce al equipo del consultorio de la Dra. Paola Hatton, Neumóloga Pediatra en Santo Domingo, R.D.">
-  <!-- Open Graph / WhatsApp / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Dra. Paola Hatton">
-  <meta property="og:title" content="Nuestro Equipo — Dra. Paola Hatton">
-  <meta property="og:description" content="Conoce al equipo de profesionales del consultorio de la Dra. Paola Hatton, Neumóloga Pediatra en Santo Domingo.">
-  <meta property="og:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
-  <meta property="og:url" content="https://TUDOMINIO.COM/equipo.html">
-  <meta property="og:locale" content="es_DO">
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Nuestro Equipo — Dra. Paola Hatton">
-  <meta name="twitter:description" content="Conoce al equipo profesional del consultorio de la Dra. Paola Hatton en Santo Domingo.">
-  <meta name="twitter:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'none';">
+  <title>Diagnóstico y Tratamiento — Dra. Paola Hatton</title>
+  <meta name="description" content="Diagnóstico y tratamiento de enfermedades respiratorias en niños: asma, alergias, neumonía, bronquitis, tos crónica y más. Dra. Paola Hatton, Santo Domingo.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -27,12 +14,11 @@
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
-    :root { --nav-offset: 144px; }
-    [id] { scroll-margin-top: var(--nav-offset); }
+    [id] { scroll-margin-top: 80px; }
+
     .nav-link {
       font-size: 0.875rem; font-weight: 500; color: #374151;
-      text-decoration: none; position: relative;
-      transition: color 0.2s;
+      text-decoration: none; position: relative; transition: color 0.2s;
     }
     .nav-link::after {
       content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
@@ -67,15 +53,29 @@
       border-radius: 8px; transition: color 0.15s, background 0.15s; white-space: nowrap;
     }
     .nav-dd-item:hover { color: #C8282C; background: rgba(200,40,44,0.06); }
+    .nav-dd-item-active { color: #C8282C; background: rgba(200,40,44,0.06); font-weight: 600; }
     /* Mobile submenu */
     .mobile-sub { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1); }
+
     .grain-overlay::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none; z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
       background-repeat: repeat;
     }
+
+    .condition-card { transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s; }
+    .condition-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(200,40,44,0.10), 0 18px 50px rgba(0,0,0,0.07) !important; }
+    .condition-card:hover .condition-icon { background: rgba(200,40,44,0.16) !important; }
+
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+    #scroll-top-btn:hover {
+      background: #a01e22 !important;
+      box-shadow: 0 6px 20px rgba(200,40,44,0.50), 0 2px 8px rgba(200,40,44,0.25) !important;
+      transform: translateY(-2px) !important;
+    }
+    #scroll-top-btn:active { transform: scale(0.93) !important; }
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -107,12 +107,12 @@
       </a>
       <ul class="hidden md:flex items-center gap-5">
         <li class="nav-dropdown">
-          <a href="./servicios.html" class="nav-link flex items-center gap-1">
+          <a href="./servicios.html" class="nav-link nav-link-active flex items-center gap-1">
             Salud Respiratoria
             <svg class="w-3 h-3 flex-shrink-0" style="transition:transform 0.2s" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </a>
           <div class="nav-dropdown-panel">
-            <a href="./condiciones.html"    class="nav-dd-item">Diagnóstico y Tratamiento</a>
+            <a href="./condiciones.html"    class="nav-dd-item nav-dd-item-active">Diagnóstico y Tratamiento</a>
             <a href="./procedimientos.html" class="nav-dd-item">Procedimientos Especializados</a>
             <a href="./seguros.html"        class="nav-dd-item">Seguros y Métodos de Pago</a>
           </div>
@@ -125,13 +125,13 @@
       <div class="flex items-center gap-3">
         <button id="menu-btn" aria-label="Abrir menú" aria-expanded="false"
                 class="md:hidden p-2 rounded-lg text-gray-600 hover:text-[#C8282C] hover:bg-red-50 transition-colors duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
         </button>
       </div>
     </div>
-    <!-- Franja de emergencia (permanente) -->
+    <!-- Franja de emergencia -->
     <div style="background:#FFFBEB; border-bottom:1px solid rgba(217,119,6,0.20);">
       <div class="max-w-6xl mx-auto px-4 flex items-center justify-center gap-2" style="height:36px;">
         <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="#B45309" stroke-width="2" viewBox="0 0 24 24">
@@ -145,13 +145,13 @@
     <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
       <ul class="flex flex-col gap-1 mb-5">
         <li>
-          <button onclick="toggleSaludMenu()" class="w-full flex items-center justify-between py-1 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleSaludMenu()" class="w-full flex items-center justify-between py-1 text-sm font-semibold text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Salud Respiratoria
             <svg id="salud-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div id="salud-submenu" class="mobile-sub">
             <div class="pl-4 flex flex-col gap-3 pt-2 pb-3" style="border-left:2px solid rgba(200,40,44,0.15);margin-left:4px;">
-              <a href="./condiciones.html"    class="text-sm font-medium text-gray-500 hover:text-[#C8282C] transition-colors" onclick="closeMenu()">Diagnóstico y Tratamiento</a>
+              <a href="./condiciones.html"    class="text-sm font-semibold text-[#C8282C] transition-colors" onclick="closeMenu()">Diagnóstico y Tratamiento</a>
               <a href="./procedimientos.html" class="text-sm font-medium text-gray-500 hover:text-[#C8282C] transition-colors" onclick="closeMenu()">Procedimientos Especializados</a>
               <a href="./seguros.html"        class="text-sm font-medium text-gray-500 hover:text-[#C8282C] transition-colors" onclick="closeMenu()">Seguros y Métodos de Pago</a>
             </div>
@@ -167,171 +167,122 @@
 
 
   <!-- ===== HERO ===== -->
-  <section class="pt-[calc(108px+3rem)] pb-12 md:pt-[calc(108px+4rem)] md:pb-16 bg-white">
+  <section class="pt-[calc(108px+3rem)] pb-14 md:pt-[calc(108px+4.5rem)] md:pb-20 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <a href="./index.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-5 hover:opacity-75 transition-opacity">
+      <a href="./servicios.html" class="inline-flex items-center gap-1.5 text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-6 hover:opacity-75 transition-opacity">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        Inicio
+        Salud Respiratoria
       </a>
-      <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4" style="letter-spacing: -0.03em;">Nuestro Equipo</h1>
-      <p class="text-gray-500 max-w-xl" style="line-height: 1.75;">Conoce al equipo humano detrás de cada consulta. Profesionales comprometidos con tu salud y la de tu familia.</p>
+      <div class="max-w-3xl">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Diagnóstico y tratamiento</span>
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3 mb-5" style="letter-spacing: -0.03em; line-height: 1.12;">
+          Condiciones que<br>
+          <span style="color: #C8282C;">tratamos</span>
+        </h1>
+        <p class="text-gray-500 text-base md:text-lg" style="line-height: 1.8;">Atendemos un amplio espectro de patologías respiratorias en niños y adolescentes, desde las más frecuentes hasta las más complejas, respaldado por más de 20 años de experiencia clínica.</p>
+      </div>
     </div>
   </section>
 
 
-  <!-- ===== EQUIPO PRINCIPAL ===== -->
-  <section class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
+  <!-- ===== CONDICIONES ===== -->
+  <section class="pt-4 pb-20 md:pb-28 grain-overlay relative" style="background: #FFFBFB;">
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-      <div class="mb-10 md:mb-14">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Quiénes somos</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">El equipo médico</h2>
-        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Cada integrante fue seleccionado por su vocación de servicio y su excelencia profesional.</p>
-      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
 
-      <!-- Dra. Paola — featured card (full width on mobile, 2-col on desktop) -->
-      <div class="mb-8">
-        <div class="bg-white rounded-3xl overflow-hidden flex flex-col md:flex-row"
-             style="box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 10px 40px rgba(0,0,0,0.08);">
-          <!-- Photo -->
-          <div class="md:w-72 flex-shrink-0">
-            <div class="relative overflow-hidden h-64 md:h-full" style="min-height: 280px;">
-              <img src="./sobremi.png" alt="Dra. Paola Hatton"
-                   class="w-full h-full object-cover object-top">
-              <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(200,40,44,0.08) 0%, transparent 50%); mix-blend-mode: multiply;"></div>
-            </div>
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m1.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+            </svg>
           </div>
-          <!-- Info -->
-          <div class="p-7 md:p-10 flex flex-col justify-center gap-5">
-            <div>
-              <span class="inline-block text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-2">Médico Principal</span>
-              <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1" style="letter-spacing: -0.02em;">Dra. Paola Hatton</h3>
-              <p class="text-[#C8282C] font-semibold text-sm">Neumóloga · Pediatra</p>
-            </div>
-            <p class="text-gray-500 text-sm md:text-base" style="line-height: 1.85;">
-              Egresada de la <strong class="text-gray-700 font-semibold">Universidad Autónoma de Santo Domingo (UASD)</strong>, la Dra. Hatton acumula más de 20 años dedicados exclusivamente a la salud respiratoria pediátrica. Su enfoque combina diagnóstico preciso con una atención cálida y centrada en el paciente y su familia.
-            </p>
-            <div class="flex flex-wrap gap-3">
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 px-3 py-1.5 rounded-full"
-                    style="background: rgba(200,40,44,0.07); border: 1px solid rgba(200,40,44,0.14);">
-                <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                +20 años de experiencia
-              </span>
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 px-3 py-1.5 rounded-full"
-                    style="background: rgba(200,40,44,0.07); border: 1px solid rgba(200,40,44,0.14);">
-                <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                Neumología Pediátrica
-              </span>
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 px-3 py-1.5 rounded-full"
-                    style="background: rgba(200,40,44,0.07); border: 1px solid rgba(200,40,44,0.14);">
-                <svg class="w-3 h-3 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                UASD
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Supporting staff — 2-col grid -->
-      <div class="grid sm:grid-cols-2 gap-6">
-
-        <div class="bg-white rounded-2xl overflow-hidden flex flex-col"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
-          <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <img src="https://placehold.co/400x300/F3F4F6/9CA3AF?text=Instagram" alt="Secretaria" class="w-full h-full object-cover">
-            <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, rgba(18,4,4,0.45));"></div>
-          </div>
-          <div class="p-6 flex flex-col gap-3 flex-1">
-            <div>
-              <p class="font-bold text-gray-900 text-lg" style="font-family: 'Playfair Display', serif; letter-spacing: -0.01em;">Nombre Apellido</p>
-              <p class="text-[#C8282C] text-sm font-semibold mt-0.5">Secretaria</p>
-            </div>
-            <p class="text-sm text-gray-500" style="line-height: 1.7;">
-              Encargada de la gestión de citas, atención al público y coordinación del consultorio. El primer contacto cálido que recibirás al llegar.
-            </p>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Asma bronquial</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Control y manejo a largo plazo para una vida plena y activa.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-2xl overflow-hidden flex flex-col"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
-          <div class="relative overflow-hidden" style="aspect-ratio: 4/3;">
-            <img src="https://placehold.co/400x300/F3F4F6/9CA3AF?text=Instagram" alt="Asistente Médica" class="w-full h-full object-cover">
-            <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 50%, rgba(18,4,4,0.45));"></div>
-          </div>
-          <div class="p-6 flex flex-col gap-3 flex-1">
-            <div>
-              <p class="font-bold text-gray-900 text-lg" style="font-family: 'Playfair Display', serif; letter-spacing: -0.01em;">Nombre Apellido</p>
-              <p class="text-[#C8282C] text-sm font-semibold mt-0.5">Asistente Médica</p>
-            </div>
-            <p class="text-sm text-gray-500" style="line-height: 1.7;">
-              Asiste en procedimientos clínicos, preparación del paciente y seguimiento de indicaciones. Garantiza que cada consulta fluya con precisión y cuidado.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===== NUESTROS VALORES ===== -->
-  <section class="py-16 md:py-24 bg-white">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="mb-10 md:mb-14">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Lo que nos guía</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Nuestros valores</h2>
-        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Cada decisión clínica y cada interacción con las familias está guiada por estos principios.</p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
-        <div class="p-6 rounded-2xl flex flex-col gap-4"
-             style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.12); box-shadow: 0 1px 6px rgba(200,40,44,0.05);">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
             <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
             </svg>
           </div>
           <div>
-            <p class="font-bold text-gray-900 mb-1.5">Calidez humana</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Tratamos a cada niño y a su familia con empatía, paciencia y respeto genuino.</p>
+            <p class="font-bold text-gray-900 text-sm mb-1">Alergias respiratorias</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Rinitis alérgica, sensibilización a pólenes y ácaros.</p>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl flex flex-col gap-4"
-             style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.12); box-shadow: 0 1px 6px rgba(200,40,44,0.05);">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
             <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
             </svg>
           </div>
           <div>
-            <p class="font-bold text-gray-900 mb-1.5">Excelencia clínica</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Diagnóstico riguroso y actualización continua en las mejores prácticas de la especialidad.</p>
+            <p class="font-bold text-gray-900 text-sm mb-1">Neumonía</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Diagnóstico y tratamiento de infecciones pulmonares bacterianas y virales.</p>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl flex flex-col gap-4"
-             style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.12); box-shadow: 0 1px 6px rgba(200,40,44,0.05);">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
             <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v6M8.5 9C7 10 6 12 6 14.5 6 17 7 19 9 19h2V9m2.5 0C15 10 18 12 18 14.5 18 17 17 19 15 19h-2V9"/>
             </svg>
           </div>
           <div>
-            <p class="font-bold text-gray-900 mb-1.5">Trabajo en equipo</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Coordinación fluida entre médico, asistente y secretaria para una experiencia sin fricciones.</p>
+            <p class="font-bold text-gray-900 text-sm mb-1">Bronquitis y bronquiolitis</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Inflamación de las vías aéreas en lactantes y niños mayores.</p>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl flex flex-col gap-4"
-             style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.12); box-shadow: 0 1px 6px rgba(200,40,44,0.05);">
-          <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Sinusitis crónica</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Manejo de la inflamación recurrente de los senos paranasales.</p>
+          </div>
+        </div>
+
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Rinitis</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Tratamiento de la inflamación nasal alérgica y no alérgica.</p>
+          </div>
+        </div>
+
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
             <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
             </svg>
           </div>
           <div>
-            <p class="font-bold text-gray-900 mb-1.5">Comunicación clara</p>
-            <p class="text-sm text-gray-500" style="line-height: 1.65;">Explicamos cada diagnóstico y tratamiento en un lenguaje que padres e hijos puedan comprender.</p>
+            <p class="font-bold text-gray-900 text-sm mb-1">Tos crónica</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Estudio y tratamiento de la tos persistente de más de 8 semanas.</p>
+          </div>
+        </div>
+
+        <div class="condition-card flex flex-col gap-3.5 p-5 bg-white rounded-2xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);">
+          <div class="condition-icon w-11 h-11 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08); transition: background 0.22s;">
+            <svg class="w-5 h-5 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 text-sm mb-1">Otras patologías pulmonares</p>
+            <p class="text-xs text-gray-500" style="line-height: 1.6; min-height: 2.4rem;">Evaluación de cualquier condición respiratoria que afecte el bienestar del niño.</p>
           </div>
         </div>
 
@@ -341,18 +292,21 @@
 
 
   <!-- ===== CTA ===== -->
-  <section class="py-16 md:py-20 grain-overlay relative" style="background: #FFFBFB;">
-    <div class="max-w-2xl mx-auto px-4 md:px-6 text-center relative z-10">
-      <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Estamos para ti</span>
-      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4" style="letter-spacing: -0.02em;">¿Listo para agendar tu consulta?</h2>
-      <p class="text-gray-500 text-sm mb-8" style="line-height: 1.8;">Nuestro equipo está disponible para responder tus dudas y coordinar tu cita de forma rápida y sencilla.</p>
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-xl mx-auto px-4 md:px-6 text-center">
+      <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">¿Tienes dudas?</span>
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mt-2 mb-4" style="letter-spacing: -0.02em;">Agenda una consulta hoy</h2>
+      <p class="text-gray-500 text-sm mb-8" style="line-height: 1.7;">La Dra. Hatton evaluará a tu hijo y diseñará un plan de tratamiento personalizado.</p>
       <a href="https://wa.me/18098807355" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-3 font-bold text-white px-8 py-4 rounded-full"
-         style="background: linear-gradient(135deg,#C8282C,#8B1A1A); box-shadow: 0 4px 20px rgba(200,40,44,0.35); font-size: 1rem; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s;"
-         onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 28px rgba(200,40,44,0.40)';"
-         onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 20px rgba(200,40,44,0.35)';">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Escribir por WhatsApp
+         class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-semibold text-sm"
+         style="background: #C8282C; box-shadow: 0 4px 16px rgba(200,40,44,0.30); transition: opacity 0.2s, transform 0.2s;"
+         onmouseover="this.style.opacity='0.88'; this.style.transform='translateY(-1px)'"
+         onmouseout="this.style.opacity='1'; this.style.transform=''">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.526 5.845L.057 23.428a.75.75 0 00.914.914l5.638-1.47A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.92 0-3.722-.51-5.27-1.402l-.38-.22-3.935 1.026 1.04-3.838-.24-.394A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Escríbenos por WhatsApp
       </a>
     </div>
   </section>
@@ -361,13 +315,12 @@
   <!-- ===== FOOTER ===== -->
   <footer class="py-6" style="background: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.07);">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5"
-           style="border-bottom: 1px solid rgba(0,0,0,0.07);">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5" style="border-bottom: 1px solid rgba(0,0,0,0.07);">
         <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
           <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
         </a>
-                <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <a href="./servicios.html" class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Salud Respiratoria</a>
+        <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <a href="./servicios.html"      class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Salud Respiratoria</a>
           <a href="./guia.html"           class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Guía para Padres</a>
           <a href="./ficha-medica.html"   class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Pre-Consulta</a>
           <a href="./equipo.html"         class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Nuestro Equipo</a>
@@ -396,6 +349,12 @@
     </div>
   </footer>
 
+  <!-- Scroll to top -->
+  <button id="scroll-top-btn" aria-label="Volver arriba"
+    style="position:fixed; bottom:28px; right:28px; z-index:999; width:44px; height:44px; border-radius:50%; background:#C8282C; color:white; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transform:translateY(12px); transition: opacity 0.3s, transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s, background 0.2s; box-shadow: 0 4px 14px rgba(200,40,44,0.35);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
@@ -423,7 +382,6 @@
     function dismissAlert() {
       alertBar.style.display = 'none';
       mainNav.style.top = '0';
-      document.documentElement.style.setProperty('--nav-offset', '108px');
       sessionStorage.setItem('alert-dismissed', '1');
     }
     if (sessionStorage.getItem('alert-dismissed')) {
@@ -431,6 +389,17 @@
     } else {
       document.getElementById('close-alert').addEventListener('click', dismissAlert);
     }
+
+    // Scroll to top
+    const scrollBtn = document.getElementById('scroll-top-btn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollBtn.style.opacity = '1'; scrollBtn.style.pointerEvents = 'auto'; scrollBtn.style.transform = 'translateY(0)';
+      } else {
+        scrollBtn.style.opacity = '0'; scrollBtn.style.pointerEvents = 'none'; scrollBtn.style.transform = 'translateY(12px)';
+      }
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>
 </html>
