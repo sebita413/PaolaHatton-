@@ -51,6 +51,10 @@
       background-repeat: repeat;
     }
 
+    /* Payment method cards */
+    .pay-card { transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s; }
+    .pay-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(200,40,44,0.10), 0 16px 40px rgba(0,0,0,0.07) !important; }
+
     /* ARS logos: full color on mobile, grayscale→color on desktop hover */
     .ars-card {
       transition: filter 0.3s ease, transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s;
@@ -123,7 +127,6 @@
         <li><a href="./servicios.html"      class="nav-link nav-link-active">Salud Respiratoria</a></li>
         <li><a href="./index.html#sobre-mi" class="nav-link">Mi Propósito</a></li>
         <li><a href="./guia.html"           class="nav-link">Guía para Padres</a></li>
-        <li><a href="./tarifas.html"        class="nav-link">Tarifas</a></li>
         <li><a href="./ficha-medica.html"   class="nav-link">Pre-Consulta</a></li>
         <li><a href="./index.html#contacto" class="nav-link">Contacto</a></li>
       </ul>
@@ -152,7 +155,6 @@
         <li><a href="./servicios.html"      class="nav-link nav-link-active" onclick="closeMenu()">Salud Respiratoria</a></li>
         <li><a href="./index.html#sobre-mi" class="nav-link" onclick="closeMenu()">Mi Propósito</a></li>
         <li><a href="./guia.html"           class="nav-link" onclick="closeMenu()">Guía para Padres</a></li>
-        <li><a href="./tarifas.html"        class="nav-link" onclick="closeMenu()">Tarifas</a></li>
         <li><a href="./ficha-medica.html"   class="nav-link" onclick="closeMenu()">Pre-Consulta</a></li>
         <li><a href="./index.html#contacto" class="nav-link" onclick="closeMenu()">Contacto</a></li>
       </ul>
@@ -582,6 +584,95 @@
         <p class="text-sm text-gray-600" style="line-height: 1.6; min-height: 2.4rem;">
           ¿Tu seguro no aparece en la lista?
           <a href="https://wa.me/18098807355" target="_blank" rel="noopener" class="text-[#C8282C] font-semibold hover:underline ml-1">Contáctanos para más información →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== MÉTODOS DE PAGO ===== -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <div class="mb-10 md:mb-14">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Formas de pago</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Métodos aceptados</h2>
+        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Ofrecemos varias opciones para que el pago de tu consulta sea lo más cómodo posible.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+
+        <!-- Efectivo -->
+        <div class="pay-card bg-white rounded-2xl p-6 flex flex-col gap-4"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+            <svg class="w-6 h-6 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base mb-1" style="font-family: 'Playfair Display', serif;">Efectivo</h3>
+            <p class="text-gray-500 text-sm" style="line-height: 1.6;">Pago en pesos dominicanos directamente en el consultorio.</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta -->
+        <div class="pay-card bg-white rounded-2xl p-6 flex flex-col gap-4"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+            <svg class="w-6 h-6 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base mb-1" style="font-family: 'Playfair Display', serif;">Tarjeta</h3>
+            <p class="text-gray-500 text-sm" style="line-height: 1.6;">Débito y crédito. Visa, Mastercard y American Express.</p>
+          </div>
+        </div>
+
+        <!-- Transferencia -->
+        <div class="pay-card bg-white rounded-2xl p-6 flex flex-col gap-4"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+            <svg class="w-6 h-6 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base mb-1" style="font-family: 'Playfair Display', serif;">Transferencia</h3>
+            <p class="text-gray-500 text-sm" style="line-height: 1.6;">Transferencia bancaria. Solicita los datos por WhatsApp.</p>
+          </div>
+        </div>
+
+        <!-- Pago en línea -->
+        <div class="pay-card bg-white rounded-2xl p-6 flex flex-col gap-4"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.05);">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(200,40,44,0.08);">
+            <svg class="w-6 h-6 text-[#C8282C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 text-base mb-1" style="font-family: 'Playfair Display', serif;">Pago en línea</h3>
+            <p class="text-gray-500 text-sm mb-3" style="line-height: 1.6;">Paga tu consulta de forma segura desde cualquier dispositivo.</p>
+            <a href="#" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full"
+               style="background: #C8282C; color: white; transition: opacity 0.2s;"
+               onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+              Pagar ahora →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Info note -->
+      <div class="flex items-start gap-3 p-4 rounded-xl" style="background: rgba(200,40,44,0.05); border: 1px solid rgba(200,40,44,0.12);">
+        <svg class="w-4 h-4 text-[#C8282C] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-sm text-gray-600" style="line-height: 1.6;">
+          ¿Tienes dudas sobre el costo de tu consulta? El agente de WhatsApp puede orientarte con los precios actualizados al momento de agendar tu cita.
+          <a href="https://wa.me/18494490550" target="_blank" rel="noopener" class="text-[#C8282C] font-semibold hover:underline ml-1">Escríbenos →</a>
         </p>
       </div>
     </div>
