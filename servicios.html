@@ -478,6 +478,116 @@
   </section>
 
 
+  <!-- ===== COBERTURA DE SALUD ===== -->
+  <section class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+      <div class="mb-10 md:mb-14">
+        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Cobertura de salud</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">ARS aceptadas</h2>
+        <p class="text-gray-400 mt-3 max-w-md text-sm" style="line-height: 1.7;">Trabajamos con las principales aseguradoras del país para facilitar tu acceso a la atención médica.</p>
+      </div>
+
+      <!-- Top 4 — gris por defecto, color en hover -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.08);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center font-black text-white text-xs" style="background:#16a34a;">SNA</div>
+          <span class="text-gray-800 font-bold text-xs text-center leading-tight">SeNaSa</span>
+        </div>
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.08);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center font-black text-white text-xs" style="background:#0284c7;">HUM</div>
+          <span class="text-gray-800 font-bold text-xs text-center leading-tight">Humano Seguros</span>
+        </div>
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.08);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center font-black text-white text-xs" style="background:#1a56db;">UNI</div>
+          <span class="text-gray-800 font-bold text-xs text-center leading-tight">ARS Universal</span>
+        </div>
+        <div class="ars-card bg-white rounded-2xl p-5 flex flex-col items-center gap-2.5"
+             style="box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 18px rgba(0,0,0,0.08);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center font-black text-white text-xs" style="background:#1e3a8a;">PAL</div>
+          <span class="text-gray-800 font-bold text-xs text-center leading-tight">ARS Palic</span>
+        </div>
+      </div>
+
+      <!-- Botón "Ver todos" -->
+      <div class="text-center mb-2">
+        <button id="ars-toggle-btn" onclick="toggleAllArs()"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-[#C8282C] hover:opacity-70 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded"
+                style="background:none; border:none; cursor:pointer; padding:8px 4px;">
+          <svg id="ars-chevron" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+               style="transition: transform 0.28s ease;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+          </svg>
+          <span id="ars-label">Ver todos los seguros aceptados</span>
+        </button>
+      </div>
+
+      <!-- Resto de ARS — expandible -->
+      <div id="ars-all" style="max-height:0; overflow:hidden; transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);">
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 pt-4 pb-2">
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#0369a1;">WW</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">WorldWide Seguros</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#1e3a5f;">RES</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">Seguros Reservas</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#db2777;">YUN</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">ARS Yunen</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#7c1d1d;">AST</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">ASISTANET</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#2563eb;">APS</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">APS ADC</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#15803d;">MET</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">MetaSalud</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#0891b2;">REN</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">ARS Renacer</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#0d9488;">SIM</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">ARS SIMAG</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#1f2937;">BMI</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">BMI</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#1d4ed8;">ASE</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">ARS ASEMAP</span>
+          </div>
+          <div class="ars-card bg-white rounded-xl p-4 flex flex-col items-center gap-2" style="box-shadow:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.06);">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center font-black text-white text-[10px]" style="background:#ea580c;">FUT</div>
+            <span class="text-gray-600 font-semibold text-[10px] text-center leading-tight">ARS Futuro</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <div class="mt-8 flex items-start gap-3 p-4 rounded-xl" style="background: rgba(200,40,44,0.05); border: 1px solid rgba(200,40,44,0.12);">
+        <svg class="w-4 h-4 text-[#C8282C] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <p class="text-sm text-gray-600" style="line-height: 1.6; min-height: 2.4rem;">
+          ¿Tu seguro no aparece en la lista?
+          <a href="https://wa.me/18098807355" target="_blank" rel="noopener" class="text-[#C8282C] font-semibold hover:underline ml-1">Contáctanos para más información →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
   <!-- ===== FAQ ===== -->
   <section id="faq" class="py-16 md:py-24 bg-white">
     <div class="max-w-3xl mx-auto px-4 md:px-6">
