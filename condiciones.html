@@ -76,7 +76,14 @@
       transform: translateY(-2px) !important;
     }
     #scroll-top-btn:active { transform: scale(0.93) !important; }
-  </style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }  </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
@@ -159,7 +166,7 @@
     <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
       <ul class="flex flex-col gap-1 mb-5">
         <li>
-          <button onclick="toggleSaludMenu()" class="w-full flex items-center justify-between py-1 text-sm font-semibold text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleSaludMenu()" class="w-full flex items-center justify-between py-2.5 text-sm font-semibold text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Salud Respiratoria
             <svg id="salud-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -171,7 +178,7 @@
           </div>
         </li>
         <li>
-          <button onclick="toggleMiPropositoMenu()" class="w-full flex items-center justify-between py-1 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleMiPropositoMenu()" class="w-full flex items-center justify-between py-2.5 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Dra. Hatton
             <svg id="miproposito-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -183,7 +190,7 @@
           </div>
         </li>
         <li>
-          <button onclick="toggleGuiaMenu()" class="w-full flex items-center justify-between py-1 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleGuiaMenu()" class="w-full flex items-center justify-between py-2.5 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Información Esencial
             <svg id="guia-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -210,8 +217,8 @@
       </a>
       <div class="max-w-3xl">
         <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mt-3 mb-5" style="letter-spacing: -0.03em; line-height: 1.12;">
-          Condiciones que<br>
-          <span style="color: #C8282C;">tratamos</span>
+          Cada diagnóstico,<br>
+          <span style="color: #C8282C;">un camino hacia la salud</span>
         </h1>
         <p class="text-gray-500 text-base md:text-lg" style="line-height: 1.8;">Atendemos un amplio espectro de patologías respiratorias en niños y adolescentes, desde las más frecuentes hasta las más complejas, respaldado por más de 20 años de experiencia clínica.</p>
       </div>
@@ -445,7 +452,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5" style="border-bottom: 1px solid rgba(0,0,0,0.07);">
         <a href="./index.html" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
-          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
+          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto" loading="lazy">
         </a>
         <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <a href="./servicios.html"      class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Salud Respiratoria</a>

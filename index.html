@@ -174,7 +174,14 @@
     .acc-btn { background: white; border: none; cursor: pointer; width: 100%; text-align: left; transition: background 0.15s; }
     .acc-btn:hover { background: #FFF8F8; }
     .acc-btn:focus-visible { outline: 2px solid #C8282C; outline-offset: 2px; border-radius: 4px; }
-  </style>
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }  </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
@@ -260,7 +267,7 @@
     <div id="mobile-nav" class="hidden md:hidden bg-white border-t px-6 py-5" style="border-color: rgba(200,40,44,0.08); animation: fadeDown 0.2s ease;">
       <ul class="flex flex-col gap-1 mb-5">
         <li>
-          <button onclick="toggleSaludMenu()" class="w-full flex items-center justify-between py-1 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleSaludMenu()" class="w-full flex items-center justify-between py-2.5 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Salud Respiratoria
             <svg id="salud-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -272,7 +279,7 @@
           </div>
         </li>
         <li>
-          <button onclick="toggleMiPropositoMenu()" class="w-full flex items-center justify-between py-1 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleMiPropositoMenu()" class="w-full flex items-center justify-between py-2.5 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Dra. Hatton
             <svg id="miproposito-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -284,7 +291,7 @@
           </div>
         </li>
         <li>
-          <button onclick="toggleGuiaMenu()" class="w-full flex items-center justify-between py-1 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
+          <button onclick="toggleGuiaMenu()" class="w-full flex items-center justify-between py-2.5 text-sm font-medium text-gray-700 hover:text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
             Información Esencial
             <svg id="guia-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
@@ -382,7 +389,7 @@
         <div class="md:col-span-2">
           <div class="relative overflow-hidden rounded-2xl"
                style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.08);">
-            <img src="./sobremi.png" alt="Dra. Paola Hatton"
+            <img loading="lazy" src="./sobremi.png" alt="Dra. Paola Hatton"
                  class="w-full object-cover object-top"
                  style="max-height: 520px;">
             <div class="absolute inset-0"
@@ -560,7 +567,7 @@
              style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
              onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
              onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img src="./Intagram 1.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
+            <img loading="lazy" src="./Intagram 1.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
                  style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
             <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
           </a>
@@ -569,7 +576,7 @@
              style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
              onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
              onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img src="./Instagram 2.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
+            <img loading="lazy" src="./Instagram 2.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
                  style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
             <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
           </a>
@@ -578,7 +585,7 @@
              style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
              onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
              onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img src="./Instagram 3.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
+            <img loading="lazy" src="./Instagram 3.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
                  style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
             <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
           </a>
@@ -587,7 +594,7 @@
              style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
              onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
              onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img src="./Instagram 4.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
+            <img loading="lazy" src="./Instagram 4.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
                  style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
             <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
           </a>
@@ -801,7 +808,7 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-5"
            style="border-bottom: 1px solid rgba(0,0,0,0.07);">
         <a href="#inicio" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
-          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto">
+          <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto" loading="lazy">
         </a>
                 <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
           <a href="./servicios.html" class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Salud Respiratoria</a>
