@@ -405,32 +405,6 @@
       position: absolute; pointer-events: none; border-radius: 50%;
     }
 
-    /* ===== WA BUTTON PULSE RING ===== */
-    @keyframes wa-ring {
-      0%   { transform: scale(1); opacity: 0.60; }
-      100% { transform: scale(1.75); opacity: 0; }
-    }
-    .wa-ring-btn {
-      position: relative;
-    }
-    .wa-ring-btn::before {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: 100px;
-      border: 1.5px solid rgba(200,40,44,0.45);
-      animation: wa-ring 2s ease-out infinite;
-      pointer-events: none;
-    }
-    .wa-ring-btn::after {
-      content: '';
-      position: absolute;
-      inset: -6px;
-      border-radius: 100px;
-      border: 1px solid rgba(200,40,44,0.22);
-      animation: wa-ring 2s ease-out 0.5s infinite;
-      pointer-events: none;
-    }
 
     /* ===== NAV SCROLL GLASS ===== */
     #main-nav {
@@ -851,7 +825,7 @@
               <p class="text-xl font-bold" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em; color: #1a1a1a;">¿Lista para tu consulta?</p>
             </div>
             <a href="https://wa.me/18494490550" target="_blank" rel="noopener"
-               class="wa-ring-btn inline-flex items-center gap-2.5 font-semibold px-5 py-2.5 rounded-full text-sm self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+               class="inline-flex items-center gap-2.5 font-semibold px-5 py-2.5 rounded-full text-sm self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
                style="background: #C8282C; color: white; box-shadow: 0 4px 14px rgba(200,40,44,0.28); transition: background 0.2s, transform 0.15s;"
                onmouseover="this.style.background='#a01e22'" onmouseout="this.style.background='#C8282C'"
                onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform=''">
