@@ -24,10 +24,10 @@
   <meta name="twitter:image" content="https://TUDOMINIO.COM/hattonhero.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    body { font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
     h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }
 
     :root { --nav-offset: 144px; }
@@ -153,11 +153,23 @@
     }
 
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes cta-glow {
-      0%, 100% { box-shadow: 0 4px 16px rgba(200,40,44,0.35), 0 0 0 0px rgba(200,40,44,0.20); }
-      50%       { box-shadow: 0 6px 32px rgba(200,40,44,0.60), 0 0 0 8px rgba(200,40,44,0.08), 0 0 60px rgba(200,40,44,0.25); }
+    @keyframes cta-pulse-scale {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50%       { opacity: 0.85; transform: scale(1.08); }
     }
-    .btn-cta-pulse { animation: cta-glow 2.2s ease-in-out infinite; }
+    .btn-cta-pulse { position: relative; }
+    .btn-cta-pulse::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 100px;
+      background: rgba(200,40,44,0.22);
+      opacity: 0.25;
+      animation: cta-pulse-scale 2.2s ease-in-out infinite;
+      pointer-events: none;
+      z-index: -1;
+      will-change: transform, opacity;
+    }
 
     #scroll-top-btn:hover {
       background: #a01e22 !important;
@@ -181,7 +193,145 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-    }  </style>
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.16,1,0.3,1), transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.10s; }
+    .reveal-d2 { transition-delay: 0.20s; }
+    .reveal-d3 { transition-delay: 0.32s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ===== CARD LIFT HOVER ===== */
+    .card-lift {
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(200,40,44,0.09), 0 16px 48px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    /* ===== STAT CARDS (Sobre Mí) ===== */
+    .stat-card {
+      background: linear-gradient(145deg, #FFFCF8 0%, #FFF7F5 100%);
+      border-radius: 1rem;
+      border: 1.5px solid rgba(200,40,44,0.16);
+      box-shadow: 0 1px 4px rgba(200,40,44,0.06), 0 4px 20px rgba(0,0,0,0.04);
+      padding: 1.25rem;
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s, border-color 0.22s;
+    }
+    .stat-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(200,40,44,0.30);
+      box-shadow: 0 2px 14px rgba(200,40,44,0.14), 0 12px 36px rgba(0,0,0,0.08);
+    }
+
+    /* ===== INSTAGRAM GALLERY ITEMS ===== */
+    .ig-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      aspect-ratio: 1;
+      display: block;
+      aspect-ratio: 4/5;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+      transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease;
+    }
+    .ig-item:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; }
+    .ig-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.42s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .ig-item .ig-overlay {
+      position: absolute; inset: 0;
+      background: rgba(200,40,44,0.22);
+      opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+    .ig-item:hover { transform: scale(1.025) translateY(-3px); box-shadow: 0 8px 28px rgba(200,40,44,0.18), 0 16px 44px rgba(0,0,0,0.13); }
+    .ig-item:hover img { transform: scale(1.07); }
+    .ig-item:hover .ig-overlay { opacity: 1; }
+
+    /* ===== GALLERY GLASS WRAPPER ===== */
+    .gallery-glass {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.05), 0 24px 60px rgba(200,40,44,0.04);
+      border: 1px solid rgba(200,40,44,0.09);
+    }
+
+    /* ===== FOOTER LINKS ===== */
+    .footer-link {
+      color: #6B7280;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+    .footer-link:hover { color: #C8282C; }
+
+    /* ===== FOOTER SOCIAL ICONS ===== */
+    .social-icon-btn {
+      width: 2.25rem; height: 2.25rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #6B7280;
+      text-decoration: none;
+      transition: background 0.20s, color 0.20s, transform 0.20s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .social-icon-btn:hover { background: #C8282C; color: white; transform: scale(1.10); }
+    .social-icon-btn:focus-visible { outline: 2px solid #C8282C; outline-offset: 3px; }
+
+    /* ===== SECTION HEADING ACCENT LINE ===== */
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: #C8282C; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .section-eyebrow::before {
+      content: ''; display: inline-block;
+      width: 18px; height: 1.5px; background: #C8282C; opacity: 0.55; flex-shrink: 0;
+    }
+
+    /* ===== UBICACION INFO CARD ===== */
+    .info-card {
+      background: white;
+      border-radius: 1rem;
+      border: 1px solid rgba(200,40,44,0.07);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 6px 24px rgba(0,0,0,0.07), 0 1px 3px rgba(200,40,44,0.04);
+      transition: box-shadow 0.28s ease;
+    }
+    .info-card:hover { box-shadow: 0 2px 10px rgba(200,40,44,0.08), 0 10px 40px rgba(0,0,0,0.09); }
+
+    /* ===== CONTACT WA CARD ===== */
+    .wa-card {
+      border: 1.5px solid rgba(200,40,44,0.12);
+      box-shadow: 0 4px 24px rgba(200,40,44,0.07), 0 12px 40px rgba(0,0,0,0.04);
+    }
+    .wa-card::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,40,44,0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .wa-card::after {
+      content: '';
+      position: absolute; bottom: -20px; left: -20px;
+      width: 100px; height: 100px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,40,44,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+  </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
@@ -279,13 +429,13 @@
 
   <!-- ===== INICIO ===== -->
   <section id="inicio" class="relative overflow-hidden pt-[calc(108px+3rem)] pb-16 md:pt-[calc(108px+5rem)] md:pb-24"
-           style="background: #FFF0F5;">
+           style="background: radial-gradient(ellipse 70% 65% at 80% -10%, rgba(200,40,44,0.11) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 90%, rgba(200,40,44,0.07) 0%, transparent 60%), radial-gradient(ellipse 80% 50% at 50% 110%, rgba(200,40,44,0.05) 0%, transparent 65%), #FFF0F5;">
 
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
       <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
 
         <!-- Left: text -->
-        <div class="flex flex-col justify-center">
+        <div class="flex flex-col justify-center reveal">
           <span class="inline-block text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-5">Neumóloga · Pediatra</span>
           <h1 class="text-[2rem] md:text-5xl lg:text-[3.2rem] font-bold text-gray-900 mb-5"
               style="font-family: 'Playfair Display', serif; letter-spacing: -0.03em; line-height: 1.18;">
@@ -319,10 +469,10 @@
         </div>
 
         <!-- Right: photo with red accent frame -->
-        <div class="relative pb-7 pr-7 md:pb-9 md:pr-9 mt-8 md:mt-0">
+        <div class="relative pb-7 pr-7 md:pb-9 md:pr-9 mt-8 md:mt-0 reveal reveal-d1">
           <!-- Red accent block -->
           <div class="absolute bottom-0 right-0 top-7 left-7 md:top-9 md:left-9 rounded-3xl"
-               style="background: #C8282C; opacity: 0.18;"></div>
+               style="background: linear-gradient(145deg, #C8282C 0%, #8B1A1A 100%); opacity: 0.15;"></div>
           <!-- Photo -->
           <div class="relative z-10 rounded-3xl overflow-hidden h-full"
                style="box-shadow: 0 8px 40px rgba(0,0,0,0.30), 0 24px 60px rgba(0,0,0,0.20); min-height: 420px;">
@@ -339,9 +489,8 @@
   <!-- ===== SOBRE MÍ ===== -->
   <section id="sobre-mi" class="py-16 md:py-24 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <div class="mb-10 md:mb-14">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Conoce a la Dra. Paola</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4" style="letter-spacing: -0.03em;">Tu pediatra de confianza</h2>
+      <div class="mb-10 md:mb-14 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" style="letter-spacing: -0.03em;">Tu pediatra de confianza</h2>
         <a href="./equipo.html"
            class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
            style="background: rgba(200,40,44,0.08); color: #C8282C; transition: background 0.2s, transform 0.15s;"
@@ -354,7 +503,7 @@
 
       <div class="grid md:grid-cols-5 gap-8 md:gap-12 items-start mb-14">
         <!-- Photo -->
-        <div class="md:col-span-2">
+        <div class="md:col-span-2 reveal">
           <div class="relative overflow-hidden rounded-2xl"
                style="box-shadow: 0 4px 16px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.08);">
             <img loading="lazy" src="./sobremi.png" alt="Dra. Paola Hatton"
@@ -366,7 +515,7 @@
         </div>
 
         <!-- Content -->
-        <div class="md:col-span-3 flex flex-col gap-7">
+        <div class="md:col-span-3 flex flex-col gap-7 reveal reveal-d1">
           <div>
             <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-1" style="letter-spacing: -0.02em;">Dra. Paola Hatton</h3>
             <p class="text-[#C8282C] font-semibold text-sm tracking-wide">Neumóloga · Pediatra</p>
@@ -381,8 +530,7 @@
 
           <!-- Stats / Insignias -->
           <div class="grid grid-cols-2 gap-4">
-            <div class="rounded-2xl p-5"
-                 style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.18); box-shadow: 0 1px 6px rgba(200,40,44,0.07);">
+            <div class="stat-card reveal reveal-d2">
               <div class="flex items-start justify-between mb-2">
                 <p class="text-[2rem] font-bold leading-none text-[#C8282C]"
                    style="font-family: 'Playfair Display', serif; letter-spacing: -0.03em;">+20</p>
@@ -393,8 +541,7 @@
               </div>
               <p class="text-sm font-semibold text-gray-700 leading-tight">Años de experiencia</p>
             </div>
-            <div class="rounded-2xl p-5"
-                 style="background: #FFFCF8; border: 1.5px solid rgba(200,40,44,0.18); box-shadow: 0 1px 6px rgba(200,40,44,0.07);">
+            <div class="stat-card reveal reveal-d3">
               <div class="flex items-start justify-between mb-2">
                 <p class="text-xl font-bold leading-none text-[#C8282C]"
                    style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">UASD</p>
@@ -407,6 +554,7 @@
               <p class="text-sm font-semibold text-gray-700 leading-tight">Formación académica</p>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -417,9 +565,8 @@
   <!-- ===== UBICACIÓN ===== -->
   <section id="ubicacion" class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-      <div class="mb-10 md:mb-14">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">¿Dónde estamos?</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Ubicación</h2>
+      <div class="mb-10 md:mb-14 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900" style="letter-spacing: -0.03em;">Ubicación</h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 items-stretch">
@@ -437,9 +584,8 @@
 
         <!-- Columna derecha: tarjeta + botón -->
         <div class="flex flex-col gap-3">
-        <!-- Tarjeta info — mismo estilo que teléfonos -->
-        <div class="bg-white p-6 rounded-2xl flex flex-col gap-4 flex-1"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
+        <!-- Tarjeta info -->
+        <div class="info-card card-lift p-6 flex flex-col gap-4 flex-1">
           <div class="flex flex-col gap-3">
 
             <!-- Título Dirección -->
@@ -520,51 +666,29 @@
   <!-- ===== REDES SOCIALES ===== -->
   <section id="redes" class="py-16 md:py-24 bg-white">
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-      <div class="mb-10 md:mb-14 text-center">
-        <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Síguenos</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Redes Sociales</h2>
+      <div class="mb-10 md:mb-14 text-center reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900" style="letter-spacing: -0.03em;">Redes Sociales</h2>
         <p class="text-gray-400 mt-3 max-w-sm mx-auto text-sm" style="line-height: 1.7;">Consejos de salud respiratoria, novedades del consultorio y mucho más.</p>
       </div>
 
       <!-- 2x2 gallery -->
-      <div class="max-w-lg mx-auto rounded-3xl p-4 bg-white"
-           style="box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 16px 50px rgba(0,0,0,0.06); border: 1px solid rgba(200,40,44,0.10);">
+      <div class="max-w-lg mx-auto gallery-glass reveal">
         <div class="grid grid-cols-2 gap-3">
-          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
-             class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
-             style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
-             onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
-             onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img loading="lazy" src="./Intagram 1.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
-                 style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
-            <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener" class="ig-item">
+            <img loading="lazy" src="./Intagram 1.jpg" alt="Publicación de Instagram">
+            <div class="ig-overlay"></div>
           </a>
-          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
-             class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
-             style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
-             onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
-             onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img loading="lazy" src="./Instagram 2.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
-                 style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
-            <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener" class="ig-item">
+            <img loading="lazy" src="./Instagram 2.jpg" alt="Publicación de Instagram">
+            <div class="ig-overlay"></div>
           </a>
-          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
-             class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
-             style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
-             onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
-             onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img loading="lazy" src="./Instagram 3.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
-                 style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
-            <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener" class="ig-item">
+            <img loading="lazy" src="./Instagram 3.jpg" alt="Publicación de Instagram">
+            <div class="ig-overlay"></div>
           </a>
-          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
-             class="relative overflow-hidden rounded-2xl block focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
-             style="aspect-ratio:4/5; box-shadow:0 2px 10px rgba(0,0,0,0.12);"
-             onmouseover="this.querySelector('img').style.transform='scale(1.07)'; this.querySelector('.ig-overlay').style.opacity='1';"
-             onmouseout="this.querySelector('img').style.transform='scale(1)'; this.querySelector('.ig-overlay').style.opacity='0';">
-            <img loading="lazy" src="./Instagram 4.jpg" alt="Publicación de Instagram" class="w-full h-full object-contain"
-                 style="transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);">
-            <div class="ig-overlay absolute inset-0" style="background:rgba(200,40,44,0.22); opacity:0; transition:opacity 0.2s;"></div>
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener" class="ig-item">
+            <img loading="lazy" src="./Instagram 4.jpg" alt="Publicación de Instagram">
+            <div class="ig-overlay"></div>
           </a>
         </div>
       </div>
@@ -599,7 +723,7 @@
   <!-- ===== CONTACTO ===== -->
   <section id="contacto" class="py-16 md:py-24 grain-overlay relative" style="background: #FFFBFB;">
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-      <div class="mb-10 md:mb-14 text-center">
+      <div class="mb-10 md:mb-14 text-center reveal">
         <span class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em]">Estamos para ti</span>
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2" style="letter-spacing: -0.03em;">Contacto</h2>
         <p class="text-gray-400 mt-3 max-w-md mx-auto text-sm" style="line-height: 1.75;">Agenda tu consulta de forma rápida y sencilla a través de WhatsApp. Estamos listos para atenderte.</p>
@@ -608,8 +732,8 @@
       <div class="flex flex-col gap-6 max-w-lg mx-auto w-full">
 
         <!-- Pink WhatsApp card -->
-        <div class="p-6 rounded-2xl relative overflow-hidden flex flex-col"
-             style="background: linear-gradient(135deg, #FFF0F0 0%, #FFEBEB 100%); border: 1.5px solid rgba(200,40,44,0.12); box-shadow: 0 4px 24px rgba(200,40,44,0.06), 0 12px 40px rgba(0,0,0,0.04);">
+        <div class="wa-card p-6 rounded-2xl relative overflow-hidden flex flex-col reveal"
+             style="background: linear-gradient(135deg, #FFF0F0 0%, #FFEBEB 50%, #FFE6E6 100%);">
           <div class="flex flex-col gap-4">
             <div>
               <p class="text-xs font-medium uppercase tracking-[0.12em] mb-1" style="color: rgba(200,40,44,0.6);">Agendar cita</p>
@@ -627,8 +751,7 @@
         </div>
 
         <!-- White phones card -->
-        <div class="bg-white p-8 rounded-2xl flex flex-col gap-5"
-             style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.08);">
+        <div class="info-card card-lift bg-white p-8 rounded-2xl flex flex-col gap-5 reveal reveal-d1">
           <div>
             <p class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-1">Teléfonos</p>
             <p class="text-gray-900 text-xl font-bold" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">Llámanos directamente</p>
@@ -697,25 +820,17 @@
           <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-12 w-auto" loading="lazy">
         </a>
                 <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <a href="./condiciones.html" class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Salud Respiratoria</a>
-          <a href="./guia.html"         class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Guía para Padres</a>
-          <a href="./ficha-medica.html" class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">¿Primera Visita?</a>
-          <a href="./equipo.html"       class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Nuestro Equipo</a>
-          <a href="#contacto"           class="text-sm font-medium transition-colors duration-200" style="color:#6B7280;" onmouseover="this.style.color='#C8282C'" onmouseout="this.style.color='#6B7280'">Contacto</a>
+          <a href="./condiciones.html" class="footer-link">Salud Respiratoria</a>
+          <a href="./guia.html"         class="footer-link">Guía para Padres</a>
+          <a href="./ficha-medica.html" class="footer-link">¿Primera Visita?</a>
+          <a href="./equipo.html"       class="footer-link">Nuestro Equipo</a>
+          <a href="#contacto"           class="footer-link">Contacto</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener"
-             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
-             style="color:#6B7280;"
-             onmouseover="this.style.background='#C8282C';this.style.color='white';"
-             onmouseout="this.style.background='';this.style.color='#6B7280';">
+          <a href="https://www.instagram.com/dra.hattonpaola/" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Instagram de Dra. Paola Hatton">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
           </a>
-          <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener"
-             class="w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
-             style="color:#6B7280;"
-             onmouseover="this.style.background='#C8282C';this.style.color='white';"
-             onmouseout="this.style.background='';this.style.color='#6B7280';">
+          <a href="https://www.facebook.com/phatton.neumologapediatra" target="_blank" rel="noopener" class="social-icon-btn" aria-label="Facebook de Dra. Paola Hatton">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>
@@ -825,6 +940,19 @@
       document.getElementById('close-alert').addEventListener('click', dismissAlert);
     }
 
+    // Scroll reveal — IntersectionObserver
+    (function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+
     // Scroll-to-top button
 
     const scrollBtn = document.getElementById('scroll-top-btn');
@@ -842,6 +970,17 @@
     scrollBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
