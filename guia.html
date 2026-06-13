@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -172,11 +172,11 @@
         </li>
         <li class="nav-dropdown">
           <a href="./guia.html" class="nav-link nav-link-active flex items-center gap-1">
-            Guía para Padres
+            Información Esencial
             <svg class="w-3 h-3 flex-shrink-0" style="transition:transform 0.2s" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
           </a>
           <div class="nav-dropdown-panel">
-            <a href="./guia.html"         class="nav-dd-item nav-dd-item-active">Biblioteca de Salud</a>
+            <a href="./guia.html"         class="nav-dd-item nav-dd-item-active">Guía para Padres</a>
             <a href="./ficha-medica.html" class="nav-dd-item">Pre-Consulta</a>
             <a href="./seguros.html"      class="nav-dd-item">Pagos y Seguros</a>
           </div>
@@ -231,12 +231,12 @@
         </li>
         <li>
           <button onclick="toggleGuiaMenu()" class="w-full flex items-center justify-between py-1 text-sm font-semibold text-[#C8282C] transition-colors" style="background:none;border:none;cursor:pointer;">
-            Guía para Padres
+            Información Esencial
             <svg id="guia-chevron" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="transition:transform 0.25s ease;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div id="guia-submenu" class="mobile-sub">
             <div class="pl-4 flex flex-col gap-3 pt-2 pb-3" style="border-left:2px solid rgba(200,40,44,0.15);margin-left:4px;">
-              <a href="./guia.html"         class="text-sm font-semibold text-[#C8282C] transition-colors" onclick="closeMenu()">Biblioteca de Salud</a>
+              <a href="./guia.html"         class="text-sm font-semibold text-[#C8282C] transition-colors" onclick="closeMenu()">Guía para Padres</a>
               <a href="./ficha-medica.html" class="text-sm font-medium text-gray-500 hover:text-[#C8282C] transition-colors" onclick="closeMenu()">Pre-Consulta</a>
               <a href="./seguros.html"      class="text-sm font-medium text-gray-500 hover:text-[#C8282C] transition-colors" onclick="closeMenu()">Pagos y Seguros</a>
             </div>
@@ -288,6 +288,185 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PREPARANDO TU VISITA ===== -->
+  <section id="primera-visita" class="py-14 md:py-20" style="background: #FFFBFB;">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+
+      <!-- Header -->
+      <div class="flex items-center gap-3 mb-2">
+        <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-[0.12em]" style="color: #C8282C;">Checklist · Primera visita</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-1" style="letter-spacing: -0.02em; color: #1a1a1a;">
+        ¿Es tu primera consulta?<br>Prepara todo lo necesario
+      </h2>
+      <p class="text-sm italic mb-3" style="color: #C8282C; font-family: 'Playfair Display', serif;">"La clave de una consulta efectiva es el orden."</p>
+      <p class="mb-7" style="color: #6b7280; line-height: 1.7; font-size: 0.9rem;">
+        Te guiamos para que tu visita sea organizada, ágil y sin contratiempos.
+      </p>
+
+      <!-- Requisito General — solo borde fino -->
+      <div class="flex items-start gap-3 mb-6 px-4 py-3 rounded-xl" style="border: 1px solid rgba(200,40,44,0.22);">
+        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+        <p class="text-xs" style="color:#374151; line-height:1.6;">
+          <strong style="color:#C8282C;">Requisito General:</strong> Para toda consulta pediátrica es indispensable presentar el carnet de vacunación y documentos de identidad.
+        </p>
+      </div>
+
+      <!-- Lista limpia -->
+      <div class="grid sm:grid-cols-2 gap-y-3 gap-x-8 mb-8">
+        <div class="flex items-start gap-3">
+          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <p class="text-sm" style="color:#374151; line-height:1.6;">Carnet de vacunación actualizado</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <p class="text-sm" style="color:#374151; line-height:1.6;">Resultados de exámenes previos (radiografías, espirometría)</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <p class="text-sm" style="color:#374151; line-height:1.6;">Lista de medicamentos actuales</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <p class="text-sm" style="color:#374151; line-height:1.6;">Tarjeta del seguro médico (ARS)</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <p class="text-sm" style="color:#374151; line-height:1.6;">Cédula o acta de nacimiento del menor</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
+            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <p class="text-sm" style="color:#374151; line-height:1.6;">Historial de alergias conocidas</p>
+        </div>
+      </div>
+
+      <!-- El atajo -->
+      <div class="flex items-start gap-3 px-4 py-3 rounded-xl" style="border: 1px solid rgba(200,40,44,0.22);">
+        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+        <p class="text-xs" style="color: #374151; line-height: 1.6;">
+          <strong style="color:#C8282C;">Atajo:</strong>
+          Si quieres que nuestra consulta sea más ágil, <a href="./ficha-medica.html" class="font-semibold hover:opacity-75 transition-opacity" style="color: #C8282C; text-decoration: underline; text-underline-offset: 2px;">completa aquí nuestra Ficha de Pre-Consulta</a>. Al traerla lista, ganamos tiempo valioso para evaluar a tu pequeño.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MITOS VS. REALIDAD ===== -->
+  <section id="mitos" class="py-14 md:py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
+             style="background: rgba(200,40,44,0.08); color: #C8282C;">
+          Mitos vs. Realidad
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-3" style="letter-spacing: -0.02em; color: #1a1a1a;">
+          Creencias comunes<br>que vale la pena aclarar
+        </h2>
+        <p style="color: #6b7280; line-height: 1.7; font-size: 0.95rem;">
+          Estas dudas las escucho en el consultorio todos los días.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+
+        <!-- Mito 1 -->
+        <div class="myth-card rounded-2xl overflow-hidden" style="border: 1.5px solid rgba(200,40,44,0.14); box-shadow: 0 4px 18px rgba(200,40,44,0.06), 0 2px 6px rgba(0,0,0,0.05);">
+          <div class="grid sm:grid-cols-2">
+            <div class="p-6" style="background: rgba(200,40,44,0.06); border-right: 1.5px solid rgba(200,40,44,0.12);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.09); color: #C8282C;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                Mito
+              </div>
+              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
+                "Si mi hijo usa el inhalador, se volverá dependiente o adicto al medicamento."
+              </p>
+            </div>
+            <div class="p-6 bg-white">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(37,99,235,0.09); color: #1d4ed8;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Realidad
+              </div>
+              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
+                El inhalador es la vía <strong>más segura y eficiente</strong>: el medicamento va directo al pulmón, la dosis es mínima y no genera dependencia. Usarlo correctamente es la clave del control del asma.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mito 2 -->
+        <div class="myth-card rounded-2xl overflow-hidden" style="border: 1.5px solid rgba(200,40,44,0.14); box-shadow: 0 4px 18px rgba(200,40,44,0.06), 0 2px 6px rgba(0,0,0,0.05);">
+          <div class="grid sm:grid-cols-2">
+            <div class="p-6" style="background: rgba(200,40,44,0.06); border-right: 1.5px solid rgba(200,40,44,0.12);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.09); color: #C8282C;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                Mito
+              </div>
+              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
+                "Los antibióticos son lo mejor para la tos y los virus respiratorios."
+              </p>
+            </div>
+            <div class="p-6 bg-white">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(37,99,235,0.09); color: #1d4ed8;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Realidad
+              </div>
+              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
+                Los antibióticos <strong>no actúan sobre los virus</strong>. El 80 % de las infecciones respiratorias en niños son virales. Usarlos sin indicación médica crea resistencia bacteriana, un problema grave de salud pública.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mito 3 -->
+        <div class="myth-card rounded-2xl overflow-hidden" style="border: 1.5px solid rgba(200,40,44,0.14); box-shadow: 0 4px 18px rgba(200,40,44,0.06), 0 2px 6px rgba(0,0,0,0.05);">
+          <div class="grid sm:grid-cols-2">
+            <div class="p-6" style="background: rgba(200,40,44,0.06); border-right: 1.5px solid rgba(200,40,44,0.12);">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.09); color: #C8282C;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                Mito
+              </div>
+              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
+                "Si el niño tiene fiebre, hay que bañarlo con agua bien fría para bajarla rápido."
+              </p>
+            </div>
+            <div class="p-6 bg-white">
+              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(37,99,235,0.09); color: #1d4ed8;">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Realidad
+              </div>
+              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
+                El agua fría causa <strong>vasoconstricción</strong>: el cuerpo retiene calor y la temperatura puede subir aún más. Si es necesario, usa paños con agua tibia-fresca en frente y axilas, y administra el antipirético adecuado.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -483,185 +662,6 @@
 
       </div><!-- /group preventivos -->
 
-    </div>
-  </section>
-
-  <!-- ===== PREPARANDO TU VISITA ===== -->
-  <section id="primera-visita" class="py-14 md:py-20" style="background: #FFFBFB;">
-    <div class="max-w-3xl mx-auto px-4 md:px-6">
-
-      <!-- Header -->
-      <div class="flex items-center gap-3 mb-2">
-        <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.08);">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-          </svg>
-        </div>
-        <span class="text-xs font-bold uppercase tracking-[0.12em]" style="color: #C8282C;">Checklist · Primera visita</span>
-      </div>
-      <h2 class="text-3xl md:text-4xl font-bold mb-1" style="letter-spacing: -0.02em; color: #1a1a1a;">
-        ¿Es tu primera consulta?<br>Prepara todo lo necesario
-      </h2>
-      <p class="text-sm italic mb-3" style="color: #C8282C; font-family: 'Playfair Display', serif;">"La clave de una consulta efectiva es el orden."</p>
-      <p class="mb-7" style="color: #6b7280; line-height: 1.7; font-size: 0.9rem;">
-        Te guiamos para que tu visita sea organizada, ágil y sin contratiempos.
-      </p>
-
-      <!-- Requisito General — solo borde fino -->
-      <div class="flex items-start gap-3 mb-6 px-4 py-3 rounded-xl" style="border: 1px solid rgba(200,40,44,0.22);">
-        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-        </svg>
-        <p class="text-xs" style="color:#374151; line-height:1.6;">
-          <strong style="color:#C8282C;">Requisito General:</strong> Para toda consulta pediátrica es indispensable presentar el carnet de vacunación y documentos de identidad.
-        </p>
-      </div>
-
-      <!-- Lista limpia -->
-      <div class="grid sm:grid-cols-2 gap-y-3 gap-x-8 mb-8">
-        <div class="flex items-start gap-3">
-          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
-            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <p class="text-sm" style="color:#374151; line-height:1.6;">Carnet de vacunación actualizado</p>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
-            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <p class="text-sm" style="color:#374151; line-height:1.6;">Resultados de exámenes previos (radiografías, espirometría)</p>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
-            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <p class="text-sm" style="color:#374151; line-height:1.6;">Lista de medicamentos actuales</p>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
-            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <p class="text-sm" style="color:#374151; line-height:1.6;">Tarjeta del seguro médico (ARS)</p>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
-            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <p class="text-sm" style="color:#374151; line-height:1.6;">Cédula o acta de nacimiento del menor</p>
-        </div>
-        <div class="flex items-start gap-3">
-          <div class="mt-1 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0" style="background: rgba(200,40,44,0.10);">
-            <svg class="w-2 h-2" fill="none" stroke="#C8282C" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          </div>
-          <p class="text-sm" style="color:#374151; line-height:1.6;">Historial de alergias conocidas</p>
-        </div>
-      </div>
-
-      <!-- El atajo -->
-      <div class="flex items-start gap-3 px-4 py-3 rounded-xl" style="border: 1px solid rgba(200,40,44,0.22);">
-        <svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="none" stroke="#C8282C" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
-        <p class="text-xs" style="color: #374151; line-height: 1.6;">
-          <strong style="color:#C8282C;">Atajo:</strong>
-          Si quieres que nuestra consulta sea más ágil, <a href="./ficha-medica.html" class="font-semibold hover:opacity-75 transition-opacity" style="color: #C8282C; text-decoration: underline; text-underline-offset: 2px;">completa aquí nuestra Ficha de Pre-Consulta</a>. Al traerla lista, ganamos tiempo valioso para evaluar a tu pequeño.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== MITOS VS. REALIDAD ===== -->
-  <section id="mitos" class="py-14 md:py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-10">
-        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.12em]"
-             style="background: rgba(200,40,44,0.08); color: #C8282C;">
-          Mitos vs. Realidad
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-3" style="letter-spacing: -0.02em; color: #1a1a1a;">
-          Creencias comunes<br>que vale la pena aclarar
-        </h2>
-        <p style="color: #6b7280; line-height: 1.7; font-size: 0.95rem;">
-          Estas dudas las escucho en el consultorio todos los días.
-        </p>
-      </div>
-
-      <div class="space-y-4">
-
-        <!-- Mito 1 -->
-        <div class="myth-card rounded-2xl overflow-hidden" style="border: 1.5px solid rgba(200,40,44,0.14); box-shadow: 0 4px 18px rgba(200,40,44,0.06), 0 2px 6px rgba(0,0,0,0.05);">
-          <div class="grid sm:grid-cols-2">
-            <div class="p-6" style="background: rgba(200,40,44,0.06); border-right: 1.5px solid rgba(200,40,44,0.12);">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.09); color: #C8282C;">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                Mito
-              </div>
-              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
-                "Si mi hijo usa el inhalador, se volverá dependiente o adicto al medicamento."
-              </p>
-            </div>
-            <div class="p-6 bg-white">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(37,99,235,0.09); color: #1d4ed8;">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                Realidad
-              </div>
-              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
-                El inhalador es la vía <strong>más segura y eficiente</strong>: el medicamento va directo al pulmón, la dosis es mínima y no genera dependencia. Usarlo correctamente es la clave del control del asma.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mito 2 -->
-        <div class="myth-card rounded-2xl overflow-hidden" style="border: 1.5px solid rgba(200,40,44,0.14); box-shadow: 0 4px 18px rgba(200,40,44,0.06), 0 2px 6px rgba(0,0,0,0.05);">
-          <div class="grid sm:grid-cols-2">
-            <div class="p-6" style="background: rgba(200,40,44,0.06); border-right: 1.5px solid rgba(200,40,44,0.12);">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.09); color: #C8282C;">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                Mito
-              </div>
-              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
-                "Los antibióticos son lo mejor para la tos y los virus respiratorios."
-              </p>
-            </div>
-            <div class="p-6 bg-white">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(37,99,235,0.09); color: #1d4ed8;">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                Realidad
-              </div>
-              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
-                Los antibióticos <strong>no actúan sobre los virus</strong>. El 80 % de las infecciones respiratorias en niños son virales. Usarlos sin indicación médica crea resistencia bacteriana, un problema grave de salud pública.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mito 3 -->
-        <div class="myth-card rounded-2xl overflow-hidden" style="border: 1.5px solid rgba(200,40,44,0.14); box-shadow: 0 4px 18px rgba(200,40,44,0.06), 0 2px 6px rgba(0,0,0,0.05);">
-          <div class="grid sm:grid-cols-2">
-            <div class="p-6" style="background: rgba(200,40,44,0.06); border-right: 1.5px solid rgba(200,40,44,0.12);">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(200,40,44,0.09); color: #C8282C;">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-                Mito
-              </div>
-              <p class="text-sm font-semibold leading-relaxed" style="color: #374151; line-height: 1.6;">
-                "Si el niño tiene fiebre, hay que bañarlo con agua bien fría para bajarla rápido."
-              </p>
-            </div>
-            <div class="p-6 bg-white">
-              <div class="inline-flex items-center gap-1.5 mb-3 px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider" style="background: rgba(37,99,235,0.09); color: #1d4ed8;">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                Realidad
-              </div>
-              <p class="text-sm leading-relaxed" style="color: #374151; line-height: 1.6;">
-                El agua fría causa <strong>vasoconstricción</strong>: el cuerpo retiene calor y la temperatura puede subir aún más. Si es necesario, usa paños con agua tibia-fresca en frente y axilas, y administra el antipirético adecuado.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
   </section>
 
