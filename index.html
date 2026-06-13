@@ -331,6 +331,115 @@
       pointer-events: none;
     }
 
+
+    /* ===== SPOTLIGHT CURSOR CARDS (Cult UI) ===== */
+    .spotlight-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .spotlight-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        260px circle at var(--sx, -100%) var(--sy, -100%),
+        rgba(200,40,44,0.10),
+        transparent 65%
+      );
+      opacity: 0;
+      transition: opacity 0.30s ease;
+      pointer-events: none;
+      z-index: 2;
+      border-radius: inherit;
+    }
+    .spotlight-card:hover::after { opacity: 1; }
+
+    /* ===== ANIMATED GRADIENT BORDER (gallery) ===== */
+    @property --border-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes spin-border { to { --border-angle: 360deg; } }
+    .gallery-glass {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1rem;
+      position: relative;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06), 0 12px 40px rgba(0,0,0,0.05);
+    }
+    .gallery-glass::before {
+      content: '';
+      position: absolute;
+      inset: -1.5px;
+      border-radius: calc(1.5rem + 2px);
+      background: conic-gradient(from var(--border-angle),
+        rgba(200,40,44,0.0) 0%,
+        rgba(200,40,44,0.55) 20%,
+        rgba(255,160,160,0.40) 40%,
+        rgba(200,40,44,0.55) 60%,
+        rgba(200,40,44,0.0) 80%
+      );
+      animation: spin-border 5s linear infinite;
+      z-index: -1;
+    }
+    .gallery-glass::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: 1.4rem;
+      background: white;
+      z-index: -1;
+    }
+
+    /* ===== HERO FLOATING DECO ===== */
+    @keyframes hero-float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(6deg); }
+    }
+    @keyframes hero-float-slow {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-8px) scale(1.04); }
+    }
+    .hero-deco {
+      position: absolute; pointer-events: none; border-radius: 50%;
+    }
+
+    /* ===== WA BUTTON PULSE RING ===== */
+    @keyframes wa-ring {
+      0%   { transform: scale(1); opacity: 0.60; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+    .wa-ring-btn {
+      position: relative;
+    }
+    .wa-ring-btn::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(200,40,44,0.45);
+      animation: wa-ring 2s ease-out infinite;
+      pointer-events: none;
+    }
+    .wa-ring-btn::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 100px;
+      border: 1px solid rgba(200,40,44,0.22);
+      animation: wa-ring 2s ease-out 0.5s infinite;
+      pointer-events: none;
+    }
+
+    /* ===== NAV SCROLL GLASS ===== */
+    #main-nav {
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #main-nav.nav-scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08), 0 1px 0 rgba(200,40,44,0.05) !important;
+    }
+
   </style>
 </head>
 <body class="bg-white text-gray-900 antialiased">
@@ -355,19 +464,14 @@
   </div>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);">
+  <nav id="main-nav" class="fixed left-0 right-0 z-50" style="top: 36px; background: rgba(255,255,255,0.84); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 20px rgba(0,0,0,0.04);">
     <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between" style="border-bottom: 1px solid rgba(200,40,44,0.08);">
       <a href="#inicio" class="flex-shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C] rounded">
         <img src="./hatttonlogo.png" alt="Dra. Paola Hatton" class="h-14 w-auto">
       </a>
       <ul class="hidden md:flex items-center gap-5">
         <li><a href="./condiciones.html" class="nav-link">Salud Respiratoria</a></li>
-        <li class="nav-dropdown">
-          <a href="#sobre-mi" class="nav-link flex items-center gap-1">Nuestra Misión <svg class="w-3 h-3 flex-shrink-0" style="transition:transform 0.2s" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg></a>
-          <div class="nav-dropdown-panel">
-            <a href="#sobre-mi" class="nav-dd-item">Nuestra Misión</a>
-          </div>
-        </li>
+        <li><a href="#sobre-mi" class="nav-link">Nuestra Misión</a></li>
         <li class="nav-dropdown">
           <a href="./guia.html" class="nav-link flex items-center gap-1">
             Recursos
@@ -430,6 +534,12 @@
   <!-- ===== INICIO ===== -->
   <section id="inicio" class="relative overflow-hidden pt-[calc(108px+3rem)] pb-16 md:pt-[calc(108px+5rem)] md:pb-24"
            style="background: radial-gradient(ellipse 70% 65% at 80% -10%, rgba(200,40,44,0.11) 0%, transparent 65%), radial-gradient(ellipse 50% 60% at 5% 90%, rgba(200,40,44,0.07) 0%, transparent 60%), radial-gradient(ellipse 80% 50% at 50% 110%, rgba(200,40,44,0.05) 0%, transparent 65%), #FFF0F5;">
+
+    <!-- Decorative floating rings -->
+    <div class="hero-deco" style="width:340px;height:340px;top:-80px;right:-60px;border:1.5px solid rgba(200,40,44,0.10);animation:hero-float-slow 7s ease-in-out infinite;"></div>
+    <div class="hero-deco" style="width:220px;height:220px;top:40px;right:80px;border:1px solid rgba(200,40,44,0.08);animation:hero-float-slow 9s ease-in-out 1.5s infinite;"></div>
+    <div class="hero-deco" style="width:80px;height:80px;top:120px;right:20px;background:radial-gradient(circle,rgba(200,40,44,0.12) 0%,transparent 70%);animation:hero-float 5s ease-in-out 0.8s infinite;"></div>
+    <div class="hero-deco" style="width:120px;height:120px;bottom:60px;left:10px;background:radial-gradient(circle,rgba(200,40,44,0.07) 0%,transparent 70%);animation:hero-float-slow 8s ease-in-out 2s infinite;"></div>
 
     <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
       <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-stretch">
@@ -530,7 +640,7 @@
 
           <!-- Stats / Insignias -->
           <div class="grid grid-cols-2 gap-4">
-            <div class="stat-card reveal reveal-d2">
+            <div class="stat-card spotlight-card reveal reveal-d2">
               <div class="flex items-start justify-between mb-2">
                 <p class="text-[2rem] font-bold leading-none text-[#C8282C]"
                    style="font-family: 'Playfair Display', serif; letter-spacing: -0.03em;">+20</p>
@@ -541,7 +651,7 @@
               </div>
               <p class="text-sm font-semibold text-gray-700 leading-tight">Años de experiencia</p>
             </div>
-            <div class="stat-card reveal reveal-d3">
+            <div class="stat-card spotlight-card reveal reveal-d3">
               <div class="flex items-start justify-between mb-2">
                 <p class="text-xl font-bold leading-none text-[#C8282C]"
                    style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">UASD</p>
@@ -586,7 +696,7 @@
         <!-- Columna derecha: tarjeta + botón -->
         <div class="flex flex-col gap-3">
         <!-- Tarjeta info -->
-        <div class="info-card card-lift p-6 flex flex-col gap-4 flex-1">
+        <div class="info-card spotlight-card card-lift p-6 flex flex-col gap-4 flex-1">
           <div class="flex flex-col gap-3">
 
             <!-- Título Dirección -->
@@ -733,7 +843,7 @@
       <div class="flex flex-col gap-6 max-w-lg mx-auto w-full">
 
         <!-- Pink WhatsApp card -->
-        <div class="wa-card p-6 rounded-2xl relative overflow-hidden flex flex-col reveal"
+        <div class="wa-card spotlight-card p-6 rounded-2xl relative overflow-hidden flex flex-col reveal"
              style="background: linear-gradient(135deg, #FFF0F0 0%, #FFEBEB 50%, #FFE6E6 100%);">
           <div class="flex flex-col gap-4">
             <div>
@@ -741,7 +851,7 @@
               <p class="text-xl font-bold" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em; color: #1a1a1a;">¿Lista para tu consulta?</p>
             </div>
             <a href="https://wa.me/18494490550" target="_blank" rel="noopener"
-               class="inline-flex items-center gap-2.5 font-semibold px-5 py-2.5 rounded-full text-sm self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
+               class="wa-ring-btn inline-flex items-center gap-2.5 font-semibold px-5 py-2.5 rounded-full text-sm self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#C8282C]"
                style="background: #C8282C; color: white; box-shadow: 0 4px 14px rgba(200,40,44,0.28); transition: background 0.2s, transform 0.15s;"
                onmouseover="this.style.background='#a01e22'" onmouseout="this.style.background='#C8282C'"
                onmousedown="this.style.transform='scale(0.97)'" onmouseup="this.style.transform=''">
@@ -752,7 +862,7 @@
         </div>
 
         <!-- White phones card -->
-        <div class="info-card card-lift bg-white p-8 rounded-2xl flex flex-col gap-5 reveal reveal-d1">
+        <div class="info-card spotlight-card card-lift bg-white p-8 rounded-2xl flex flex-col gap-5 reveal reveal-d1">
           <div>
             <p class="text-[#C8282C] text-xs font-semibold uppercase tracking-[0.15em] mb-1">Teléfonos</p>
             <p class="text-gray-900 text-xl font-bold" style="font-family: 'Playfair Display', serif; letter-spacing: -0.02em;">Llámanos directamente</p>
@@ -940,6 +1050,28 @@
     } else {
       document.getElementById('close-alert').addEventListener('click', dismissAlert);
     }
+
+    // Spotlight cursor effect on cards
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--sx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--sy', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    // Nav glass on scroll
+    (function() {
+      const nav = document.getElementById('main-nav');
+      const onScroll = () => {
+        if (window.scrollY > 10) {
+          nav.classList.add('nav-scrolled');
+        } else {
+          nav.classList.remove('nav-scrolled');
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
 
     // Scroll reveal — IntersectionObserver
     (function() {
